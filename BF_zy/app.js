@@ -17,7 +17,7 @@ const app = express()
 app.use(bdParser.urlencoded({extends:true}))
 
 // 配置路由
-app.use(v1, require('./routers/addFilm'))
+app.use(v1, require('./routers/film'))
 
 // 启动服务
 app.listen(serve.prot, () => {
