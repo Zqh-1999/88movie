@@ -13,5 +13,8 @@ const films = '/films'
 // 添加影片
 router.post(films, controller.addFilm)
 
+// 删除影片
+router.delete(`${films}/:id(\\d+)`, controller.deleteFilm)
+
 // 暴露路由
 module.exports = router
