@@ -6,6 +6,13 @@ const filminfo = 'ca_filminfo'
 
 // 添加影片
 module.exports.addFilm = (req, res) => {
+  mysql.query(`SELECT * FROM ${filminfo} WHERE film_name = ?`, req.body.film_name, (err, results) => {
+    if (err) return console.log(err)
+    console.log(results)
+    // res.json({
+
+    // })
+  })
   let myDate = new Date()
   // 获取前端数据
   let data = {
@@ -56,7 +63,8 @@ module.exports.deleteFilm = (req, res) => {
     // 返回值
     if (results.affectedRows == 0) {
       res.json({
-        code: '400'
+        code: '400',
+        msg: '删除的影片不存在'
       })
     } else if (results.affectedRows == 1) {
       res.json({
@@ -79,7 +87,8 @@ module.exports.inquireFilm = (req, res) => {
     // console.log(results)
     if (results.length === 0) {
       res.json({
-        code: '400'
+        code: '400',
+        msg: '查询的影片不存在'
       })
     } else if (results.length == 1) {
       res.json({
@@ -113,7 +122,7 @@ module.exports.upFilm = (req, res) => {
     year: req.body.year,
     describe: req.body.describe,
     address: req.body.address,
-    add_time: req.body.add_time,
+    add_time: req.body.add_time || myDate.getTime(),
     is_download: req.body.is_download,
     recommend: req.body.recommend,
     hot: req.body.hot,
@@ -144,12 +153,12 @@ module.exports.inquireFilms = (req, res) => {
   let per_page = req.query.per_page - 0 || 30
   // console.log(per_page)
   let fistPer = (page - 1) * per_page - 0
-  let sortWhere = 'id'
-  let sortRule = 'asc'
+  let sortWhere = req.query.sorty || 'id'
+  let sortRule = req.query.sortway || 'asc'
   const name = req.query.film_name;
   const star = req.query.star;
   const director = req.query.director;
-  if (name.length == 0 || star.length == 0 || director == 0) {
+  if (name.length == 0 && star.length == 0 && director == 0) {
     mysql.query(`SELECT * FROM ${filminfo} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       res.json({
@@ -158,15 +167,20 @@ module.exports.inquireFilms = (req, res) => {
       })
     })
   } else {
-    mysql.query(`SELECT * FROM ${filminfo} WHERE film_name like ? or star like ? or director like ? order by ? ?`,
-      [`"%${req.query.film_name}%"`, `"%${req.query.star}%"`, `"%${req.query.director}%"`, sortWhere, sortRule], (err, results) => {
-        if (err) {
-          console.log(err)
+    mysql.query(`SELECT * FROM ${filminfo} WHERE film_name like ? or star like ? or director like ? order by ? ? limit ?, ?`,
+      [req.query.film_name.length == 0 ? null : `%${req.query.film_name}%`, req.query.star.length == 0 ? null : `%${req.query.star}%`, req.query.director.length == 0 ? null : `%${req.query.director}%`, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+        if (err) return console.log(err)
+        if (results.length == 0) {
+          res.json({
+            code: '400',
+            data: '抱歉,没有此信息'
+          })
         } else {
-          console.log(results)
+          res.json({
+            code: '200',
+            data: results
+          })
         }
-
       })
   }
-
 }

@@ -5,7 +5,7 @@ const express = require('express')
 const router = express.Router()
 
 // 引入控制器
-const controller = require('../controller/film')
+const controller = require('../controller/films')
 
 // 设置接口地址
 const films = '/films'
