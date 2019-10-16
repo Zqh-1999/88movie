@@ -151,7 +151,6 @@ module.exports.upFilm = (req, res) => {
 module.exports.inquireFilms = (req, res) => {
   let page = req.query.page || 1
   let per_page = req.query.per_page - 0 || 30
-  // console.log(per_page)
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'id'
   let sortRule = req.query.sortway || 'asc'
@@ -163,7 +162,8 @@ module.exports.inquireFilms = (req, res) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
-        data: results
+        data: results,
+        total: results.length
       })
     })
   } else {
@@ -178,7 +178,8 @@ module.exports.inquireFilms = (req, res) => {
         } else {
           res.json({
             code: '200',
-            data: results
+            data: results,
+            total: results.length
           })
         }
       })

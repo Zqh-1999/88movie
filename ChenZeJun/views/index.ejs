@@ -742,8 +742,10 @@
     <script>
         let show = function () {
             $.ajax({
-                url: "/films",
+                url: "http://127.0.0.1/films",
                 type: "get",
+                dataType: 'jsonp',
+                crossDomain: true,
                 data: "",
                 success: function (data) {
                     console.log(data)
