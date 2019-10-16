@@ -37,9 +37,7 @@
                 </div>
                 <!-- 视频播放 -->
                 <video width="1200" height="449" controls="controls" autoplay="autoplay">
-                    <source src="/i/movie.ogg" type="video/ogg" />
-                    <source src="/i/movie.mp4" type="video/mp4" />
-                    <source src="/i/movie.webm" type="video/webm" />
+                    <source src="./image/sEzdz3fIXgqc1512572926.mp4" type="video/ogg" />
                 </video>
             </div>
         </div>
@@ -146,7 +144,6 @@
         </div>
     </div>
 
-
     <!-- 游客评论框区 -->
     <div class="common">
         <div class="common-on">西行纪评论：</div>
@@ -155,17 +152,13 @@
         </div>
         <!-- 评论框 -->
         <div class="commonts-sub">
-            <textarea onblur="if(!this.value){showTextareaImp();}else{return false;}"
-                onfocus="hiddenTextareaImp();showCheckCode();" name="message" id="message"
-                onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13)insertUserMessage(1);"></textarea>
-            <div class="commonts-skills">
-                播放卡顿、不能播放或者视频不对口，请换视频右上角的换线或视频下面的播放源！</div>
-            <div class="dBtn-btn dBtn-blue" title="提交评论" value="提交评论"></span></div>
+            <textarea node-type="textarea" name="c_content" class="textarea-fw textarea-bf"
+                placeholder="播放卡顿、不能播放或者视频不对口，请换视频右上角的换线或视频下面的播放源！" onfocus="this.style.backgroundImage='';"></textarea>
         </div>
         <div class="commonts-by">
             验证码: <input type="text" class="commonts-bnm">
             <img src="./image/code (1).jpg" alt="" class="commonts-zxc">
-            <input type="text" value="发布" class="commonts-nnm">
+            <button class="commonts-nnm">发布</button>
         </div>
     </div>
 
@@ -280,7 +273,7 @@
     <div class="common">
         <!-- 剧情简介区 -->
         <div class="synopsis">
-            <div class="synopsis-on">西行纪剧情简介</div>
+            <div class="synopsis-on">西行纪剧情简介:</div>
             <div class="synopsis-one">
                 您正在免费观看的是西行纪第01集，使用的是腾讯播放源，如果这个播放源无法播放请试试其他播放源，西行纪大陆动漫于2018年上映，导演是钟智行，西行纪详细介绍：唐三藏师徒取得奇经交予天庭的十六年后，世界却并没有因此变好。如今奇经下落不明，天庭派大军大肆搜寻，以天羽山之战为起点，狼妖白狼不辞万难地寻回当年取经的唐僧师徒，小队集结踏上还经之路……史上最颠覆的西游传奇便在此展开。
             </div>
