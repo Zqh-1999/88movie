@@ -8,7 +8,7 @@ const router = express.Router()
 const controller = require('../controller/films')
 
 // 设置接口地址
-const films = 'films'
+const films = '/films'
 
 // 添加影片
 router.post(films, controller.addFilm)
