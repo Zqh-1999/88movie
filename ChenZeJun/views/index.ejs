@@ -10,6 +10,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/jquery.slidey.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bottom.css">
     <!-- js -->
     <!-- <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script> -->
 </head>
@@ -24,9 +25,9 @@
                 </a>
             </div>
             <div class="w3_search">
-                <form action="#" method="post">
-                    <input type="text" name="Search" placeholder="Search" required="">
-                    <input type="submit" value="Go">
+                <form >
+                    <input type="text" name="Search" placeholder="Search" required="" class="btn">
+                    <input type="button" value="Go" class="btn">
                 </form>
             </div>
             <div class="login"> <a href="javascript:;">Login</a>
@@ -34,7 +35,7 @@
             <div class="clearfix"> </div>
         </div>
     </div>
-    <!-- //header -->
+    <!-- header -->
 
     <!-- nav -->
     <div class="movies_nav">
@@ -135,8 +136,8 @@
             </nav>
         </div>
     </div>
-    <!-- //nav -->
-    <script src="/js/jquery-2.1.4.min.js"></script>
+    <!-- nav -->
+
     <!-- banner轮播图开始 -->
     <div id="slidey" style="display:none;">
         <ul>
@@ -171,17 +172,7 @@
             </li>
         </ul>
     </div>
-    <!-- js轮播 -->
-    <script src="js/jquery.slidey.js"></script>
-    <script type="text/javascript">
-        $("#slidey").slidey({
-            interval: 8000,
-            listCount: 5,
-            autoplay: false,
-            showList: true
-        });
-        $(".slidey-list-description");
-    </script>
+
     <!-- banner轮播图结束 -->
 
     <!-- 热门电影 -->
@@ -569,22 +560,21 @@
                 <h2>最新电影</h2>
             </div>
             <div class="news_movie_center">
-                <ul class="clearfix">
-                    <li>
-                        <a href=""><img src="./images/ia_100000022.jpg" alt=""><i>HD</i></a>
-                        <div class="hot_movie">
-                            <p class="name">中国机长</p>
-                            <p class="actor">张涵予</p>
-                            <p class="type">剧情片</p>
-                            <p class="time">2019/大陆</p>
-                            <a href="/intro"></a>
-                        </div>
-                    </li>
-                    <li><a href=""><img src="./images/ia_100000021.jpg" alt=""><i>HD</i></a></li>
-                    <li><a href=""><img src="./images/ia_100000020.jpg" alt=""><i>HD</i></a></li>
-                    <li><a href=""><img src="./images/ia_100000019.jpg" alt=""><i>HD</i></a></li>
-                    <li><a href=""><img src="./images/ia_100000018.jpg" alt=""><i>HD</i></a></li>
-                    <li><a href=""><img src="./images/ia_100000023.jpg" alt=""><i>HD</i></a></li>
+                <ul class="news_movie_temp clearfix">
+                    <script type="text/template" id="movie_template">
+                        {{each list}}
+                        <li>
+                                <a href=""><img src="{{$value.image_url}}" alt=""><i>HD</i></a>
+                                <div class="hot_movie">
+                                    <p class="name">{{$value.film_name}}</p>
+                                    <p class="actor">{{$value.star}}</p>
+                                    <p class="type">{{$value.type_name}}</p>
+                                    <p class="time">{{$value.adress}}</p>
+                                    <a href="{{$value.url}}"></a>
+                                </div>
+                            </li>
+                            {{/each}}
+                    </script>
                 </ul>
             </div>
 
@@ -631,7 +621,17 @@
             </div>
         </div>
     </div>
-    <!-- js轮播图部分 -->
+
+
+    <!-- 底部 -->
+    <%- include('./layouts/footer.ejs') %>
+
+
+
+    <!-- js部分 -->
+
+    <script src="/js/template/template-web.js"></script>
+    <!-- js无限循环轮播图部分 -->
     <script type="text/javascript">
         window.onload = function () {
             function $(param) {
@@ -732,10 +732,20 @@
     </script>
     <!-- 轮播图部分结束 -->
 
-    <!-- 底部 -->
-    <%- include('./layouts/footer.ejs') %>
-    <link rel="stylesheet" href="./css/bottom.css">
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <!-- js轮播图 -->
+    <script src="js/jquery.slidey.js"></script>
+    <script type="text/javascript">
+        $("#slidey").slidey({
+            interval: 8000,
+            listCount: 5,
+            autoplay: false,
+            showList: true
+        });
+        $(".slidey-list-description");
+    </script>
 
+    <!-- 发送ajax请求后台数据 -->
     <script>
         var show = function () {
             $.ajax({
@@ -746,12 +756,30 @@
                 data: "",
                 success: function (data) {
                     console.log(data)
+                    let MovieHtml = template('movie_template', {
+                        list: data.data
+                    })
+                    $('.news_movie_temp ').html(MovieHtml)
                 }
             })
         }
         show()
-    </script>
 
+        $('.btn').on('click',function(){
+            var btn_val = $('.btn').val()
+            console.log(btn_val)
+            $.ajax({
+                url:"http://127.0.0.1/api/v1/films",
+                type:"get",
+                data: {
+                    keywords:btn_val
+                },
+                success:function(data){
+                    console.log(data)
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
