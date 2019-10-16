@@ -75,7 +75,7 @@
 	border-bottom-left-radius: 25px;
 }
 
-.w3_search input[type="submit"] {
+.w3_search input[type="button"] {
 	outline: none;
 	border: none;
 	background: #212121;
@@ -88,7 +88,7 @@
 	font-weight: bold;
 }
 
-.w3_search input[type="submit"]:hover {
+.w3_search input[type="button"]:hover {
 	background: #FF8D1B;
 }
 
@@ -612,6 +612,10 @@ ul.dropdown-menu.multi-column ul li a:hover {
 
 .news_movie_center ul li:hover .hot_movie {
 	top: 0px
+}
+
+.news_movie_center ul li {
+	margin-bottom: 20px;
 }
 
 /* 最新电影结束 */
