@@ -25,6 +25,9 @@ router.put(`${admin}/:id(\\d+)`, controller.upAdmin)
 // 查询多个admin
 router.get(admin, controller.inquireAdmins)
 
+// 登录
+router.post(`${admin}/login`, controller.loginAdmin)
+
 
 // 暴露路由
 module.exports = router

@@ -146,3 +146,29 @@ module.exports.inquireAdmins = (req, res) => {
       })
   }
 }
+
+// 登录
+module.exports.loginAdmin = (req, res) => {
+  let admin_name = req.body.admin_name
+  let admin_password = req.body.admin_password
+  mysql.query(`SELECT * FROM ${admin} WHERE admin_name = ? AND admin_password =?`, [admin_name, admin_password], (err, results) => {
+    if (err) return console.log(err)
+    // console.log(results)
+    if (results.length == 0) {
+      res.json({
+        code: '400',
+        msg: '账号或密码错误'
+      })
+    } else if (results.length == 1) {
+      res.json({
+        code: '200',
+        msg: '登陆成功'
+      })
+    } else {
+      res.json({
+        code: '10000',
+        msg: '未知错误'
+      })
+    }
+  })
+}

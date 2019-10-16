@@ -149,11 +149,11 @@ module.exports.upFilm = (req, res) => {
 
 // 查询所有影片
 module.exports.inquireFilmAll = (req, res) => {
-  let page = req.query.page || 1
-  let per_page = req.query.per_page - 0 || 30
-  let fistPer = (page - 1) * per_page - 0
-  let sortWhere = req.query.sorty || 'id'
-  let sortRule = req.query.sortway || 'asc'
+  // let page = req.query.page || 1
+  // let per_page = req.query.per_page - 0 || 30
+  // let fistPer = (page - 1) * per_page - 0
+  // let sortWhere = req.query.sorty || 'id'
+  // let sortRule = req.query.sortway || 'asc'
   mysql.query(`SELECT * FROM ${filminfo}`, (err, results) => {
     if (err) return console.log(err)
     res.json({
