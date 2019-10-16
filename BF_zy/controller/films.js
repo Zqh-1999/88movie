@@ -163,7 +163,8 @@ module.exports.inquireFilms = (req, res) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
-        data: results
+        data: results,
+        total: results.length
       })
     })
   } else {
@@ -178,7 +179,8 @@ module.exports.inquireFilms = (req, res) => {
         } else {
           res.json({
             code: '200',
-            data: results
+            data: results,
+            total: results.length
           })
         }
       })

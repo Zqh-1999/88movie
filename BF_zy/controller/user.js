@@ -2,17 +2,21 @@
 const mysql = require('../db/db')
 
 // 设置表名
-const admin = 'admin'
+const user = 'cz_user'
 
-// 添加admin
-module.exports.addAdmin = (req, res) => {
+// 添加user
+module.exports.addUser = (req, res) => {
   let data = {
-    admin_name: req.body.admin_name,
-    admin_password: req.body.admin_password,
-    admin_phone: req.body.admin_phone
+    username: req.body.username,
+    password: req.body.password,
+    phone: req.body.phone,
+    head_img: req.body.head_img,
+    sex: req.body.sex,
+    state: req.body.state,
+    add_time: req.body.add_time,
   }
   // 插入数据库的语句
-  mysql.query(`INSERT INTO ${admin} SET ?`, data, (err, results) => {
+  mysql.query(`INSERT INTO ${user} SET ?`, data, (err, results) => {
     if (err) return console.log(err)
     if (results.affectedRows == 0) {
       res.json({
@@ -31,17 +35,17 @@ module.exports.addAdmin = (req, res) => {
   })
 }
 
-// 删除admin
-module.exports.deleteAdmin = (req, res) => {
-  // 删除admin的sql语句
-  mysql.query(`DELETE FROM ${admin} WHERE id = ?`, req.params.id, (err, results) => {
+// 删除user
+module.exports.deleteUser = (req, res) => {
+  // 删除user的sql语句
+  mysql.query(`DELETE FROM ${user} WHERE id = ?`, req.params.id, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值
     if (results.affectedRows == 0) {
       res.json({
         code: '400',
-        msg: 'admin不存在'
+        msg: 'user不存在'
       })
     } else if (results.affectedRows == 1) {
       res.json({
@@ -56,15 +60,15 @@ module.exports.deleteAdmin = (req, res) => {
   })
 }
 
-// 查询单个/回显admin
-module.exports.inquireAdmin = (req, res) => {
-  // 查询单个/回显admin的sql语句
-  mysql.query(`SELECT * FROM ${admin} WHERE id = ?`, req.params.id, (err, results) => {
+// 查询单个/回显user
+module.exports.inquireUser = (req, res) => {
+  // 查询单个/回显user的sql语句
+  mysql.query(`SELECT * FROM ${user} WHERE id = ?`, req.params.id, (err, results) => {
     if (err) return console.log(err)
     if (results.length == 0) {
       res.json({
         code: '400',
-        msg: '查询的admin不存在'
+        msg: '查询的user不存在'
       })
     } else if (results.length == 1) {
       res.json({
@@ -80,17 +84,20 @@ module.exports.inquireAdmin = (req, res) => {
   })
 }
 
-// 修改admin
-module.exports.upAdmin = (req, res) => {
+// 修改user
+module.exports.upUser = (req, res) => {
   // 获取前端修改的数据
   let data = {
-    admin_name: req.body.admin_name,
-    admin_password: req.body.admin_password,
-    admin_phone: req.body.admin_phone,
+    username: req.body.username,
+    password: req.body.password,
+    phone: req.body.phone,
+    head_img: req.body.head_img,
+    sex: req.body.sex,
+    state: req.body.state,
+    add_time: req.body.add_time,
   }
-  console.log(req)
   // 修改数据库的语句
-  mysql.query(`UPDATE ${admin} SET ? WHERE id = ?`, [data, req.params.id], (err, results) => {
+  mysql.query(`UPDATE ${user} SET ? WHERE id = ?`, [data, req.params.id], (err, results) => {
     if (err) return console.log(err)
     if (results.affectedRows == 0) {
       res.json({
@@ -109,17 +116,15 @@ module.exports.upAdmin = (req, res) => {
   })
 }
 
-// 查询多个admin
-module.exports.inquireAdmins = (req, res) => {
+// 查询多个user
+module.exports.inquireUsers = (req, res) => {
   let page = req.query.page || 1
-  let per_page = req.query.per_page - 0 || 5
-  // console.log(per_page)
-  let fistPer = (page - 1) * per_page - 0
-  let sortWhere = req.query.sorty || 'id'
+  let pagenum = req.query.pagenum - 0 || 5
+  let fistPer = (page - 1) * pagenum - 0
+  let sortWhere = req.query.sorty || 'add_time'
   let sortRule = req.query.sortway || 'asc'
-  const name = req.query.admin_name;
-  if (name.length == 0) {
-    mysql.query(`SELECT * FROM ${admin} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, per_page], (err, results) => {
+  if (req.query.username.length == 0) {
+    mysql.query(`SELECT * FROM ${user} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
@@ -128,8 +133,8 @@ module.exports.inquireAdmins = (req, res) => {
       })
     })
   } else {
-    mysql.query(`SELECT * FROM ${admin} WHERE admin_name like ? order by ? ? limit ?, ?`,
-      [req.query.admin_name.length == 0 ? null : `%${req.query.admin_name}%`, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+    mysql.query(`SELECT * FROM ${user} WHERE username like ? or phone like ? order by ? ? limit ?, ?`,
+      [req.query.username.length == 0 ? null : `%${req.query.username}%`, req.query.phone.length == 0 ? null : `%${req.query.phone}%`, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
         if (err) return console.log(err)
         if (results.length == 0) {
           res.json({
