@@ -37,6 +37,8 @@ app.use(v1, require('./routers/supUsers'))
 app.use(v1, require('./routers/user'))
 // 配置历史纪录路由
 app.use(v1, require('./routers/history'))
+// 配置订单路由
+app.use(v1, require('./routers/order'))
 
 // 启动服务
 app.listen(serve.prot, () => {
