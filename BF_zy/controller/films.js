@@ -154,10 +154,14 @@ module.exports.inquireFilms = (req, res) => {
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'id'
   let sortRule = req.query.sortway || 'asc'
-  const name = req.query.film_name;
-  const star = req.query.star;
-  const director = req.query.director;
-  if (name.length == 0 && star.length == 0 && director.length == 0) {
+  const name1 = req.query.film_name == undefined ?  '' : req.query.film_name
+  const name = name1.length == 0 ? null : `%${req.query.film_name}%`;
+  const star1 = req.query.star ? req.query.star : ''
+  const star = star1.length == 0 ? null : `%${req.query.star}%`;
+  const director1 = req.query.director == undefined ? '' : req.query.director
+  const director = director1.length == 0 ? null : `%${req.query.director}%`;
+  console.log(name,star,director)
+  if (name1.length == 0 && star1.length == 0 && director1.length == 0) {
     mysql.query(`SELECT * FROM ${filminfo} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       res.json({
@@ -168,7 +172,7 @@ module.exports.inquireFilms = (req, res) => {
     })
   } else {
     mysql.query(`SELECT * FROM ${filminfo} WHERE film_name like ? or star like ? or director like ? order by ? ? limit ?, ?`,
-      [req.query.film_name.length == 0 ? null : `%${req.query.film_name}%`, req.query.star.length == 0 ? null : `%${req.query.star}%`, req.query.director.length == 0 ? null : `%${req.query.director}%`, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+      [name, star, director, sortWhere, sortRule, fistPer, per_page], (err, results) => {
         if (err) return console.log(err)
         if (results.length == 0) {
           res.json({
@@ -187,16 +191,21 @@ module.exports.inquireFilms = (req, res) => {
 }
 
 
-module.exports.inquireFilms = (req, res) => {
-  mysql.query(`select * from ${filminfo}`, (err, results) => {
-    if (err) {
-      console.log(err)
-    } else {
-      res.json({
-        code: '200',
-        data: results,
-        total: results.length
-      })
-    }
-  })
-}
+// module.exports.inquireFilms = (req, res) => {
+//   let page = req.query.page || 1
+//   let per_page = req.query.per_page - 0 || 30
+//   let fistPer = (page - 1) * per_page - 0
+//   let sortWhere = req.query.sorty || 'id'
+//   let sortRule = req.query.sortway || 'asc'
+//   mysql.query(`select * from ${filminfo} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, per_page], (err, results) => {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       res.json({
+//         code: '200',
+//         data: results,
+//         total: results.length
+//       })
+//     }
+//   })
+// }
