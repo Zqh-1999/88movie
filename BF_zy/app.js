@@ -17,17 +17,17 @@ const app = express()
 app.use(bdParser.urlencoded({extends:true}))
 
 // 跨域
-// var cors = require('cors')
-// app.use(cors())
+var cors = require('cors')
+app.use(cors())
 
-// var corsOptions = {
-//     origin: 'http://127.0.0.1',
-//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-// }
+var corsOptions = {
+    origin: 'http://127.0.0.1',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
-// app.get('/products/:id', cors(corsOptions), function (req, res, next) {
-//     res.json({ msg: 'This is CORS-enabled for only example.com.' })
-// })
+app.get('/products/:id', cors(corsOptions), function (req, res, next) {
+    res.json({ msg: 'This is CORS-enabled for only example.com.' })
+})
 
 // 配置影片路由
 app.use(v1, require('./routers/films'))

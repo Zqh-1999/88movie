@@ -19,5 +19,5 @@ app.get('/',(req,res)=>{
 app.use(express.static('./public'));
 // 监听端口 并启动服务
 app.listen(8000, () => {
-    console.log('server is running at http://localhost');
+    console.log('server is running at http://localhost:8000');
 })
