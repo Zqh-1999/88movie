@@ -366,6 +366,7 @@ body {
     border-bottom: 0;
     height: 36px;
     width: 320px;
+    margin-bottom: 5px;
   }
   .cource_tab li {
     position: relative;
@@ -412,6 +413,7 @@ body {
   /* 推荐影片 */
   .recommend{
       height: 558px;
+      margin-top: 20px;
   }
   .recommend_title{
       border-bottom: 1px solid #cccccc;
