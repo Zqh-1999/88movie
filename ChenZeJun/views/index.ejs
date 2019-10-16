@@ -8,10 +8,10 @@
     <meta name="keywords" content="">
     <link rel="stylesheet" href="./css/reset.css">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/jquery.slidey.min.css" rel="stylesheet">
     <!-- js -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
@@ -203,7 +203,7 @@
                             <p class="actor">张涵予</p>
                             <p class="type">剧情片</p>
                             <p class="time">2019/大陆</p>
-                            <a href=""></a>
+                            <a href="/intro"></a>
                         </div>
                     </li>
                     <li>
@@ -424,7 +424,7 @@
                             <p class="actor">张涵予</p>
                             <p class="type">剧情片</p>
                             <p class="time">2019/大陆</p>
-                            <a href=""></a>
+                            <a href="/replay"></a>
                         </div>
                     </li>
                 </ul>
@@ -723,6 +723,25 @@
         }
     </script>
     <!-- 轮播图部分结束 -->
+
+    <!-- 底部 -->
+    <%- include('./layouts/footer.ejs') %>
+    <link rel="stylesheet" href="./css/bottom.css">
+
+
+    <script>
+        let show = function () {
+            $.ajax({
+                url: "/films",
+                type: "get",
+                data: "",
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+        }
+        show()
+    </script>
 
 </body>
 

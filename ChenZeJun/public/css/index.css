@@ -442,7 +442,7 @@ ul.dropdown-menu.multi-column ul li a:hover {
 .box {
 	width: 100%;
 	height: 600px;
-	margin: 20px auto;
+	margin: 0 auto;
 	overflow: hidden;
 	position: relative;
 }
