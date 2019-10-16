@@ -353,18 +353,30 @@
         console.log("当前页码数：" + currentPage);
     }
 
-    let show = function () {
+
+   const change = function () {
         $.ajax({
-            url: "films",
-            type: "get",
+            url: 'http://127.0.0.1/api/v1/films',
+            type: 'get',
             data: "",
             success: function (data) {
-                console.log(data)
+                console.log(data);
+               
             }
         })
-        console.log(123)
+        console.log(345)
     }
-    show()
-</script>
+    change()
 
+    
+</script>
+<script type="text/template" id="cates_template">
+    {{each list}}
+    <tr>
+      <td class="text-center"><input type="checkbox" class="checkitem" data-id="{{$value.cate_id}}"></td>
+      <td>{{$value.film_name}}</td>
+    </tr>
+    {{/each}}
+  </script>
+<script src="/js/template/template-web.js"></script>
 </html>

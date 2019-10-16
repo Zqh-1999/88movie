@@ -82,25 +82,21 @@ module.exports.deleteHistorys = (req, res) => {
   })
 }
 
-// 查询单个/回显history
+// 查询单个ID/回显history
 module.exports.inquireHistory = (req, res) => {
-  // 查询单个/回显history的sql语句
-  mysql.query(`SELECT * FROM ${history} WHERE id = ?`, req.params.id, (err, results) => {
+  // 查询单个ID/回显history的sql语句
+  console.log(req.params.id)
+  mysql.query(`SELECT * FROM ${history} WHERE user_id = ?`, req.params.id, (err, results) => {
     if (err) return console.log(err)
     if (results.length == 0) {
       res.json({
         code: '400',
         msg: '查询的history不存在'
       })
-    } else if (results.length == 1) {
-      res.json({
-        code: '200',
-        data: results[0]
-      })
     } else {
       res.json({
-        code: '10000',
-        msg: '未知错误,请自己检查'
+        code: '200',
+        data: results
       })
     }
   })

@@ -123,6 +123,10 @@ module.exports.inquireUsers = (req, res) => {
   let fistPer = (page - 1) * pagenum - 0
   let sortWhere = req.query.sorty || 'add_time'
   let sortRule = req.query.sortway || 'asc'
+  let name1 = req.query.username == undefined ?  '' : req.query.username
+  let name = name1.length == 0 ?  null : `%${req.query.username}%`
+  let phone1 = req.query.phone == undefined ?  '' : req.query.phone
+  let phone = phone1.length == 0 ? null : `%${req.query.phone}%`
   if (req.query.username.length == 0) {
     mysql.query(`SELECT * FROM ${user} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
       if (err) return console.log(err)
@@ -134,7 +138,7 @@ module.exports.inquireUsers = (req, res) => {
     })
   } else {
     mysql.query(`SELECT * FROM ${user} WHERE username like ? or phone like ? order by ? ? limit ?, ?`,
-      [req.query.username.length == 0 ? null : `%${req.query.username}%`, req.query.phone.length == 0 ? null : `%${req.query.phone}%`, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
+      [name, phone, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
         if (err) return console.log(err)
         if (results.length == 0) {
           res.json({

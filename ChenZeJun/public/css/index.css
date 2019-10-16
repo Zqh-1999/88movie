@@ -75,7 +75,7 @@
 	border-bottom-left-radius: 25px;
 }
 
-.w3_search input[type="submit"] {
+.w3_search input[type="button"] {
 	outline: none;
 	border: none;
 	background: #212121;
@@ -88,7 +88,7 @@
 	font-weight: bold;
 }
 
-.w3_search input[type="submit"]:hover {
+.w3_search input[type="button"]:hover {
 	background: #FF8D1B;
 }
 
@@ -557,11 +557,14 @@ ul.dropdown-menu.multi-column ul li a:hover {
 	width: 180px;
 	height: 230px;
 	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
 }
 
 .news_movie_center ul li img {
 	width: 100%;
 	height: 100%;
+	border-radius: 10px;
 }
 
 .news_movie_center ul li i {
@@ -575,6 +578,44 @@ ul.dropdown-menu.multi-column ul li a:hover {
 	position: absolute;
 	top: 0px;
 	left: 151px;
+}
+
+.hot_movie {
+	width: 180px;
+	height: 230px;
+	position: absolute;
+	top: 203px;
+	left: 0px;
+	transition: all .3s ease-in 0s;
+	background-color: black;
+	opacity: 0.7;
+}
+
+.hot_movie p {
+	text-align: center;
+	color: #fff;
+	font-weight: 800;
+	font-size: 14px;
+}
+
+.hot_movie a {
+	text-decoration: none;
+	width: 53px;
+	height: 50px;
+	display: inline-block;
+	background-image: url(../images/play.png);
+	background-repeat: no-repeat;
+	background-position: 7px 0;
+	margin-left: 60px;
+
+}
+
+.news_movie_center ul li:hover .hot_movie {
+	top: 0px
+}
+
+.news_movie_center ul li {
+	margin-bottom: 20px;
 }
 
 /* 最新电影结束 */

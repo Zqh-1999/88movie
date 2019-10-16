@@ -59,15 +59,14 @@
     height: 45px;
     border-radius: 50%;
     margin-left: 25px;
-    margin-top: 30px;
+    margin-top: 20px;
     color: #e74851;
     border: 1px solid #e74851;
 }
 
 .circle p {
-    padding-left: 8px;
-    line-height: 70%;
-
+    padding-left: 10px;
+    padding-top: 15px;
 }
 
 .commentguest {
@@ -348,6 +347,8 @@
     left: 2px;
     width: 180px;
     height: 230px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     background: rgba(101, 101, 101, 0.6);
     color: #ffffff;
     opacity: 0;
@@ -358,10 +359,117 @@
 .mask p{
     color: #e4dede;
     margin-left: 5px;
+    padding-top: 10px;
 }
 .mask span{
     font-weight: bold;
     font-size: 14px;
     margin-left: 5px;
 }
+.source{
+    height: 258px;
+    width: 1200px;
+    margin: 0 auto;
+}
+.source ul{
+    list-style:none;  
+    display:inline-block;    
+    padding-left:0;  
+    width: 100%;
+}
 
+.cource_tab {
+    border-bottom: 1px solid #ccc;
+    height: 36px;
+    width: 320px;
+  }
+  .cource_tab li {
+    position: relative;
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    cursor: pointer;
+    padding-right: 12px;
+    padding-left: 6px;
+
+  }
+  .cource_tab li img{
+      height: 16px;
+      position: relative;
+      top: 5px;
+      transition: transform 2s;
+  }
+  .cource_tab li img:hover{
+    transform: rotateX(180deg);
+}
+  
+  .products {
+    width: 1200px;
+    height: 200px;
+  }
+
+  .products .main {
+    float: left;
+    display: none;
+  }
+
+  .products .main.selected {
+    display: block;
+  }
+
+  .tab li.active {
+    border-color: red;
+    border-bottom: 0;
+  }
+  .tab-item a{
+      text-decoration: none;
+      color: #5555;
+  }
+ 
+#tab {
+    
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    background: #ffffff;
+}
+.products-h1{
+    margin-top: 10px;
+    border-bottom: 1px dotted #d9d9d7;
+}
+.videour1{
+  padding: 5px, 0;  
+}
+
+.videourl li {
+    float: left;
+    overflow: hidden;
+    padding: 5px 6px;
+    text-align: center;
+    margin-left: 10px;
+    width: 111px;
+    line-height: 34px;
+}
+.videourl li a:hover {
+    background: #F06000;
+    color: #fff;
+}
+.videourl .selected-first a {
+    background: #F06000;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.videourl li a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    background: #eee;
+    -webkit-border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    margin: auto auto;
+}
+.selected a{
+    background-color: #f3f3f3;
+    text-decoration: none;
+    color: #757575;
+}
