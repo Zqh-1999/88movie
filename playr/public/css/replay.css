@@ -314,6 +314,8 @@
 .synopsis-one{
     line-height: 30px;
 }
+
+/* 影片 */
 .title {
     position: relative;
     margin-bottom: 15px;
@@ -323,26 +325,86 @@
     line-height: 200%;
     padding: 5px 0;
 }
-.lunbo-one-p a:hover .mask {
-    opacity: 1;           
+.recommend{
+    height: 558px;
+    margin-top: 20px;
 }
-
-.lunbo-one-p{
-    list-style-type: none;
+.recommend ul{
+    width: 1200px;
+    margin-left: -35px;
 }
-.lunbo-one-p>li{
-    display: inline-block;
-    position: relative;
-    right: 25px;
-    margin-left: 10px;
-}
-.lunbo-one-p>li>img{
-    width: 179px;
+.recommend li{
+    float: left;
+    padding-top: 20px;
+    padding-right: 20px;
     height: 230px;
+    width: 180px;
+    overflow: hidden;
+}
+.recommend li img{
+  height: 230px;
+  width: 180px;
+  border-radius: 10px;
+   overflow: hidden;
+}
+.movie{
+  height: 230px;
+  width: 180px;
+  background-color: #000;
+  opacity: 0.7;
+  position: relative;
+  bottom: 61px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition-duration:1s;
+}
+.movie:hover{
+    bottom: 255px;
+}
+.recommend_list li p {
+	position: relative;
+	top: 10px;
+	overflow: hidden;
+	color: #bfbfde;
+	cursor: pointer;
+    /* opacity: 5; */
+    color: #fff;
+	font-size: 16px;
+    margin-left: 12px;
+     overflow: hidden;
+} 
+.recommend_list li p:nth-child(1){
+    font-size: 20px;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+.recommend_list li i {
+    position: relative;
+    top: -219px;
+    left: 134px;
+    padding: 14px 8px;
+    background: #090;
+    color: #fff;
+    font-style: normal;
+    border-radius: 0 10px 0 25px;
+    opacity: 0.8;
+    z-index: 50;
 }
 
-.lunbo-one-p a:hover .mask {
-    opacity: 1;           
+.recommend_list li .movie a {
+    width: 53px;
+    height: 50px;
+    display: inline-block;
+    background-image: url(../image/fang.png);
+    background-repeat: no-repeat;
+    background-position: 22px 18px;
+    margin-left: 50px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
 }
 .mask {
     position: absolute;
