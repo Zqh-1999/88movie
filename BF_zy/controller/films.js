@@ -147,6 +147,23 @@ module.exports.upFilm = (req, res) => {
   })
 }
 
+// 查询所有影片
+module.exports.inquireFilmAll = (req, res) => {
+  let page = req.query.page || 1
+  let per_page = req.query.per_page - 0 || 30
+  let fistPer = (page - 1) * per_page - 0
+  let sortWhere = req.query.sorty || 'id'
+  let sortRule = req.query.sortway || 'asc'
+  mysql.query(`SELECT * FROM ${filminfo}`, (err, results) => {
+    if (err) return console.log(err)
+    res.json({
+      code: '200',
+      data: results,
+      total: results.length
+    })
+  })
+}
+
 // 查询多个影片(根据关键字搜索)
 module.exports.inquireFilms = (req, res) => {
   let page = req.query.page || 1
@@ -156,13 +173,14 @@ module.exports.inquireFilms = (req, res) => {
   let sortRule = req.query.sortway || 'asc'
   let keyWords = req.query.keywords == undefined ?  '' : req.query.keywords
   let keyWords1 = keyWords.length == 0 ? null : `%${keyWords}%`;
-  mysql.query(`SELECT * FROM ${filminfo} WHERE  film_name LIKE ? OR star LIKE ? OR director LIKE ? ORDER BY ? ? LIMIT ?, ?`,
+  mysql.query(`SELECT * FROM ${filminfo} WHERE film_name LIKE ? OR star LIKE ? OR director LIKE ? ORDER BY ? ? LIMIT ?, ?`,
   [keyWords1, keyWords1, keyWords1, sortWhere, sortRule, fistPer, per_page], (err, results) => {
     if (err) return console.log(err)
     if (results.length == 0) {
+      console.log(results)
       res.json({
         code: '400',
-        msg: '没有查到任何信息'
+        msg: '没有查到任何信息',
       })
     } else {
       res.json({
