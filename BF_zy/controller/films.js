@@ -157,7 +157,7 @@ module.exports.inquireFilms = (req, res) => {
   const name = req.query.film_name;
   const star = req.query.star;
   const director = req.query.director;
-  if (name.length == 0 && star.length == 0 && director == 0) {
+  if (name.length == 0 && star.length == 0 && director.length == 0) {
     mysql.query(`SELECT * FROM ${filminfo} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       res.json({
@@ -184,4 +184,19 @@ module.exports.inquireFilms = (req, res) => {
         }
       })
   }
+}
+
+
+module.exports.inquireFilms = (req, res) => {
+  mysql.query(`select * from ${filminfo}`, (err, results) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.json({
+        code: '200',
+        data: results,
+        total: results.length
+      })
+    }
+  })
 }

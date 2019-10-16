@@ -11,7 +11,7 @@
     <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/jquery.slidey.min.css" rel="stylesheet">
     <!-- js -->
-    <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script> -->
 </head>
 
 <body>
@@ -136,7 +136,7 @@
         </div>
     </div>
     <!-- //nav -->
-
+    <script src="/js/jquery-2.1.4.min.js"></script>
     <!-- banner轮播图开始 -->
     <div id="slidey" style="display:none;">
         <ul>
@@ -173,7 +173,6 @@
     </div>
     <!-- js轮播 -->
     <script src="js/jquery.slidey.js"></script>
-    <script src="js/jquery.dotdotdot.min.js"></script>
     <script type="text/javascript">
         $("#slidey").slidey({
             interval: 8000,
@@ -181,7 +180,7 @@
             autoplay: false,
             showList: true
         });
-        $(".slidey-list-description").dotdotdot();
+        $(".slidey-list-description");
     </script>
     <!-- banner轮播图结束 -->
 
@@ -571,7 +570,16 @@
             </div>
             <div class="news_movie_center">
                 <ul class="clearfix">
-                    <li><a href=""><img src="./images/ia_100000022.jpg" alt=""><i>HD</i></a></li>
+                    <li>
+                        <a href=""><img src="./images/ia_100000022.jpg" alt=""><i>HD</i></a>
+                        <div class="hot_movie">
+                            <p class="name">中国机长</p>
+                            <p class="actor">张涵予</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href="/intro"></a>
+                        </div>
+                    </li>
                     <li><a href=""><img src="./images/ia_100000021.jpg" alt=""><i>HD</i></a></li>
                     <li><a href=""><img src="./images/ia_100000020.jpg" alt=""><i>HD</i></a></li>
                     <li><a href=""><img src="./images/ia_100000019.jpg" alt=""><i>HD</i></a></li>
@@ -728,14 +736,13 @@
     <%- include('./layouts/footer.ejs') %>
     <link rel="stylesheet" href="./css/bottom.css">
 
-
     <script>
-        let show = function () {
+        var show = function () {
             $.ajax({
-                url: "http://127.0.0.1/films",
+                url: "http://127.0.0.1/api/v1/films",
                 type: "get",
-                dataType: 'jsonp',
-                crossDomain: true,
+                // dataType: 'jsonp',
+                // crossDomain: true,
                 data: "",
                 success: function (data) {
                     console.log(data)
