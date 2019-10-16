@@ -16,8 +16,14 @@ const app = express()
 // 配置bdParser
 app.use(bdParser.urlencoded({extends:true}))
 
-// 配置路由
-app.use(v1, require('./routers/film'))
+// 配置影片路由
+app.use(v1, require('./routers/films'))
+// // 配置管理员路由
+// app.use(v1, require('./routers/supUsers'))
+// // 配置用户路由
+// app.use(v1, require('./routers/user'))
+// // 配置历史纪录路由
+// app.use(v1, require('./routers/history'))
 
 // 启动服务
 app.listen(serve.prot, () => {
