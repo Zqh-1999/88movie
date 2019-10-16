@@ -12,12 +12,18 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 //#endregion
 
+
+const chekai=require('./views/chenkai.ejs');
+
+
 app.get('/',(req,res)=>{
     res.render('chenkai')
 })
+
+
 // 1.设置静态资源目录
 app.use(express.static('./public'));
 // 监听端口 并启动服务
 app.listen(8000, () => {
-    console.log('server is running at http://localhost');
+    console.log('server is running at http://localhost:8000');
 })
