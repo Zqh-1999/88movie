@@ -25,6 +25,9 @@ router.put(`${films}/:id(\\d+)`, controller.upFilm)
 // 查询多个影片
 router.get(films, controller.inquireFilms)
 
+// 查询所有影片
+router.get(`${films}/all`, controller.inquireFilmAll)
+
 
 // 暴露路由
 module.exports = router

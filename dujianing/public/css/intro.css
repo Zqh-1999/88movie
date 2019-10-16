@@ -366,6 +366,7 @@ body {
     border-bottom: 0;
     height: 36px;
     width: 320px;
+    margin-bottom: 5px;
   }
   .cource_tab li {
     position: relative;
@@ -412,6 +413,7 @@ body {
   /* 推荐影片 */
   .recommend{
       height: 558px;
+      margin-top: 20px;
   }
   .recommend_title{
       border-bottom: 1px solid #cccccc;
@@ -423,13 +425,103 @@ body {
   }
   .recommend li{
       float: left;
-      padding-bottom: 20px;
+      padding-top: 20px;
       padding-right: 20px;
       height: 230px;
       width: 180px;
+      overflow: hidden;
   }
   .recommend li img{
     height: 230px;
     width: 180px;
     border-radius: 10px;
+     overflow: hidden;
   }
+  .movie{
+    height: 230px;
+    width: 180px;
+    background-color: #000;
+    opacity: 0.7;
+    position: relative;
+    bottom: 61px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition-duration:1s;
+  }
+  .movie:hover{
+    bottom: 247px;
+  }
+ .recommend_list li p {
+	position: relative;
+	top: 20px;
+	overflow: hidden;
+	color: #bfbfde;
+	cursor: pointer;
+    /* opacity: 5; */
+    color: #fff;
+	font-size: 16px;
+    margin-left: 12px;
+    padding-bottom: 12px;
+     overflow: hidden;
+} 
+.recommend_list li p:nth-child(1){
+    font-size: 20px;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+.recommend_list li i {
+    position: relative;
+    top: -219px;
+    left: 141px;
+    padding: 14px 8px;
+    background: #090;
+    color: #fff;
+    font-style: normal;
+    border-radius: 0 10px 0 25px;
+    opacity: 0.8;
+    z-index: 50;
+}
+
+.recommend_list li .movie a {
+    width: 53px;
+    height: 50px;
+    display: inline-block;
+    background-image: url(../img/fang.png);
+    background-repeat: no-repeat;
+    background-position: 22px 18px;
+    margin-left: 50px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 底部 */
+.bottom {
+    background: #E9E8EF;
+    padding: 20px 0;
+    border-top: 1px solid #555;
+    text-align: center;
+    color: #777;
+    font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif;
+}
+
+.bottom-link {
+    font-size: 14px;
+}
+
+.bottom-link a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 5px 10px;
+}
+.bottom-link a:hover{
+    color:#f06000;
+}
+
+.bottom p {
+    font-size: 14px;
+    padding: 10px 0;
+}

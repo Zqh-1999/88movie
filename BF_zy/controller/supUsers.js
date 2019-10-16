@@ -11,21 +11,33 @@ module.exports.addAdmin = (req, res) => {
     admin_password: req.body.admin_password,
     admin_phone: req.body.admin_phone
   }
-  // 插入数据库的语句
-  mysql.query(`INSERT INTO ${admin} SET ?`, data, (err, results) => {
+  mysql.query(`SELECT * FROM ${admin} WHERE admin_name = ?`, data.admin_name, (err, results) => {
     if (err) return console.log(err)
-    if (results.affectedRows == 0) {
+    if (results.length == 1) {
       res.json({
-        code: '400'
-      })
-    } else if (results.affectedRows == 1) {
-      res.json({
-        code: '200'
+        code: '400',
+        msg: '用户已存在'
       })
     } else {
-      res.json({
-        code: '10000',
-        msg: '未知错误,请自己检查'
+      // 插入数据库的语句
+      mysql.query(`INSERT INTO ${admin} SET ?`, data, (err, results) => {
+        if (err) return console.log(err)
+        if (results.affectedRows == 0) {
+          res.json({
+            code: '400',
+            msg: '注册失败'
+          })
+        } else if (results.affectedRows == 1) {
+          res.json({
+            code: '200',
+            msg: '注册成功'
+          })
+        } else {
+          res.json({
+            code: '10000',
+            msg: '未知错误,请自己检查'
+          })
+        }
       })
     }
   })
@@ -123,7 +135,8 @@ module.exports.inquireAdmins = (req, res) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
-        data: results
+        data: results,
+        total: results.length
       })
     })
   } else {
@@ -138,9 +151,37 @@ module.exports.inquireAdmins = (req, res) => {
         } else {
           res.json({
             code: '200',
-            data: results
+            data: results,
+            total: results.length
           })
         }
       })
   }
+}
+
+// 登录
+module.exports.loginAdmin = (req, res) => {
+  let admin_name = req.body.admin_name
+  let admin_password = req.body.admin_password
+  mysql.query(`SELECT * FROM ${admin} WHERE admin_name = ? AND admin_password =?`, [admin_name, admin_password], (err, results) => {
+    if (err) return console.log(err)
+    // console.log(results)
+    if (results.length == 0) {
+      res.json({
+        code: '400',
+        msg: '账号或密码错误'
+      })
+    } else if (results.length == 1) {
+      res.json({
+        code: '200',
+        msg: '登陆成功',
+        token: 'asgfyug87y437rydbg8 g7823rgydslg[gejhgiweug'
+      })
+    } else {
+      res.json({
+        code: '10000',
+        msg: '未知错误'
+      })
+    }
+  })
 }
