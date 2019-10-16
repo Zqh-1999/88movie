@@ -11,7 +11,7 @@
     <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/jquery.slidey.min.css" rel="stylesheet">
     <!-- js -->
-    <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script> -->
 </head>
 
 <body>
@@ -172,9 +172,9 @@
         </ul>
     </div>
     <!-- js轮播 -->
-    <script src="js/jquery.slidey.js"></script>
-    <script src="js/jquery.dotdotdot.min.js"></script>
-    <script type="text/javascript">
+    <!-- <script src="js/jquery.slidey.js"></script> -->
+    <!-- <script src="../public/js/"></script> -->
+    <!-- <script type="text/javascript">
         $("#slidey").slidey({
             interval: 8000,
             listCount: 5,
@@ -182,7 +182,7 @@
             showList: true
         });
         $(".slidey-list-description").dotdotdot();
-    </script>
+    </script> -->
     <!-- banner轮播图结束 -->
 
     <!-- 热门电影 -->
@@ -727,15 +727,15 @@
     <!-- 底部 -->
     <%- include('./layouts/footer.ejs') %>
     <link rel="stylesheet" href="./css/bottom.css">
-
+    <script src="/js/jquery-3.3.1.js"></script>
 
     <script>
-        let show = function () {
+        var show = function () {
             $.ajax({
-                url: "http://127.0.0.1/films",
+                url: "http://127.0.0.1/api/v1/films",
                 type: "get",
-                dataType: 'jsonp',
-                crossDomain: true,
+                // dataType: 'jsonp',
+                // crossDomain: true,
                 data: "",
                 success: function (data) {
                     console.log(data)
