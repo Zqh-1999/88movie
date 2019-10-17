@@ -806,7 +806,10 @@
             $.ajax({
                 url: "http://127.0.0.1/api/v1/films/all",
                 type: "get",
-                data: "",
+                data: {
+                    type_name: '电视剧'
+                    
+                },
                 success: function (data) {
                     console.log(data)
                     let MovieHtml = template('movie_template', {

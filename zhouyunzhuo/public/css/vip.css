@@ -147,20 +147,27 @@
     color: #999;
     margin-top: 2px;
     height: 22px;
-    
     width: 150px;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .movie-title a {
     display: inline-block;
-    width: 150px;
+   width: 150px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-size: 17px;
 }
-
+.tp .movie-title a {
+    width: 125px;
+}
+.movie-title em{
+    color: #c8a06a;
+    font-weight: 700;
+    font-family: Impact;
+    font-size: 17px;
+}
 .tp li:last-child {
     margin-left: 2px;
 }
@@ -352,7 +359,7 @@
 
 .honourable-lb ul {
     position: relative;
-    width: calc(306px * 5);
+    width: calc(310px * 5);
 }
 
 .honourable-lb .honour-left {
