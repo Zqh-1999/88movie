@@ -195,6 +195,7 @@
             </ul>
             <ul class="lunbo-one-p">
                 <li><img src="./images/校园.jpg" alt=""> <a href="#">
+
                         <div class="mask">
                             <span>校园大冲突</span>
                             <p>Omar Epps,Michael Rapaport,Jennifer Connelly</p>
@@ -354,18 +355,6 @@
         console.log("当前页码数：" + currentPage);
     }
 
-    // const show = function () {
-    //     $.ajax({
-    //         url: 'films',
-    //         type: 'get',
-    //         data: "",
-    //         success: function (data) {
-    //             console.log(data);
-    //         }
-    //     })
-    //     console.log(123)
-    // }
-    // show()
 
     //图片ajax
     const change = function () {
@@ -375,32 +364,14 @@
             data: "",
             success: function (data) {
                 console.log(data);
-
             }
         })
         console.log(345)
     }
     change()
-</script>
-<!-- 分页ajax -->
-<script type="text/javascript">
-    var page = 1; //当前页
-    
-        const number = function () {
-            $.ajax({
-                url: "films",
-                data: "",
-                type: "get",
-                success: function (data) {
-                    console.log(data)
-                }
-            })
-            console.log(567)
-        }
-        number()
- 
 
 </script>
+
 </script>
 <script type="text/template" id="cates_template">
     {{each list}}
