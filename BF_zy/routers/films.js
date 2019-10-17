@@ -22,7 +22,7 @@ router.get(`${films}/:id(\\d+)`, controller.inquireFilm)
 // 修改影片
 router.put(`${films}/:id(\\d+)`, controller.upFilm)
 
-// 查询多个影片
+// 查询多个影片(根据关键字搜索)
 router.get(films, controller.inquireFilms)
 
 // 查询所有影片

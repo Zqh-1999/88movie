@@ -164,11 +164,9 @@ module.exports.inquireFilmAll = (req, res) => {
   let sortWhere = req.query.sorty || 'id' // 以什么排序
   let sortRule = req.query.sortway || 'asc' // 排序规则
   let typeName = req.query.type_name // 父类型
-  console.log(req.query.subtype)
   let subtype = req.query.subtype == undefined ? null : req.query.subtype; // 子类型
   let year = req.query.year == undefined ? null : req.query.year; // 年份
   let address = req.query.address == undefined ? null : req.query.address; // 地区
-  console.log(subtype, typeof null, typeof year, typeof address)
   mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMIT ?, ?`,
     [typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       console.log(results)
