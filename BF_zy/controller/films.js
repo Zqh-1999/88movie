@@ -173,8 +173,8 @@ module.exports.inquireFilmAll = (req, res) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
-        data: results,
-        total: total,
+        data: results[1],
+        total: results[0].total,
         per_page
       })
     })
