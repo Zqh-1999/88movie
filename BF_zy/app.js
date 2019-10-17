@@ -41,6 +41,8 @@ app.use(v1, require('./routers/history'))
 app.use(v1, require('./routers/order'))
 // 配置左侧菜单路由
 app.use(v1, require('./routers/left_mun'))
+// 配置留言路由
+app.use(v1, require('./routers/message'))
 
 // 启动服务
 app.listen(serve.prot, () => {

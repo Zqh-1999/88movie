@@ -14,7 +14,7 @@ const admin = '/admin'
 router.post(admin, controller.addAdmin)
 
 // 删除admin
-router.delete(`${admin}/:id(\\d+)`, controller.deleteAdmin)
+router.delete(admin, controller.deleteAdmin)
 
 // 查询单个/回显admin
 router.get(`${admin}/:id(\\d+)`, controller.inquireAdmin)

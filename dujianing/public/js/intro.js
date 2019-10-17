@@ -12,7 +12,7 @@ con.onclick = function () {
   }
 }
 
-// #region 用户登录
+
 $('.btn-dow').on('click', function () {
   let id = $(this).data('id');
   $.ajax({

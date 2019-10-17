@@ -33,10 +33,43 @@ module.exports.addOrder = (req, res) => {
   })
 }
 
-// 删除order
+// 删除多个order
 module.exports.deleteOrder = (req, res) => {
+  let idArr = req.query.idArr
+  let a = idArr.length
+  let add = '?'
+  for (let i = 2; i <= a; i++) {
+    add = add + ',?'
+  }
+  let adds = (add)
   // 删除order的sql语句
-  mysql.query(`DELETE FROM ${order} WHERE id = ?`, req.params.id, (err, results) => {
+  mysql.query(`DELETE FROM ${order} WHERE id in (${adds})`, idArr, (err, results) => {
+    // 错误
+    if (err) return console.log(err)
+    // 返回值
+    if (results.affectedRows == 0) {
+      res.json({
+        code: '400',
+        msg: 'order不存在'
+      })
+    } else if (results.affectedRows == 1) {
+      res.json({
+        code: '200',
+        msg: '成功删除一个'
+      })
+    } else {
+      res.json({
+        code: '10000',
+        msg: '成功删除多个'
+      })
+    }
+  })
+}
+
+// 删除多个order
+module.exports.deleteOrders = (req, res) => {
+  // 删除order的sql语句
+  mysql.query(`DELETE FROM ${order} WHERE id in ?`, req.query.user_id, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值
@@ -57,31 +90,6 @@ module.exports.deleteOrder = (req, res) => {
     }
   })
 }
-
-// // 删除多个order
-// module.exports.deleteOrders = (req, res) => {
-//   // 删除order的sql语句
-//   mysql.query(`DELETE FROM ${order} WHERE id = ?`, req.query.user_id, (err, results) => {
-//     // 错误
-//     if (err) return console.log(err)
-//     // 返回值
-//     if (results.affectedRows == 0) {
-//       res.json({
-//         code: '400',
-//         msg: 'order不存在'
-//       })
-//     } else if (results.affectedRows == 1) {
-//       res.json({
-//         code: '200'
-//       })
-//     } else {
-//       res.json({
-//         code: '10000',
-//         msg: '未知错误,请自己检查'
-//       })
-//     }
-//   })
-// }
 
 // // 查询单个ID/回显order
 // module.exports.inquireOrder = (req, res) => {
