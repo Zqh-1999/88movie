@@ -9,12 +9,17 @@ app.use('api/v1', require('./routes/indexRouter'))
 // 首页渲染
 app.get('/', require('./routes/indexRouter'))
 
+app.get('/movie/:id', (req, res) => {
+    res.render('keywordsMovie')
+})
 
-
+app.get('/Details', (req, res) => {
+    res.render('Details')
+})
 // 视频详情页面
-// app.get('/intro', (req, res) => {
-//     res.render('intro')
-// })
+app.get('/intro', (req, res) => {
+    res.render('yingpian')
+})
 //  播放视频页面
 // app.get('/replay', (req, res) => {
 //     res.render('replay')
@@ -28,6 +33,8 @@ app.set('view engine', 'ejs');
 // 3.3 设置模板引擎的模板在哪个目录
 app.set('views', __dirname + '/views');
 //#endregion
+
+
 
 
 // 监听端口 并启动服务
