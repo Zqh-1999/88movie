@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/replay.css">
+    <link rel="stylesheet" href="./css/replay.css">
+    <link rel="stylesheet" href="./css/page.css">
 </head>
 
 <body>
@@ -140,7 +141,6 @@
                     </ul>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -151,13 +151,11 @@
             <P>游客</P>
         </div>
         <!-- 评论框 -->
-        <div class="commonts-sub">
+        <div class="commonts-sub">  
             <textarea node-type="textarea" name="c_content" class="textarea-fw textarea-bf"
                 placeholder="播放卡顿、不能播放或者视频不对口，请换视频右上角的换线或视频下面的播放源！" onfocus="this.style.backgroundImage='';"></textarea>
         </div>
         <div class="commonts-by">
-            验证码: <input type="text" class="commonts-bnm">
-            <img src="./image/code (1).jpg" alt="" class="commonts-zxc">
             <button class="commonts-nnm">发布</button>
         </div>
     </div>
@@ -166,105 +164,25 @@
     <div class="common">
         <div class="comment">
             <div class="comment-bnm">
-                <div class="comment-one clearfix">
-                    <span class="visitor-one f1">
-                        <img src="./image/duface.png" alt="">
-                    </span>
-                    <div class="visitor-two f1">
-                        <p class="top1">
-                            <span class="name">游客</span>(2019-10-13)
-                        </p>
-                        <p class="con">太卡了 管理员回复：亲，已更新资源，如果不能播放可以尝试切换下播放源哦。</p>
-                    </div>
-                </div>
-                <div class="comment-one clearfix">
-                    <span class="visitor-one f1">
-                        <img src="./image/duface.png" alt="">
-                    </span>
-                    <div class="visitor-two f1">
-                        <p class="top1">
-                            <span class="name">游客</span>(2019-10-13)
-                        </p>
-                        <p class="con">太卡了 管理员回复：由于播放的人数比较多，可能会造成卡顿的情况，亲可以尝试切换下播放源。</p>
-                    </div>
-                </div>
-                <div class="comment-one clearfix">
-                    <span class="visitor-one f1">
-                        <img src="./image/duface.png" alt="">
-                    </span>
-                    <div class="visitor-two f1">
-                        <p class="top1">
-                            <span class="name">游客</span>(2019-10-13)
-                        </p>
-                        <p class="con">特别好</p>
-                    </div>
-                </div>
-                <div class="comment-one clearfix">
-                    <span class="visitor-one f1">
-                        <img src="./image/duface.png" alt="">
-                    </span>
-                    <div class="visitor-two f1">
-                        <p class="top1">
-                            <span class="name">游客</span>(2019-10-13)
-                        </p>
-                        <p class="con">卡到爆炸啊，时间过去了10分钟我才看到1分钟搞屁呢？ 管理员回复：由于播放的人数比较多，可能会造成卡顿的情况，亲可以尝试切换下播放源。</p>
-                    </div>
-                </div>
-                <div class="comment-one clearfix">
-                    <span class="visitor-one f1">
-                        <img src="./image/duface.png" alt="">
-                    </span>
-                    <div class="visitor-two f1">
-                        <p class="top1">
-                            <span class="name">游客</span>(2019-10-13)
-                        </p>
-                        <p class="con">除了嘴唇僵硬，内容和打斗都很精彩，片尾曲好听。国漫在进步，老夫很欣慰。</p>
-                    </div>
-                </div>
-                <div class="comment-one clearfix">
-                    <span class="visitor-one f1">
-                        <img src="./image/duface.png" alt="">
-                    </span>
-                    <div class="visitor-two f1">
-                        <p class="top1">
-                            <span class="name">游客</span>(2019-10-13)
-                        </p>
-                        <p class="con">这卡死了 管理员回复：亲，已更新资源，如果不能播放可以尝试切换下播放源哦。</p>
-                    </div>
-                </div>
-                <div class="comment-one clearfix">
-                    <span class="visitor-one f1">
-                        <img src="./image/duface.png" alt="">
-                    </span>
-                    <div class="visitor-two f1">
-                        <p class="top1">
-                            <span class="name">游客</span>(2019-10-13)
-                        </p>
-                        <p class="con">猪八戒被绿了= =</p>
-                    </div>
-                </div>
-                <div class="comment-one clearfix">
-                    <span class="visitor-one f1">
-                        <img src="./image/duface.png" alt="">
-                    </span>
-                    <div class="visitor-two f1">
-                        <p class="top1">
-                            <span class="name">游客</span>(2019-10-13)
-                        </p>
-                        <p class="con">每一个都很卡 管理员回复：由于播放的人数比较多，可能会造成卡顿的情况，亲可以尝试切换下播放源。</p>
-                    </div>
-                </div>
+                <script type="text/template" id="comnent_template">
+                    {{each}}
+                    <div class="comment-one clearfix">
+                            <span class="visitor-one f1">
+                                <img src="./image/duface.png" alt="">
+                            </span>
+                            <div class="visitor-two f1">
+                                <p class="top1">
+                                    <span class="name">{{$value.username}}</span>{{$value.add_time}}
+                                </p>
+                                <p class="con">{{$value.content}}</p>
+                            </div>
+                        </div>
+                        {{/each}}
+                </script>
             </div>
-            <div id='div'>
-                <ul id='ul'>
-                    <li>首页</li>
-                    <li>上一页</li>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>下一页</li>
-                    <li>尾页</li>
-                </ul>
+            <div style="text-align: center;margin:10px auto;">
+                <div id="pager" class="pager clearfix">
+                </div>
             </div>
         </div>
 
@@ -442,26 +360,96 @@
             </ul>
         </div>
     </div>
-
-    <script src="./js/jquery-3.3.1.js"></script>
-    <script src="./js/index.js"></script>
-
+    <!-- js部分 -->
     <script>
+        var oBtn = document.querySelector('#btn');
+        var oDiv = document.getElementById('fei');
+        var total = document.querySelector('.fenye-top')
+        oDiv.style.display = "none";
+        oBtn.onclick = function () {
+            if (oDiv.style.display == 'none') {
+                oDiv.style.display = 'block'
+                total.style.display = 'none'
+
+            } else {
+                oDiv.style.display = 'none'
+                total.style.display = 'block'
+            }
+        }
+    </script>
+    <script src="/js/jquery-1.10.2.js"></script>
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script src="/js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 分页   -->
+    <script type="text/javascript">
+        $("#pager").zPager({
+            totalData: 50,
+            htmlBox: $('#wraper'),
+            btnShow: true,
+            ajaxSetData: false
+        });
+
+        function currentPage(currentPage) {
+            /*
+                触发页码数位置： Page/js/jquery.z-pager.js 64行
+            */
+            console.log("当前页码数：" + currentPage);
+        }
+
         const change = function () {
             $.ajax({
-                url: 'http://127.0.0.1/api/v1/films',
+                url: 'http://127.0.0.1/api/v1/message',
                 type: 'get',
                 data: "",
                 success: function (data) {
-                    console.log(data);
+                    // console.log(data);
                 }
             })
             // console.log(345)
         }
         change()
+
     </script>
 
-
+    <!-- 发布评论 -->
+    <script>
+        $('.commonts-nnm').on('click', function () {
+            // console.log(123)
+            let content = $('.textarea-fw').val()
+            //    console.log(btn)
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/message",
+                type: "post",
+                data: {
+                    content: content
+                },
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+            $('.commonts-nnm').val('');
+        })
+        // 回显评论
+        let showIndex = function () {
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/message",
+                type: "get",
+                data: {
+                    film_id: 3
+                },
+                success: function (data) {                  
+                    let list = data.data[0]
+                    let templateHtml = template('comnent_template', { list: list })
+                    // console.log(list)
+                    $('.comment').html(templateHtml)
+                }
+            })
+        }
+        showIndex()  
+    </script>
+    <!-- 推荐电影 -->
+    <script src="/js/template/template-web.js"></script>
 </body>
 
 </html>
+
