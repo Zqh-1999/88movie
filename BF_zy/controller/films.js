@@ -164,23 +164,18 @@ module.exports.inquireFilmAll = (req, res) => {
   let sortWhere = req.query.sorty || 'id' // 以什么排序
   let sortRule = req.query.sortway || 'asc' // 排序规则
   let typeName = req.query.type_name // 父类型
-  let subtype1 = req.query.subtype == undefined ? '' : req.query.subtype // 子类型
-  let subtype = subtype1.length == 0 ? null : `%${req.query.subtype}%`; // 子类型
-  let year1 = req.query.year == undefined ? '' : req.query.year // 年份
-  let year = year1.length == 0 ? null : `%${req.query.year}%`; // 年份
-  let address1 = req.query.address == undefined ? '' : req.query.address // 地区
-  let address = address1.length == 0 ? null : `%${req.query.address}%`; // 地区
-  // if (subtype == null && year == null && address == null) {
-  //   mysql.query(`SELECT * FROM ${filminfo} WHERE `)
-  // }
-  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMTI ?, ?`,
+  let subtype = req.query.subtype == undefined ? null : req.query.subtype; // 子类型
+  let year = req.query.year == undefined ? null : req.query.year; // 年份
+  let address = req.query.address == undefined ? null : req.query.address; // 地区
+  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMIT ?, ?`,
     [typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+      console.log(results)
       if (err) return console.log(err)
       res.json({
         code: '200',
         data: results,
         total: results.length,
-        page_page
+        per_page
       })
     })
 }
