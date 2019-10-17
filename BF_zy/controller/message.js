@@ -36,39 +36,39 @@ module.exports.addMessage = (req, res) => {
   })
 }
 
-// // 删除message
-// module.exports.deleteMessage = (req, res) => {
-
-//   let idArr = req.query.idArr
-//   let a = idArr.length
-//   let add = '?'
-//   for (let i = 2; i <= a; i++) {
-//     add = add + ',?'
-//   }
-//   let adds = (add)
-//   // 删除message的sql语句
-//   mysql.query(`DELETE FROM ${message} WHERE id in (${adds})`, idArr, (err, results) => {
-//     // 错误
-//     if (err) return console.log(err)
-//     // 返回值
-//     if (results.affectedRows == 0) {
-//       res.json({
-//         code: '400',
-//         msg: '删除的message不存在'
-//       })
-//     } else if (results.affectedRows == 1) {
-//       res.json({
-//         code: '200',
-//         msg: '成功删除一个'
-//       })
-//     } else {
-//       res.json({
-//         code: '10000',
-//         msg: '成功删除多个'
-//       })
-//     }
-//   })
-// }
+// 删除message
+module.exports.deleteMessage = (req, res) => {
+  // let idArr = req.query.idArr
+  let idArr = [9,10]
+  let a = idArr.length
+  let add = '?'
+  for (let i = 2; i <= a; i++) {
+    add = add + ',?'
+  }
+  let adds = (add)
+  // 删除message的sql语句
+  mysql.query(`DELETE FROM ${message} WHERE id in (${adds})`, idArr, (err, results) => {
+    // 错误
+    if (err) return console.log(err)
+    // 返回值
+    if (results.affectedRows == 0) {
+      res.json({
+        code: '400',
+        msg: '删除的message不存在'
+      })
+    } else if (results.affectedRows == 1) {
+      res.json({
+        code: '200',
+        msg: '成功删除一个'
+      })
+    } else {
+      res.json({
+        code: '10000',
+        msg: '成功删除多个'
+      })
+    }
+  })
+}
 
 // 查询所有message
 module.exports.inquireMessageAll = (req, res) => {

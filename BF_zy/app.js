@@ -43,6 +43,8 @@ app.use(v1, require('./routers/order'))
 app.use(v1, require('./routers/left_mun'))
 // 配置留言路由
 app.use(v1, require('./routers/message'))
+// 配置会员路由
+app.use(v1, require('./routers/recharge'))
 
 // 启动服务
 app.listen(serve.prot, () => {

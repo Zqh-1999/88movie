@@ -16,10 +16,7 @@ app.get('/movie/:id', (req, res) => {
 app.get('/Details', (req, res) => {
     res.render('Details')
 })
-// 视频详情页面
-app.get('/intro', (req, res) => {
-    res.render('yingpian')
-})
+
 //  播放视频页面
 // app.get('/replay', (req, res) => {
 //     res.render('replay')
