@@ -11,7 +11,7 @@ const controller = require('../controller/message')
 const message = '/message'
 
 // // 添加留言
-// router.post(message, controller.addMessage)
+router.post(message, controller.addMessage)
 
 // // 删除留言
 // router.delete(message, controller.deleteMessage)

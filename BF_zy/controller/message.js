@@ -4,55 +4,37 @@ const mysql = require('../db/db')
 // 设置表名
 const message = 'cz_message'
 
-// // 添加message
-// module.exports.addMessage = (req, res) => {
-//   mysql.query(`SELECT * FROM ${message} WHERE film_name = ?`, req.body.film_name, (err, results) => {
-//     if (err) return console.log(err)
-//     console.log(results)
-//     // res.json({
-
-//     // })
-//   })
-//   let myDate = new Date()
-//   // 获取前端数据
-//   let data = {
-//     film_name: req.body.film_name,
-//     image_url: req.body.image_url,
-//     url: req.body.url,
-//     url_hash: req.body.url_hash,
-//     score: req.body.score,
-//     star: req.body.star,
-//     director: req.body.director,
-//     channel: req.body.channel,
-//     type_name: req.body.type_name,
-//     type_id: req.body.type_id,
-//     year: req.body.year,
-//     describe: req.body.describe,
-//     address: req.body.address,
-//     add_time: req.body.add_time || myDate.getTime(),
-//     is_download: req.body.is_download,
-//     recommend: req.body.recommend,
-//     hot: req.body.hot,
-//   }
-//   // 插入数据库的语句
-//   mysql.query(`INSERT INTO ${message} SET ?`, data, (err, results) => {
-//     if (err) return console.log(err)
-//     if (results.affectedRows == 0) {
-//       res.json({
-//         code: '400'
-//       })
-//     } else if (results.affectedRows == 1) {
-//       res.json({
-//         code: '200'
-//       })
-//     } else {
-//       res.json({
-//         code: '10000',
-//         msg: '未知错误,请自己检查'
-//       })
-//     }
-//   })
-// }
+// 添加message
+module.exports.addMessage = (req, res) => {
+  let myDate = new Date()
+  // 获取前端数据
+  let data = {
+    username: req.body.username,
+    content: req.body.content,
+    add_time: req.body.add_time || myDate.getTime(),
+    user_id: req.body.user_id,
+    film_id: req.body.film_id,
+  }
+  console.log(data)
+  // 插入数据库的语句
+  mysql.query(`INSERT INTO ${message} SET ?`, data, (err, results) => {
+    if (err) return console.log(err)
+    if (results.affectedRows == 0) {
+      res.json({
+        code: '400'
+      })
+    } else if (results.affectedRows == 1) {
+      res.json({
+        code: '200'
+      })
+    } else {
+      res.json({
+        code: '10000',
+        msg: '未知错误,请自己检查'
+      })
+    }
+  })
+}
 
 // // 删除message
 // module.exports.deleteMessage = (req, res) => {
