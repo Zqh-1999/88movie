@@ -167,14 +167,13 @@ module.exports.inquireFilmAll = (req, res) => {
   let subtype = req.query.subtype == undefined ? null : req.query.subtype; // 子类型
   let year = req.query.year == undefined ? null : req.query.year; // 年份
   let address = req.query.address == undefined ? null : req.query.address; // 地区
-  mysql.query(`SELECT COUNT(*) total FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ?; SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMIT ?, ?`,
-    [typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
-      console.log(results)
+  mysql.query(`SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ?; SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMIT ?, ?`,
+    [typeName, subtype, year, address, typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
-        data: results,
-        total: total,
+        data: results[1],
+        total: results[0].total,
         per_page
       })
     })
