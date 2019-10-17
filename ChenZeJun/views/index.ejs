@@ -10,7 +10,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/jquery.slidey.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/bottom.css">
+    <link rel="stylesheet" href="/css/bottom.css">
     <!-- js -->
     <!-- <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script> -->
 </head>
@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="w3_search">
-                <form >
+                <form>
                     <input type="text" name="Search" placeholder="Search" required="" class="btn">
                     <input type="button" value="Go" class="btn">
                 </form>
@@ -56,38 +56,36 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="">首页</a></li>
                             <li class="dropdown">
-                                <a href="" class="dropdown-toggle" data-toggle="dropdown">电影 <b class="caret"></b></a>
+                                <a href="/Details" class="dropdown-toggle" data-toggle="dropdown">电影 <b
+                                        class="caret"></b></a>
                                 <ul class="dropdown-menu multi-column columns-3">
                                     <li>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="">Action</a></li>
-                                                <li><a href="">Biography</a></li>
-                                                <li><a href="">Crime</a></li>
-                                                <li><a href="">Family</a></li>
-                                                <li><a href="">Horror</a></li>
-                                                <li><a href="">Romance</a></li>
-                                                <li><a href="">Sports</a></li>
-                                                <li><a href="">War</a></li>
+                                                <li><a href="">动作片</a></li>
+                                                <li><a href="">喜剧片</a></li>
+                                                <li><a href="">爱情片</a></li>
+                                                <li><a href="">科幻片</a></li>
+                                                <li><a href="">恐怖片</a></li>
+
                                             </ul>
                                         </div>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="">Adventure</a></li>
-                                                <li><a href="">Comedy</a></li>
-                                                <li><a href="">Documentary</a></li>
-                                                <li><a href="">Fantasy</a></li>
-                                                <li><a href="">Thriller</a></li>
+                                                <li><a href="">剧情片</a></li>
+                                                <li><a href="">战争片</a></li>
+                                                <li><a href="">动画片</a></li>
+                                                <li><a href="">微电影</a></li>
+                                                <li><a href="">纪录片</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="">Animation</a></li>
-                                                <li><a href="">Costume</a></li>
-                                                <li><a href="">Drama</a></li>
-                                                <li><a href="">History</a></li>
-                                                <li><a href="">Musical</a></li>
-                                                <li><a href="">Psychological</a></li>
+                                                <li><a href="">冒险片</a></li>
+                                                <li><a href="">犯罪片</a></li>
+                                                <li><a href="">惊悚片</a></li>
+
+                                                <li><a href="">其他片</a></li>
                                             </ul>
                                         </div>
                                         <div class="clearfix"></div>
@@ -581,6 +579,62 @@
         </div>
     </div>
 
+    <!--  最新电视剧-->
+    <div class="news_movie">
+        <div class="common">
+            <div class="news_movie_top">
+                <h2>最新电视剧</h2>
+            </div>
+            <div class="news_movie_center">
+                <ul class="news_movie_temp clearfix">
+                    <script type="text/template" id="movie_template">
+                        {{each list}}
+                        <li>
+                                <a href=""><img src="{{$value.image_url}}" alt=""><i>HD</i></a>
+                                <div class="hot_movie">
+                                    <p class="name">{{$value.film_name}}</p>
+                                    <p class="actor">{{$value.star}}</p>
+                                    <p class="type">{{$value.type_name}}</p>
+                                    <p class="time">{{$value.adress}}</p>
+                                    <a href="{{$value.url}}"></a>
+                                </div>
+                            </li>
+                            {{/each}}
+                    </script>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 最新综艺 -->
+    <div class="news_movie">
+        <div class="common">
+            <div class="news_movie_top">
+                <h2>最新综艺</h2>
+            </div>
+            <div class="news_movie_center">
+                <ul class="news_movie_temp clearfix">
+                    <script type="text/template" id="movie_template">
+                        {{each list}}
+                        <li>
+                                <a href=""><img src="{{$value.image_url}}" alt=""><i>HD</i></a>
+                                <div class="hot_movie">
+                                    <p class="name">{{$value.film_name}}</p>
+                                    <p class="actor">{{$value.star}}</p>
+                                    <p class="type">{{$value.type_name}}</p>
+                                    <p class="time">{{$value.adress}}</p>
+                                    <a href="{{$value.url}}"></a>
+                                </div>
+                            </li>
+                            {{/each}}
+                    </script>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
 
     <!-- 轮播图部分开始 -->
     <div class="banner_navbar">
@@ -747,9 +801,10 @@
 
     <!-- 发送ajax请求后台数据 -->
     <script>
+        // 首页渲染
         var show = function () {
             $.ajax({
-                url: "http://127.0.0.1/api/v1/films",
+                url: "http://127.0.0.1/api/v1/films/all",
                 type: "get",
                 data: "",
                 success: function (data) {
@@ -763,21 +818,23 @@
         }
         show()
 
-        $('.btn').on('click',function(){
+        // 搜索功能 
+        $('.btn').on('click', function () {
             var btn_val = $('.btn').val()
             console.log(btn_val)
             $.ajax({
-                url:"http://127.0.0.1/api/v1/films",
-                type:"get",
+                url: "http://127.0.0.1/api/v1/films",
+                type: "get",
                 data: {
-                    keywords:btn_val
+                    keywords: btn_val
                 },
-                success:function(data){
-                    console.log(data)
+                success: function (data) {
+                    console.log(data.data[0].id)
+                    location.href = `/movie/${data.data[0].id}`
                 }
             })
         })
-    </script>
+    </script> `
 </body>
 
 </html>
