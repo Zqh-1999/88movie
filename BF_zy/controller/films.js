@@ -166,11 +166,14 @@ module.exports.inquireFilmAll = (req, res) => {
   let typeName = req.query.type_name // 父类型
   let subtype1 = req.query.subtype == undefined ? '' : req.query.subtype // 子类型
   let subtype = subtype1.length == 0 ? null : `%${req.query.subtype}%`; // 子类型
-  let year1 = req.query.year ? req.query.year : '' // 年份
+  let year1 = req.query.year == undefined ? '' : req.query.year // 年份
   let year = year1.length == 0 ? null : `%${req.query.year}%`; // 年份
   let address1 = req.query.address == undefined ? '' : req.query.address // 地区
   let address = address1.length == 0 ? null : `%${req.query.address}%`; // 地区
-  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMTI ?, ?`,
+  // if (subtype == null && year == null && address == null) {
+  //   mysql.query(`SELECT * FROM ${filminfo} WHERE `)
+  // }
+  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMTI ?, ?`,
     [typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       res.json({
