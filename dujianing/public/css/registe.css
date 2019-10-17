@@ -20,6 +20,7 @@
 	margin:auto;
 	z-index:1;
 }
+/* 头部样式 */
 .hide-center #formhead {
     width:557px;
 	height:42px;
@@ -30,15 +31,19 @@
 	border-top-right-radius:10px;
 	background-color:#101010;
 }
+/* 标题样式 */
 .hide-center #formhead-title {
     width: 119px;
     height: 24px;
-    margin-left: 247px;
+    line-height: 24px;
+    margin-left: 240px;
     margin-right: 144px;
     color: #bfbfbf;
     font-weight: 900;
     display: inline-block;
+    font-size: 16px;
 }
+/* 退出按钮 */
 .hide-center #close {
 	width:35px;
 	height:20px;
@@ -82,6 +87,7 @@
 	margin-top:16px;
 	margin-left:30px;
 }
+/* 提交按钮样式 */
 .hide-center #BSignIn {
     border:0;
 	background:#329d90;
@@ -96,39 +102,8 @@
 .hide-center #BSignIn a{
 	color: #ece8e8;
 }
-.loginUserName #select_region{
-    width: 93px;
-    height: 50px;
-    background-color: #141414;
-    color: #aaaaaa;
-    appearance: none;
-    -moz-appearance: none;
-    border: none;
-    outline: none;
-    line-height: 50px;
-    appearance: none;
-    border-radius: 10px;
-    padding-left: 14px;
-}
-.Other_login{
-    margin-top: 21px;
-    background-color: #101010;
-    height: 56px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    line-height: 60px;
-}
-.Other_login .last_step{
-	color: #c5c2c2b4;  
-	padding-right: 336px;
-	padding-left: 20px;
-}
-.Other_login .Text_login{
-    text-decoration:none;
-    display:inline-block;
-    color: #ffffffb4;  
-    font-size: 12px;
-}
+
+/* 设置密码可见/不可见 */
 .loginPassword,.n-txtCss{
     display: flex;
     align-items: center;
@@ -201,8 +176,23 @@
 .loginHead_img .loginHead_img_elect{
     background-color: #1e1e1e;
 }
-/* .loginHead_img .file{
-    position:absolute;top:20px;right:300px;top:0;
-        right:73px;width:0px;height:30px;filter:alpha(opacity=0);
-        -moz-opacity:0;opacity:0;
-} */
+/* 尾部返回上一步 */
+.Other_login{
+    margin-top: 21px;
+    background-color: #101010;
+    height: 56px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    line-height: 60px;
+}
+.Other_login .last_step{
+	color: #c5c2c2b4;  
+	padding-right: 336px;
+	padding-left: 20px;
+}
+.Other_login .Text_login{
+    text-decoration:none;
+    display:inline-block;
+    color: #ffffffb4;  
+    font-size: 12px;
+}
