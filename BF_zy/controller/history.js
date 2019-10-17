@@ -34,8 +34,15 @@ module.exports.addHistory = (req, res) => {
 
 // 删除history
 module.exports.deleteHistory = (req, res) => {
+  let idArr = req.query.idArr
+  let a = idArr.length
+  let add = '?'
+  for (let i = 2; i <= a; i++) {
+    add = add + ',?'
+  }
+  let adds = (add)
   // 删除history的sql语句
-  mysql.query(`DELETE FROM ${history} WHERE id = ?`, req.params.id, (err, results) => {
+  mysql.query(`DELETE FROM ${history} WHERE in (${adds})`, idArr, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值
@@ -46,37 +53,13 @@ module.exports.deleteHistory = (req, res) => {
       })
     } else if (results.affectedRows == 1) {
       res.json({
-        code: '200'
+        code: '200',
+        msg: '成功删除一个'
       })
     } else {
       res.json({
         code: '10000',
-        msg: '未知错误,请自己检查'
-      })
-    }
-  })
-}
-
-// 删除多个history
-module.exports.deleteHistorys = (req, res) => {
-  // 删除history的sql语句
-  mysql.query(`DELETE FROM ${history} WHERE id = ?`, req.query.user_id, (err, results) => {
-    // 错误
-    if (err) return console.log(err)
-    // 返回值
-    if (results.affectedRows == 0) {
-      res.json({
-        code: '400',
-        msg: 'history不存在'
-      })
-    } else if (results.affectedRows == 1) {
-      res.json({
-        code: '200'
-      })
-    } else {
-      res.json({
-        code: '10000',
-        msg: '未知错误,请自己检查'
+        msg: '成功删除多个'
       })
     }
   })

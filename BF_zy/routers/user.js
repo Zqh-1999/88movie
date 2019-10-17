@@ -14,7 +14,7 @@ const user = '/users'
 router.post(user, controller.addUser)
 
 // 删除user
-router.delete(`${user}/:id(\\d+)`, controller.deleteUser)
+router.delete(user, controller.deleteUser)
 
 // 查询单个/回显user
 router.get(`${user}/:id(\\d+)`, controller.inquireUser)

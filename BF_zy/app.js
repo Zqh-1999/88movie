@@ -39,6 +39,8 @@ app.use(v1, require('./routers/user'))
 app.use(v1, require('./routers/history'))
 // 配置订单路由
 app.use(v1, require('./routers/order'))
+// 配置左侧菜单路由
+app.use(v1, require('./routers/left_mun'))
 
 // 启动服务
 app.listen(serve.prot, () => {

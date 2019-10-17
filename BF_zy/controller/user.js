@@ -6,6 +6,8 @@ const user = 'cz_user'
 
 // 添加user
 module.exports.addUser = (req, res) => {
+  let myDate = new Date()
+  // 填入数据库的数据
   let data = {
     username: req.body.username,
     password: req.body.password,
@@ -13,23 +15,36 @@ module.exports.addUser = (req, res) => {
     head_img: req.body.head_img,
     sex: req.body.sex,
     state: req.body.state,
-    add_time: req.body.add_time,
+    add_time: req.body.add_time || myDate.getTime(),
   }
-  // 插入数据库的语句
-  mysql.query(`INSERT INTO ${user} SET ?`, data, (err, results) => {
+  // 查看有没有重复的用户
+  mysql.query(`SELECT * FROM ${user} WHERE username = ?`, data.username, (err, results) => {
     if (err) return console.log(err)
-    if (results.affectedRows == 0) {
+    if (results.length == 1) {
       res.json({
-        code: '400'
-      })
-    } else if (results.affectedRows == 1) {
-      res.json({
-        code: '200'
+        code: '400',
+        msg: '用户已存在'
       })
     } else {
-      res.json({
-        code: '10000',
-        msg: '未知错误,请自己检查'
+      // 没有重复的就把用户插入数据库
+      mysql.query(`INSERT INTO ${user} SET ?`, data, (err, results) => {
+        if (err) return console.log(err)
+        if (results.affectedRows == 0) {
+          res.json({
+            code: '400',
+            msg: '注册失败'
+          })
+        } else if (results.affectedRows == 1) {
+          res.json({
+            code: '200',
+            msg: '注册成功'
+          })
+        } else {
+          res.json({
+            code: '10000',
+            msg: '未知错误,请自己检查'
+          })
+        }
       })
     }
   })
@@ -37,8 +52,15 @@ module.exports.addUser = (req, res) => {
 
 // 删除user
 module.exports.deleteUser = (req, res) => {
+  let idArr = req.query.idArr
+  let a = idArr.length
+  let add = '?'
+  for (let i = 2; i <= a; i++) {
+    add = add + ',?'
+  }
+  let adds = (add)
   // 删除user的sql语句
-  mysql.query(`DELETE FROM ${user} WHERE id = ?`, req.params.id, (err, results) => {
+  mysql.query(`DELETE FROM ${user} WHERE id in (${adds})`, idArr, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值

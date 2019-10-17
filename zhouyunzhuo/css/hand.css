@@ -10,6 +10,7 @@
     clear: both;
 }
 
+
 body {
     /* font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif; */
     font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif;
@@ -86,14 +87,17 @@ body {
     background-color: #ccc;
     border-radius: 15px;
 }
-.classify-hide span{
+
+.classify-hide span {
     display: block;
     padding: 3px 0;
 }
-.classify-hide i{
+
+.classify-hide i {
     color: red;
     line-height: 5px;
 }
+
 /* 小三角 */
 .classify-nav .trian {
     display: inline-block;
@@ -136,7 +140,7 @@ body {
 .seach-nav .sub {
     width: 30px;
     height: 30px;
-    background-image: url('../img/search.png');
+    background-image: url('../img/zyz1.png');
 }
 
 .seach-nav input {
@@ -162,20 +166,22 @@ body {
     margin-bottom: -4px;
     width: 22px;
     height: 18px;
-    background: url('../img/duomi-bg.png') no-repeat scroll -145px -227px;
+    background: url('../img/zyz2.png') no-repeat scroll -145px -227px;
 }
 
-.history li:hover span{
-   color: rgb(245, 100, 5);
+.history li:hover span {
+    color: rgb(245, 100, 5);
 }
-.history li:hover span i{
+
+.history li:hover span i {
     display: inline-block;
     margin-bottom: -4px;
     width: 22px;
     height: 18px;
-    background: url('../img/duomi-bg.png') no-repeat scroll -152px -193px;
+    background: url('../img/zyz2.png') no-repeat scroll -152px -193px;
 }
-.his-nav{
+
+.his-nav {
     position: absolute;
     left: 55px;
     bottom: 0px;
@@ -187,10 +193,12 @@ body {
     border-width: 10px;
     display: none;
 }
-.history li:hover .his-nav{
+
+.history li:hover .his-nav {
     display: block;
 }
-.history dl{
+
+.history dl {
     position: absolute;
     top: 50px;
     left: -25px;
@@ -201,10 +209,186 @@ body {
     width: 200px;
     display: none;
 }
-.history li:hover dl{
+
+.history li:hover dl {
     display: block;
 }
-.history dt{
+
+.history dt {
     text-align: right;
 }
 
+
+.vip-box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, .4);
+    display: none;
+}
+
+
+.vip-voucher {
+    width: 650px;
+    background-color:black ;
+    margin: 100px auto;
+}
+
+.voucher-top {
+    height: 38px;
+    line-height: 38px;
+    padding-left: 15px;
+    background-color: black;
+    position: relative;
+}
+
+.voucher-top h2 {
+    display: inline-block;
+}
+
+.voucher-top i {
+    vertical-align: middle;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-color: red;
+    background: url('../img/zyz14.png') no-repeat scroll -90px -60px;
+}
+
+.voucher-top h2 span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    color: #cdb07a
+}
+
+.voucher-top .close {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url('../img/zyz5.png') no-repeat scroll -219px 0px;
+    position: absolute;
+    top: 13px;
+    right: 20px;
+}
+
+.voucher-member {
+    background-color: black;
+    text-align: right;
+}
+
+.info-link {
+    float: right;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.info-link a {
+    display: inline-block;
+    line-height: 14px;
+    font-size: 14px;
+    color: #cdb07a;
+    margin: 15px 0 11px;
+}
+
+.info-link span {
+    display: inline-block;
+    vertical-align: top;
+    width: 1px;
+    height: 14px;
+    /* background: #666; */
+    margin: 15px 11px;
+}
+
+.voucher-time {
+    margin-left: 14px;
+    padding-top: 14px;
+    /* background-color:rgb(244, 244, 244) ; */
+}
+
+.voucher-time p {
+    font-size: 14px;
+    color: white;
+    line-height: 14px;
+    margin-bottom: 14px;
+}
+
+.voucher-time span {
+    color: #cdb07a;
+    cursor: pointer;
+}
+
+.voucher-mon li {
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid red;
+    display: inline-block;
+    width: 32%;
+    height: 165px;
+    background-color:#cdb07a;
+}
+.voucher-mon p:first-child{
+    margin-top: 30px;
+}
+.voucher-mon li span {
+    color: red;
+}
+
+.voucher-mon li p:nth-child(2) {
+    text-decoration: line-through;
+}
+.economy{
+    border-radius: 5px;
+    width: 80px;
+    height: 20px;
+    background-color: red;
+    line-height: 20px;
+    margin: 0 auto;
+} 
+.voucher-scan{
+    text-align: center;
+    /* padding-bottom: 50px; */
+    height: 225px;
+    position: relative;
+}
+.voucher-scan li{
+    display: none;
+    width: 650px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.voucher-scan p:nth-child(2){
+   line-height: 90px;
+   font-size: 17px;
+   color: red;
+}
+.voucher-scan p:nth-child(3){
+color: white;
+}
+.voucher-scan li img{
+    float: left;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.voucher-way span{
+  display: inline-block;
+  width: 30px;
+    height: 30px;
+ margin-top: 20px;
+ margin-right: 20px;
+} 
+.voucher-way span:first-child{
+    background: url('../img/zyz20.png') no-repeat scroll 0px -90px;
+}
+.voucher-way span:nth-child(2){
+    background: url('../img/zyz20.png') no-repeat scroll -30px -90px;
+}
+.voucher-way span:nth-child(3){
+    background: url('../img/zyz20.png') no-repeat scroll -60px -90px;
+}
+/* .voucher-way span:first-child img{
+    margin-left: 0px;
+} */

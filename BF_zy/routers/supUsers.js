@@ -14,7 +14,7 @@ const admin = '/admin'
 router.post(admin, controller.addAdmin)
 
 // 删除admin
-router.delete(`${admin}/:id(\\d+)`, controller.deleteAdmin)
+router.delete(admin, controller.deleteAdmin)
 
 // 查询单个/回显admin
 router.get(`${admin}/:id(\\d+)`, controller.inquireAdmin)
@@ -24,6 +24,9 @@ router.put(`${admin}/:id(\\d+)`, controller.upAdmin)
 
 // 查询多个admin
 router.get(admin, controller.inquireAdmins)
+
+// 登录
+router.post(`${admin}/login`, controller.loginAdmin)
 
 
 // 暴露路由

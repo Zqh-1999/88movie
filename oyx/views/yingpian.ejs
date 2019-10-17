@@ -195,6 +195,7 @@
             </ul>
             <ul class="lunbo-one-p">
                 <li><img src="./images/校园.jpg" alt=""> <a href="#">
+
                         <div class="mask">
                             <span>校园大冲突</span>
                             <p>Omar Epps,Michael Rapaport,Jennifer Connelly</p>
@@ -336,7 +337,8 @@
     </script>
 
 </body>
-<script src="/js/jquery-1.10.2.js"></script>
+
+<script src="..//js/jquery-1.10.2.js"></script>
 <script src="js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $("#pager").zPager({
@@ -354,29 +356,31 @@
     }
 
 
-   const change = function () {
+    //图片ajax
+    const change = function () {
         $.ajax({
             url: 'http://127.0.0.1/api/v1/films',
             type: 'get',
             data: "",
             success: function (data) {
                 console.log(data);
-               
             }
         })
         console.log(345)
     }
     change()
 
-    
+</script>
+
 </script>
 <script type="text/template" id="cates_template">
     {{each list}}
     <tr>
-      <td class="text-center"><input type="checkbox" class="checkitem" data-id="{{$value.cate_id}}"></td>
+      <td class="text-center"><input type="checkbox" class="checkitem" data-id="{{$value.film_name}}"></td>
       <td>{{$value.film_name}}</td>
     </tr>
     {{/each}}
   </script>
 <script src="/js/template/template-web.js"></script>
+
 </html>
