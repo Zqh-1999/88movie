@@ -22,23 +22,33 @@
             <button type="button" id="close">X</button>
         </div>
         <div id="formbody">
-            <!-- 注册手机号输入框 -->
+            <!-- 注册用户名输入框 -->
             <div class="loginUserName">
-                <input id="input-topright-loginInput" name="userName" class="loginInput" placeholder="请输入手机号"
+                <input id="input-topright-loginInput" name="userName" class="loginInput" placeholder="请设置用户名"
                     type="text" value="">
-                <select name="region" id="select_region">
-                    <option selected="selected" value="shanghai">中国大陆&nbsp;&nbsp;&nbsp;&nbsp;+86</option>
-                    <option value="chongqing">中国香港+886</option>
-                </select>
+                <span id=""></span>
+            </div>
+            <!-- 设置密码输入框 -->
+            <div class="loginPassword">
+                <input id="input-bottomright-loginInput" name="password" class="loginInput" placeholder="请设置用户密码"
+                    type="password" style="border-bottom-right-radius:5px;">
+                <i class="fa fa-eye-open"></i>
+                <span id=""></span>
+            </div>
+            <!-- 注册手机号输入框 -->
+            <div class="loginPhone">
+                <input id="input-topright-loginInput" name="userName" class="loginInput" placeholder="请输入您的手机号码"
+                    type="text" value="">
                 <span id=""></span>
             </div>
             <!-- 下一步按钮 -->
             <div id="formfoot">
-                <button id="BSignIn" type="submit">Next Step</button>
+                <button id="BSignIn" type="submit"><a href="./note.html">Next Step</a></button>
             </div>
             <!-- 其他登录 -->
             <div class="Other_login">
-                <a href="../public/note.html" class="Text_login">短信登录&nbsp;&nbsp;|&nbsp;&nbsp;其他登录</a>
+                <a href="./logon.html" class="last_step">>>>上一步</a>
+                <a href="" class="Text_login">短信登录&nbsp;&nbsp;|&nbsp;&nbsp;其他登录</a>
             </div>
         </div>
     </div>

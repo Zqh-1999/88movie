@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>简单的登录框弹出层-jq22.com</title>
     <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/registe.css">
+    <link rel="stylesheet" href="./css/note.css">
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./js/registe.js">
+    <link rel="stylesheet" href="./js/note.js">
 </head>
 
 <body>
@@ -18,33 +18,32 @@
 
     <div class="hide-center">
         <div id="formhead">
-            <div id="formhead-title">短信登录</div>
+            <div id="formhead-title">Register</div>
             <button type="button" id="close">X</button>
         </div>
         <div id="formbody">
-            <!-- 注册手机号输入框 -->
-            <div class="loginUserName">
-                <input id="input-topright-loginInput" name="userName" class="loginInput" placeholder="请输入手机号"
-                    type="text" value="">
-                <select name="region" id="select_region">
-                    <option selected="selected" value="shanghai">中国大陆&nbsp;&nbsp;&nbsp;&nbsp;+86</option>
-                    <option value="chongqing">中国香港+886</option>
-                </select>
-                <span id=""></span>
+            <!-- 选择性别 -->
+            <div class="loginSex">
+                
             </div>
-            <!-- 下一步按钮 -->
+            <!-- 上传头像 -->
+            <div class="loginHead">
+
+            </div>
+            <!-- 提交按钮 -->
             <div id="formfoot">
-                <button id="BSignIn" type="submit">Next Step</button>
+                <button id="BSignIn" type="submit"><a href="./note.html">Next Step</a></button>
             </div>
             <!-- 其他登录 -->
             <div class="Other_login">
-                <a href="../public/logon.html" class="Text_login">账号密码登录|其他登录</a>
+                <a href="./registe.html" class="last_step">>>>上一步</a>
+                <a href="../public/logon.html" class="Text_login">账号密码登录&nbsp;&nbsp;|&nbsp;&nbsp;其他登录</a>
             </div>
         </div>
     </div>
 
 
-    <script src="./js/logon.js"></script>
+    <script src="./js/note.js"></script>
 </body>
 
 </html>
