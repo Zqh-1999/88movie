@@ -4,7 +4,7 @@ const mysql = require('../db/db')
 // 设置表名
 const filminfo = 'ca_filminfo'
 
-// 添加会员
+// 添加影视
 module.exports.addFilm = (req, res) => {
   mysql.query(`SELECT * FROM ${filminfo} WHERE film_name = ?`, req.body.film_name, (err, results) => {
     if (err) return console.log(err)
@@ -54,7 +54,7 @@ module.exports.addFilm = (req, res) => {
   })
 }
 
-// 删除会员
+// 删除影视
 module.exports.deleteFilm = (req, res) => {
 
   let idArr = req.query.idArr
@@ -64,7 +64,7 @@ module.exports.deleteFilm = (req, res) => {
     add = add + ',?'
   }
   let adds = (add)
-  // 删除会员的sql语句
+  // 删除影视的sql语句
   mysql.query(`DELETE FROM ${filminfo} WHERE id in (${adds})`, idArr, (err, results) => {
     // 错误
     if (err) return console.log(err)
@@ -72,7 +72,7 @@ module.exports.deleteFilm = (req, res) => {
     if (results.affectedRows == 0) {
       res.json({
         code: '400',
-        msg: '删除的会员不存在'
+        msg: '删除的影视不存在'
       })
     } else if (results.affectedRows == 1) {
       res.json({
@@ -88,16 +88,16 @@ module.exports.deleteFilm = (req, res) => {
   })
 }
 
-// 查询单个/回显会员
+// 查询单个/回显影视
 module.exports.inquireFilm = (req, res) => {
-  // 查询单个/回显会员的sql语句
+  // 查询单个/回显影视的sql语句
   mysql.query(`SELECT * FROM ${filminfo} WHERE id = ?`, req.params.id, (err, results) => {
     if (err) return console.log(err)
     // console.log(results)
     if (results.length === 0) {
       res.json({
         code: '400',
-        msg: '查询的会员不存在'
+        msg: '查询的影视不存在'
       })
     } else if (results.length == 1) {
       res.json({
@@ -113,7 +113,7 @@ module.exports.inquireFilm = (req, res) => {
   })
 }
 
-// 修改会员
+// 修改影视
 module.exports.upFilm = (req, res) => {
   let myDate = new Date()
   // 获取前端数据
@@ -156,7 +156,7 @@ module.exports.upFilm = (req, res) => {
   })
 }
 
-// 查询所有会员
+// 查询所有影视
 module.exports.inquireFilmAll = (req, res) => {
   let page = req.query.page || 1
   let per_page = req.query.per_page - 0 || 30
@@ -179,7 +179,7 @@ module.exports.inquireFilmAll = (req, res) => {
     })
 }
 
-// 查询多个会员(根据关键字搜索)
+// 查询多个影视(根据关键字搜索)
 module.exports.inquireFilms = (req, res) => {
   let page = req.query.page || 1
   let per_page = req.query.per_page - 0 || 30
