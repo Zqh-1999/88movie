@@ -47,7 +47,7 @@
     margin-left: 20px
 }
 
-.mod-nav-item {
+.vip-tab-nav li div {
     padding: 4px 10px 5px;
     height: 16px;
     line-height: 16px;
@@ -61,7 +61,12 @@
     padding-right: 10px;
     font-size: 14px;
 }
-
+.vip-tab-nav li:hover div{
+    background-color: #c8a06a;
+}
+.vip-tab-nav .vip-act{
+    background-color: #c8a06a;
+}
 /*  视频*/
 .play-wrap {
     float: left;
@@ -280,7 +285,7 @@
     width: 281px;
     height: 112px;
     text-align: center;
-    margin: 0 6px 10px 0;
+    margin: 0 22px 10px 0;
     display: inline-block;
 }
 
@@ -347,14 +352,14 @@
 
 .honourable-lb ul {
     position: relative;
-    width: calc(295px * 5);
+    width: calc(306px * 5);
 }
 
 .honourable-lb .honour-left {
     display: inline-block;
     width: 25px;
     height: 50px;
-    background: url(../img/zyz5.png) no-repeat scroll -159px -79px;
+    background: url('../img/zyz5.png') no-repeat scroll -159px -79px;
     position: absolute;
     top: 33px;
     left: 0px;
@@ -374,7 +379,7 @@
     display: inline-block;
     width: 25px;
     height: 50px;
-    background: url(../img/zyz5.png) no-repeat scroll -200px -79px;
+    background: url('../img/zyz5.png') no-repeat scroll -200px -79px;
     position: absolute;
     top: 33px;
     right: 0px;
