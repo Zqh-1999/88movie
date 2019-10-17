@@ -87,7 +87,7 @@
       animate(slideshow4, -index4 * 680)
     }
   }
-})()
+})();
 
 
 // 动画
@@ -106,7 +106,7 @@ function animate(ele, target) {
       ele.style.left = target + 'px';
     }
   }, 20)
-}
+};
 
 
 
@@ -116,9 +116,10 @@ function animate(ele, target) {
 
 
 
+(function(){
 // vip热门table  table切换功能
 //获取点击按钮
-var alink = document.querySelectorAll('.mod-nav-item a');
+var alink = document.querySelectorAll('.vip-tab-nav li div');
 // console.log(alink)
 //获取所有要切换的内容
 var left_video_wrap = document.querySelectorAll('.left-video-wrap');
@@ -131,10 +132,11 @@ for (var i = 0; i < alink.length; i++) {
       alink[j].removeAttribute('class');
       left_video_wrap[j].style.display = 'none'
     }
+    this.className = 'vip-act';
     left_video_wrap[this.getAttribute('index')].style.display = 'block';
   }
 }
-
+})();
 
 
 
@@ -148,14 +150,14 @@ for (var i = 0; i < alink.length; i++) {
     console.log(1)
     if (index < honourable_ul.children.length - 4) {
       index++;
-      animate(honourable_ul, -index * 290);
+      animate(honourable_ul, -index * 306);
     }
   }
   honour_right.onclick = function () {
     console.log(1)
     if (index > 0) {
       index--;
-      animate(honourable_ul, -index * 290)
+      animate(honourable_ul, -index * 306)
     }
   }
 })();
