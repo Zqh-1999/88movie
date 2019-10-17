@@ -1,0 +1,527 @@
+/* 公共部分 */
+.primary{
+    width: 100%;
+    position: relative;
+}
+
+.common {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    /* font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif; */
+    font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif;
+}
+
+/* 顶部导航开始 */
+.head-nav {
+    background-color: rgb(17, 17, 17);
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.login {
+    height: 50px;
+    float: left;
+    padding: 0 10px 0 5px
+}
+
+.classify-nav li {
+    float: left;
+}
+
+.classify-nav li a {
+    display: inline-block;
+    height: 50px;
+    color: white;
+    font-size: 16px;
+    line-height: 47px;
+    padding: 0 15px;
+}
+
+/* 导航分类触摸 */
+.classify-nav li:hover a {
+    color: #000;
+    background-color: white;
+}
+
+.classify-nav li:hover .trian {
+    display: none;
+}
+
+.classify-nav li:hover .trian2 {
+    display: inline-block;
+}
+
+.classify-nav li:hover .classify-hide {
+    display: block;
+}
+
+/* 分类下拉框 */
+.classify-hide {
+    display: none;
+    width: 1920px;
+    position: absolute;
+    left: 0px;
+    top: 47px;
+    color: black;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.classify-hide .hide-one {
+    padding-left: 375px;
+    margin-left: 0px;
+}
+
+.classify-hide li a {
+    display: inline;
+    color: #000;
+    padding: 0 4px;
+    margin: 0 5px;
+}
+
+.classify-hide li a:hover {
+    background-color: #ccc;
+    border-radius: 15px;
+}
+.classify-hide span{
+    display: block;
+    padding: 3px 0;
+}
+.classify-hide i{
+    color: red;
+    line-height: 5px;
+}
+/* 小三角 */
+.classify-nav .trian {
+    display: inline-block;
+    margin-bottom: -1px;
+    margin-left: 5px;
+    width: 0;
+    height: 0;
+    border-color: #d8d8d8 transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+    border-width: 4px;
+}
+
+.classify-nav .trian2 {
+    margin-bottom: 3px;
+    margin-left: 5px;
+    width: 0;
+    height: 0;
+    border-color: transparent transparent #333 transparent;
+    border-style: solid dashed dashed dashed;
+    border-width: 4px;
+    display: none;
+}
+
+/* 顶部搜索 */
+.seach-nav {
+    float: left;
+    margin-top: 9px;
+    margin-left: 30px;
+    border: 1px solid #6C6C6C;
+    border-radius: 2px;
+}
+
+.seach-nav .ss {
+    width: 160px;
+    height: 30px;
+    font-size: 14px;
+    color: rgb(207, 205, 205);
+}
+
+.seach-nav .sub {
+    width: 30px;
+    height: 30px;
+    background-image: url('../img/search.png');
+}
+
+.seach-nav input {
+    float: left;
+    background: #424242;
+    border: 0px;
+    padding: 0 10px;
+}
+
+/* 历史记录 */
+.history {
+    float: right;
+    color: #d8d8d8;
+    font-size: 14px;
+    line-height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+
+.history span i {
+    display: inline-block;
+    margin-bottom: -4px;
+    width: 22px;
+    height: 18px;
+    background: url('../img/duomi-bg.png') no-repeat scroll -145px -227px;
+}
+
+.history li:hover span{
+   color: rgb(245, 100, 5);
+}
+.history li:hover span i{
+    display: inline-block;
+    margin-bottom: -4px;
+    width: 22px;
+    height: 18px;
+    background: url('../img/duomi-bg.png') no-repeat scroll -152px -193px;
+}
+.his-nav{
+    position: absolute;
+    left: 55px;
+    bottom: 0px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-color: transparent transparent white transparent;
+    border-style: solid dashed dashed dashed;
+    border-width: 10px;
+    display: none;
+}
+.history li:hover .his-nav{
+    display: block;
+}
+.history dl{
+    position: absolute;
+    top: 50px;
+    left: -25px;
+    height: 24px;
+    line-height: 24px;
+    border-bottom: 1px solid #F9F9F9;
+    background-color: white;
+    width: 200px;
+    display: none;
+}
+.history li:hover dl{
+    display: block;
+}
+.history dt{
+    text-align: right;
+}
+
+/* 中间内容区域 */
+.content{
+    height: 100%;
+    background-color: #f6f6f9;
+    border-top: 1px solid #dddddd;
+}
+.content_center{
+    width: 1200px;
+    margin: 0 auto;
+}
+/* 当前位置提示栏 */
+.location{
+    height: 40px;
+    border-bottom: 1px solid #cccccc;
+    background-color: #f6f6f9;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: -0.9px;
+    margin-bottom: 16px;
+}
+.location p{
+    display:inline-block;  
+    padding-right: 7px;  
+}
+.location ul{
+    list-style:none;  
+     display:inline-block;    
+     padding-left:0;  
+}
+.location li{    
+    display: inline-block;
+    /* width: 78px; */
+    text-align: center;
+    line-height: 41px;
+}
+.location a{
+    font-weight: 600;
+}
+.location a:hover{
+    color:#f06000;
+}
+/* 影片介绍区域 */
+.film{
+    height: 319px;
+    margin-bottom: 20px;
+}
+.film_img{
+    width: 230px;
+    height: 300px;
+    float: left;
+}
+.film_img img{
+    width: 230px;
+    height: 300px;
+    border-radius: 16px;
+}
+/* 影片信息介绍 */
+.film_intro{
+    margin-left: 20px;
+    width: 630px;
+    height: 319px;
+    float: left;
+}
+.film_intro h1{
+    font-size: 16px;
+    font-weight: 800;
+    color: #333;
+    font-family: "Lucida Grande",Verdana,Tahoma,Lucida,Arial,Helvetica,"微软雅黑","宋体";
+}
+/* @media (min-width: 768px) */
+.film_intro dd, .film_intro dt {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 30px;
+    line-height: 30px;
+}
+.film_intro dt span {
+    color: #777;
+
+}
+.film_intro dd {
+    float: left;
+    width: 50%;
+}
+.film_intro .intro_explain {
+    float: left;
+    line-height: 30px;
+}
+.film_intro .intro_explain p{
+    color: #777;
+}
+.film_intro .intro_explain .conceal {
+    padding-left: 5px;
+    color: #f06000;
+}
+/* 二维码区域 */
+.scan {
+    float: right;
+    width: 300px;
+}
+/* 在线观看列表 */
+.watch,.recommend{
+    height: 136px;
+    margin-bottom: 20px;
+    width: 1200px;
+    margin: 0 auto;
+}
+.watch_button{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 18px;
+}
+.watch_button .look,.watch_button .download{
+    float: left;
+    background-color: #f06000;
+    width: 165px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    margin-right: 30px;
+}
+.watch_button .look a,.watch_button .download a{
+    color: #F9F9F9;
+}
+.watch_button .download{
+    background-color: #116fa8;
+}
+.watch_button .download img{
+    height: 20px;
+    position: relative;
+    top: 5px;
+}
+/* 选择播放源区域 */
+.source{
+    height: 32px;
+    width: 1200px;
+    margin: 0 auto;
+}
+.source ul{
+    list-style:none;  
+    display:inline-block;    
+    padding-left:0;  
+    width: 100%;
+}
+
+.cource_tab {
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    height: 36px;
+    width: 320px;
+    margin-bottom: 5px;
+  }
+  .cource_tab li {
+    position: relative;
+    float: left;
+    /* width: 80px; */
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    cursor: pointer;
+    /* border-top: 4px solid #fff; */
+    padding-right: 12px;
+    padding-left: 6px;
+
+  }
+  .cource_tab li img{
+      height: 16px;
+      position: relative;
+      top: 5px;
+      transition: transform 2s;
+  }
+  .cource_tab li img:hover{
+    transform: rotateX(180deg);
+}
+  
+  .products {
+    width: 1002px;
+    /* border: 1px solid #ddd; */
+    height: 76px;
+  }
+
+  .products .main {
+    float: left;
+    display: none;
+  }
+
+  .products .main.selected {
+    display: block;
+  }
+
+  .tab li.active {
+    border-color: red;
+    border-bottom: 0;
+  }
+  /* 推荐影片 */
+  .recommend{
+      height: 558px;
+      margin-top: 20px;
+  }
+  .recommend_title{
+      border-bottom: 1px solid #cccccc;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+  }
+  .recommend ul{
+      width: 1200px;
+  }
+  .recommend li{
+      float: left;
+      padding-top: 20px;
+      padding-right: 20px;
+      height: 230px;
+      width: 180px;
+      overflow: hidden;
+  }
+  .recommend li img{
+    height: 230px;
+    width: 180px;
+    border-radius: 10px;
+     overflow: hidden;
+  }
+  .movie{
+    height: 230px;
+    width: 180px;
+    background-color: #000;
+    opacity: 0.7;
+    position: relative;
+    bottom: 61px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition-duration:1s;
+  }
+  .movie:hover{
+    bottom: 247px;
+  }
+ .recommend_list li p {
+	position: relative;
+	top: 20px;
+	overflow: hidden;
+	color: #bfbfde;
+	cursor: pointer;
+    /* opacity: 5; */
+    color: #fff;
+	font-size: 16px;
+    margin-left: 12px;
+    padding-bottom: 12px;
+     overflow: hidden;
+} 
+.recommend_list li p:nth-child(1){
+    font-size: 20px;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+.recommend_list li i {
+    position: relative;
+    top: -219px;
+    left: 141px;
+    padding: 14px 8px;
+    background: #090;
+    color: #fff;
+    font-style: normal;
+    border-radius: 0 10px 0 25px;
+    opacity: 0.8;
+    z-index: 50;
+}
+
+.recommend_list li .movie a {
+    width: 53px;
+    height: 50px;
+    display: inline-block;
+    background-image: url(../img/fang.png);
+    background-repeat: no-repeat;
+    background-position: 22px 18px;
+    margin-left: 50px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 底部 */
+.bottom {
+    background: #E9E8EF;
+    padding: 20px 0;
+    border-top: 1px solid #555;
+    text-align: center;
+    color: #777;
+    font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif;
+}
+
+.bottom-link {
+    font-size: 14px;
+}
+
+.bottom-link a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 5px 10px;
+}
+.bottom-link a:hover{
+    color:#f06000;
+}
+
+.bottom p {
+    font-size: 14px;
+    padding: 10px 0;
+}
