@@ -138,7 +138,7 @@
         <div class="common clearfix">
             <!-- <div class="lunbo-one"> -->
             <ul class="lunbo-one-p">
-                <li><img src="./images/师兄弟.jpg" alt=""> <a href="#">
+                <!-- <li><img src="./images/师兄弟.jpg" alt=""> <a href="#">
                         <div class="mask">
                             <span>十兄弟</span>
                             <p>大岛由加利,李赛凤,吴家丽,黄光亮</p>
@@ -247,12 +247,12 @@
                             <p>剧情片</p>
                             <p>2008</p>
                         </div>
-                    </a>
-                </li>
+                    </a> -->
+                <!-- </li> -->
             </ul>
 
-            <ul class="lunbo-one-p">
-                <li><img src="./images/见鬼.jpg" alt=""> <a href="#">
+            <!-- <ul class="lunbo-one-p"> -->
+                <!-- <li><img src="./images/见鬼.jpg" alt=""> <a href="#">
                         <div class="mask">
                             <span>校园大冲突</span>
                             <p>Omar Epps,Michael Rapaport,Jennifer Connelly</p>
@@ -305,8 +305,8 @@
                             <p>2008</p>
                         </div>
                     </a>
-                </li>
-            </ul>
+                </li> -->
+            <!-- </ul> -->
             <span class="lunbo-shu">共244条数据 当前:1/14页 </span>
             <div style="text-align: center;margin:10px auto;">
                 <div id="pager" class="pager clearfix">
@@ -339,7 +339,23 @@
 </body>
 
 <script src="..//js/jquery-1.10.2.js"></script>
+<script src="../lib/template/template-web.js"></script>
 <script src="js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/template/template-web.js"></script>
+
+<script type="text/template" id="cates_template">
+    {{each list}}
+    <li><img src="{{$value.image_url}}" alt="">
+        <a href="#">
+            <div class="mask">
+                <span>{{$value.film_name}}</span>
+                <p>{{$value.star}</p>
+                <p>{{$value.subtype}}</p>
+                <p>{{$value.year}}</p>
+            </div>
+        </a></li>
+    {{/each}}
+  </script>
 <script type="text/javascript">
     $("#pager").zPager({
         totalData: 50,
@@ -364,76 +380,35 @@
             data: "",
             success: function (data) {
                 console.log(data);
+                let MovieHtml = template('cates_template', {
+                        list: data.data
+                    })
+                    $('.lunbo-one-p ').html(MovieHtml)
             }
         })
-        console.log(345)
     }
     change()
 
 </script>
 
-</script>
-<script type="text/template" id="cates_template">
-    {{each list}}
-    <li><img src="{{$value.image_url}}" alt="">
-        <a href="#">
-            <div class="mask">
-                <span>{{$value.film_name}}</span>
-                <p>{{$value.star}</p>
-                <p>{{$value.subtype}}</p>
-                <p>{{$value.year}}</p>
-            </div>
-        </a></li>
-    {{/each}}
-  </script>
-<script src="/js/template/template-web.js"></script>
-<script>
-    // #region 文字列表
 
-/**
- * 
- * @param {*} pagenum 第几页 
- * @param {*} pagesize  每页显示多少条数据
- */
-let showArticle = function (pagenum, pagesize) {
-  $.ajax({
-    type: 'get',
-    url: 'CtrlPosts',
-    data: {
-      pageNum: pagenum || 1,
-      pageSize: pagesize || 3
-    },
-    success: function (data) {
-      console.log(data);
-      let articleHtml = template('posts_article_template', { list: data.data });
-      $('tbody').html(articleHtml);
 
-      // 分页
-      $('.pager').twbsPagination({
-        // 总页数
-        totalPages: Math.ceil(data.dataTotal / data.pageSize),
-        visiblePages: 3,
-        // 当你点击的时候 获取页码
-        onPageClick: function (evt, page) {
-          console.log(page);
-          showArticle(page);
-        }
-      });
-    }
-  })
-}
+<!-- <script> -->
+    // let showArticle = function () {
+    //     $.ajax({
+    //         url: 'http://127.0.0.1/api/v1/films',
+    //         type: 'get',
+    //         data: "",
+    //         success: function (data) {
+    //             console.log(data);
+    //             // let articleHtml = template('cates_template', { list: data.data});
+    //             // $('.lunbo-one-p').html(articleHtml);
+                
+    //         }
+    //     })
+    // }
 
-showArticle();
-</script>
-<script type="text/template" id="posts_article_template">
-    {{each list}}
-      <tr>
-          <td class="text-center"><input type="checkbox"></td>
-          <td>{{$value.film_name}}</td>
-          <td>{{$value.star}</td>
-          <td>{{$value.subtype}}</td>
-          <td>{{$value.posts_status}}</td>
-        </tr>
-      {{/each}}
-    </script>
+    // showArticle();
+<!-- </script> -->
+
 </html>

@@ -14,7 +14,7 @@ module.exports.addOrder = (req, res) => {
     state: req.body.state
   }
   // 插入数据库的语句
-  mysql.query(`INSERT INTO ${order} SET ?`, data, (err, results) => {
+  mysql.query(`INSERT INTO ${order} SET ?;UPDATE ca_user SET ? where id = (SELECT user_id FORM 99));`, [data, ], (err, results) => {
     if (err) return console.log(err)
     if (results.affectedRows == 0) {
       res.json({
