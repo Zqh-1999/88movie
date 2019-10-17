@@ -14,10 +14,7 @@ const history = '/history'
 router.post(history, controller.addHistory)
 
 // 删除history
-router.delete(`${history}/:id(\\d+)`, controller.deleteHistory)
-
-// 删除多个history
-router.delete(`${history}/:id(\\d+)`, controller.deleteHistorys)
+router.delete(history, controller.deleteHistory)
 
 // 查询单个/回显history
 router.get(`${history}/:id(\\d+)`, controller.inquireHistory)

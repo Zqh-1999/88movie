@@ -13,11 +13,11 @@ const order = '/order'
 // 添加order
 router.post(order, controller.addOrder)
 
-// 删除order
-router.delete(`${order}/:id(\\d+)`, controller.deleteOrder)
+// 删除多个order
+router.delete(order, controller.deleteOrder)
 
-// // 删除多个order
-// router.delete(`${order}/:id(\\d+)`, controller.deleteOrders)
+// 删除多个order
+router.delete(`${order}/:id(\\d+)`, controller.deleteOrders)
 
 // // 查询单个/回显order
 // router.get(`${order}/:id(\\d+)`, controller.inquireOrder)

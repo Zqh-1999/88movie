@@ -52,8 +52,15 @@ module.exports.addUser = (req, res) => {
 
 // 删除user
 module.exports.deleteUser = (req, res) => {
+  let idArr = req.query.idArr
+  let a = idArr.length
+  let add = '?'
+  for (let i = 2; i <= a; i++) {
+    add = add + ',?'
+  }
+  let adds = (add)
   // 删除user的sql语句
-  mysql.query(`DELETE FROM ${user} WHERE id = ?`, req.params.id, (err, results) => {
+  mysql.query(`DELETE FROM ${user} WHERE id in (${adds})`, idArr, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值
@@ -140,9 +147,7 @@ module.exports.inquireUsers = (req, res) => {
   let sortRule = req.query.sortway || 'asc'
   let name1 = req.query.username == undefined ?  '' : req.query.username
   let name = name1.length == 0 ?  null : `%${req.query.username}%`
-  let phone1 = req.query.phone == undefined ?  '' : req.query.phone
-  let phone = phone1.length == 0 ? null : `%${req.query.phone}%`
-  if (req.query.username.length == 0) {
+  if (name == null) {
     mysql.query(`SELECT * FROM ${user} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
       if (err) return console.log(err)
       res.json({
@@ -152,8 +157,8 @@ module.exports.inquireUsers = (req, res) => {
       })
     })
   } else {
-    mysql.query(`SELECT * FROM ${user} WHERE username like ? or phone like ? order by ? ? limit ?, ?`,
-      [name, phone, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
+    mysql.query(`SELECT * FROM ${user} WHERE username like ? order by ? ? limit ?, ?`,
+      [name, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
         if (err) return console.log(err)
         if (results.length == 0) {
           res.json({

@@ -4,7 +4,7 @@ const mysql = require('../db/db')
 // 设置表名
 const filminfo = 'ca_filminfo'
 
-// 添加影片
+// 添加会员
 module.exports.addFilm = (req, res) => {
   mysql.query(`SELECT * FROM ${filminfo} WHERE film_name = ?`, req.body.film_name, (err, results) => {
     if (err) return console.log(err)
@@ -54,41 +54,50 @@ module.exports.addFilm = (req, res) => {
   })
 }
 
-// 删除影片
+// 删除会员
 module.exports.deleteFilm = (req, res) => {
-  // 删除影片的sql语句
-  mysql.query(`DELETE FROM ${filminfo} WHERE id = ?`, req.params.id, (err, results) => {
+
+  let idArr = req.query.idArr
+  let a = idArr.length
+  let add = '?'
+  for (let i = 2; i <= a; i++) {
+    add = add + ',?'
+  }
+  let adds = (add)
+  // 删除会员的sql语句
+  mysql.query(`DELETE FROM ${filminfo} WHERE id in (${adds})`, idArr, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值
     if (results.affectedRows == 0) {
       res.json({
         code: '400',
-        msg: '删除的影片不存在'
+        msg: '删除的会员不存在'
       })
     } else if (results.affectedRows == 1) {
       res.json({
-        code: '200'
+        code: '200',
+        msg: '成功删除一个'
       })
     } else {
       res.json({
         code: '10000',
-        msg: '未知错误,请自己检查'
+        msg: '成功删除多个'
       })
     }
   })
 }
 
-// 查询单个/回显影片
+// 查询单个/回显会员
 module.exports.inquireFilm = (req, res) => {
-  // 查询单个/回显影片的sql语句
+  // 查询单个/回显会员的sql语句
   mysql.query(`SELECT * FROM ${filminfo} WHERE id = ?`, req.params.id, (err, results) => {
     if (err) return console.log(err)
     // console.log(results)
     if (results.length === 0) {
       res.json({
         code: '400',
-        msg: '查询的影片不存在'
+        msg: '查询的会员不存在'
       })
     } else if (results.length == 1) {
       res.json({
@@ -104,7 +113,7 @@ module.exports.inquireFilm = (req, res) => {
   })
 }
 
-// 修改影片
+// 修改会员
 module.exports.upFilm = (req, res) => {
   let myDate = new Date()
   // 获取前端数据
@@ -147,48 +156,53 @@ module.exports.upFilm = (req, res) => {
   })
 }
 
-// 查询所有影片
+// 查询所有会员
 module.exports.inquireFilmAll = (req, res) => {
-  // let page = req.query.page || 1
-  // let per_page = req.query.per_page - 0 || 30
-  // let fistPer = (page - 1) * per_page - 0
-  // let sortWhere = req.query.sorty || 'id'
-  // let sortRule = req.query.sortway || 'asc'
-  mysql.query(`SELECT * FROM ${filminfo}`, (err, results) => {
-    if (err) return console.log(err)
-    res.json({
-      code: '200',
-      data: results,
-      total: results.length
+  let page = req.query.page || 1
+  let per_page = req.query.per_page - 0 || 30
+  let fistPer = (page - 1) * per_page - 0
+  let sortWhere = req.query.sorty || 'id' // 以什么排序
+  let sortRule = req.query.sortway || 'asc' // 排序规则
+  let typeName = req.query.type_name // 父类型
+  let subtype = req.query.subtype == undefined ? null : req.query.subtype; // 子类型
+  let year = req.query.year == undefined ? null : req.query.year; // 年份
+  let address = req.query.address == undefined ? null : req.query.address; // 地区
+  mysql.query(`SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ?; SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMIT ?, ?`,
+    [typeName, subtype, year, address, typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+      if (err) return console.log(err)
+      res.json({
+        code: '200',
+        data: results[1],
+        total: results[0].total,
+        per_page
+      })
     })
-  })
 }
 
-// 查询多个影片(根据关键字搜索)
+// 查询多个会员(根据关键字搜索)
 module.exports.inquireFilms = (req, res) => {
   let page = req.query.page || 1
   let per_page = req.query.per_page - 0 || 30
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'id'
   let sortRule = req.query.sortway || 'asc'
-  let keyWords = req.query.keywords == undefined ?  '' : req.query.keywords
+  let keyWords = req.query.keywords == undefined ? '' : req.query.keywords
   let keyWords1 = keyWords.length == 0 ? null : `%${keyWords}%`;
   mysql.query(`SELECT * FROM ${filminfo} WHERE film_name LIKE ? OR star LIKE ? OR director LIKE ? ORDER BY ? ? LIMIT ?, ?`,
-  [keyWords1, keyWords1, keyWords1, sortWhere, sortRule, fistPer, per_page], (err, results) => {
-    if (err) return console.log(err)
-    if (results.length == 0) {
-      console.log(results)
-      res.json({
-        code: '400',
-        msg: '没有查到任何信息',
-      })
-    } else {
-      res.json({
-        code: '200',
-        data: results
-      })
-    }
-  })
+    [keyWords1, keyWords1, keyWords1, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+      if (err) return console.log(err)
+      if (results.length == 0) {
+        res.json({
+          code: '400',
+          msg: '没有查到任何信息',
+        })
+      } else {
+        res.json({
+          code: '200',
+          data: results
+        })
+      }
+    })
 }
 
 

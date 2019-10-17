@@ -19,6 +19,7 @@
 
 /*-- header --*/
 
+
 .slidey-row .slidey-controls-previous {
 	background-image: url('../images/btn.png');
 	background-position: -7px -77px;
@@ -351,12 +352,12 @@ ul.dropdown-menu.multi-column ul li a:hover {
 	left: 0px;
 	opacity: 0.7;
 	background-color: black;
+	text-align: center
 }
 
 .Recommend_list li .movie p {
 	color: #fff;
 	font-size: 16px;
-	margin-left: 40px
 }
 
 .Recommend_list li:hover .movie {
@@ -371,7 +372,9 @@ ul.dropdown-menu.multi-column ul li a:hover {
 	background-image: url(../images/play.png);
 	background-repeat: no-repeat;
 	background-position: 7px 0;
-	margin-left: 38px;
+	left: 40px;
+	position: absolute;
+	bottom: 20px;
 }
 
 .Recommend_right {
@@ -584,7 +587,7 @@ ul.dropdown-menu.multi-column ul li a:hover {
 	width: 180px;
 	height: 230px;
 	position: absolute;
-	top: 203px;
+	top: 186px;
 	left: 0px;
 	transition: all .3s ease-in 0s;
 	background-color: black;
@@ -596,6 +599,7 @@ ul.dropdown-menu.multi-column ul li a:hover {
 	color: #fff;
 	font-weight: 800;
 	font-size: 14px;
+	line-height: 35px;
 }
 
 .hot_movie a {
@@ -607,6 +611,8 @@ ul.dropdown-menu.multi-column ul li a:hover {
 	background-repeat: no-repeat;
 	background-position: 7px 0;
 	margin-left: 60px;
+	position: absolute;
+	bottom: 20px;
 
 }
 
