@@ -162,10 +162,11 @@ module.exports.inquireFilmAll = (req, res) => {
   mysql.query(`SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ?; SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMIT ?, ?`,
     [typeName, subtype, year, address, typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
+      console.log(results[1])
       res.json({
         code: '200',
         data: results[1],
-        total: results[0].total,
+        total: results[0][0].total,
         per_page
       })
     })
