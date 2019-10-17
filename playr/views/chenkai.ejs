@@ -151,7 +151,7 @@
             <P>游客</P>
         </div>
         <!-- 评论框 -->
-        <div class="commonts-sub">  
+        <div class="commonts-sub">
             <textarea node-type="textarea" name="c_content" class="textarea-fw textarea-bf"
                 placeholder="播放卡顿、不能播放或者视频不对口，请换视频右上角的换线或视频下面的播放源！" onfocus="this.style.backgroundImage='';"></textarea>
         </div>
@@ -185,11 +185,9 @@
                 </div>
             </div>
         </div>
-
     </div>
-
+    <!-- 剧情简介区 -->
     <div class="common">
-        <!-- 剧情简介区 -->
         <div class="synopsis">
             <div class="synopsis-on">西行纪剧情简介:</div>
             <div class="synopsis-one">
@@ -437,7 +435,7 @@
                 data: {
                     film_id: 3
                 },
-                success: function (data) {                  
+                success: function (data) {
                     let list = data.data[0]
                     let templateHtml = template('comnent_template', { list: list })
                     // console.log(list)
@@ -452,4 +450,3 @@
 </body>
 
 </html>
-
