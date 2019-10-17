@@ -52,8 +52,15 @@ module.exports.addUser = (req, res) => {
 
 // 删除user
 module.exports.deleteUser = (req, res) => {
+  let idArr = req.query.idArr
+  let a = idArr.length
+  let add = '?'
+  for (let i = 2; i <= a; i++) {
+    add = add + ',?'
+  }
+  let adds = (add)
   // 删除user的sql语句
-  mysql.query(`DELETE FROM ${user} WHERE id = ?`, req.params.id, (err, results) => {
+  mysql.query(`DELETE FROM ${user} WHERE id in (${adds})`, idArr, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值
