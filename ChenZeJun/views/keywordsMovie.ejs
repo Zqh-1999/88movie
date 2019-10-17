@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+    321312
+    <script>
+        //获取当前URL
+        var local_url = document.location.href;
+        //截取get字符串
+        var getstr = local_url.substr(local_url.indexOf('?') + 1)
+        //解析成get数组
+        var get = getstr.split('/')
+        var abs = get.length - 1;
+        var movieId = get[abs]
+        console.log(movieId)
+    </script>
+</body>
+
+</html>

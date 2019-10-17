@@ -4,7 +4,7 @@ const mysql = require('../db/db')
 // 设置表名
 const filminfo = 'ca_filminfo'
 
-// 添加影片
+// 添加会员
 module.exports.addFilm = (req, res) => {
   mysql.query(`SELECT * FROM ${filminfo} WHERE film_name = ?`, req.body.film_name, (err, results) => {
     if (err) return console.log(err)
@@ -54,7 +54,7 @@ module.exports.addFilm = (req, res) => {
   })
 }
 
-// 删除影片
+// 删除会员
 module.exports.deleteFilm = (req, res) => {
 
   let idArr = req.query.idArr
@@ -64,7 +64,7 @@ module.exports.deleteFilm = (req, res) => {
     add = add + ',?'
   }
   let adds = (add)
-  // 删除影片的sql语句
+  // 删除会员的sql语句
   mysql.query(`DELETE FROM ${filminfo} WHERE id in (${adds})`, idArr, (err, results) => {
     // 错误
     if (err) return console.log(err)
@@ -72,7 +72,7 @@ module.exports.deleteFilm = (req, res) => {
     if (results.affectedRows == 0) {
       res.json({
         code: '400',
-        msg: '删除的影片不存在'
+        msg: '删除的会员不存在'
       })
     } else if (results.affectedRows == 1) {
       res.json({
@@ -88,16 +88,16 @@ module.exports.deleteFilm = (req, res) => {
   })
 }
 
-// 查询单个/回显影片
+// 查询单个/回显会员
 module.exports.inquireFilm = (req, res) => {
-  // 查询单个/回显影片的sql语句
+  // 查询单个/回显会员的sql语句
   mysql.query(`SELECT * FROM ${filminfo} WHERE id = ?`, req.params.id, (err, results) => {
     if (err) return console.log(err)
     // console.log(results)
     if (results.length === 0) {
       res.json({
         code: '400',
-        msg: '查询的影片不存在'
+        msg: '查询的会员不存在'
       })
     } else if (results.length == 1) {
       res.json({
@@ -113,7 +113,7 @@ module.exports.inquireFilm = (req, res) => {
   })
 }
 
-// 修改影片
+// 修改会员
 module.exports.upFilm = (req, res) => {
   let myDate = new Date()
   // 获取前端数据
@@ -156,7 +156,7 @@ module.exports.upFilm = (req, res) => {
   })
 }
 
-// 查询所有影片
+// 查询所有会员
 module.exports.inquireFilmAll = (req, res) => {
   let page = req.query.page || 1
   let per_page = req.query.per_page - 0 || 30
@@ -164,25 +164,22 @@ module.exports.inquireFilmAll = (req, res) => {
   let sortWhere = req.query.sorty || 'id' // 以什么排序
   let sortRule = req.query.sortway || 'asc' // 排序规则
   let typeName = req.query.type_name // 父类型
-  let subtype1 = req.query.subtype == undefined ? '' : req.query.subtype // 子类型
-  let subtype = subtype1.length == 0 ? null : `%${req.query.subtype}%`; // 子类型
-  let year1 = req.query.year ? req.query.year : '' // 年份
-  let year = year1.length == 0 ? null : `%${req.query.year}%`; // 年份
-  let address1 = req.query.address == undefined ? '' : req.query.address // 地区
-  let address = address1.length == 0 ? null : `%${req.query.address}%`; // 地区
-  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMTI ?, ?`,
-    [typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+  let subtype = req.query.subtype == undefined ? null : req.query.subtype; // 子类型
+  let year = req.query.year == undefined ? null : req.query.year; // 年份
+  let address = req.query.address == undefined ? null : req.query.address; // 地区
+  mysql.query(`SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ?; SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? ORDER BY ? ? LIMIT ?, ?`,
+    [typeName, subtype, year, address, typeName, subtype, year, address, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
-        data: results,
-        total: results.length,
-        page_page
+        data: results[1],
+        total: results[0].total,
+        per_page
       })
     })
 }
 
-// 查询多个影片(根据关键字搜索)
+// 查询多个会员(根据关键字搜索)
 module.exports.inquireFilms = (req, res) => {
   let page = req.query.page || 1
   let per_page = req.query.per_page - 0 || 30
