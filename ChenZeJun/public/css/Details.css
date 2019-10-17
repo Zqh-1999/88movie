@@ -17,6 +17,10 @@
     margin: 0 auto;
 }
 
+body a {
+    text-decoration: none;
+}
+
 body {
     font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif;
 }
@@ -87,7 +91,7 @@ body {
     border-width: 4px;
     line-height: 0;
     position: absolute;
-    top: 19px;
+    top: 21px;
     right: 10px;
 }
 
@@ -97,7 +101,7 @@ body {
     border-style: solid;
     border-width: 0 1px 1px 1px;
     box-shadow: 0 0 0 0 transparent;
-    height: 206px;
+    height: 246px;
     width: 1200px;
     position: absolute;
     top: 41px;
