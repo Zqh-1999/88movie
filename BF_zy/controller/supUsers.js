@@ -136,7 +136,7 @@ module.exports.inquireAdmins = (req, res) => {
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'id'
   let sortRule = req.query.sortway || 'asc'
-  const name = req.query.admin_name;
+  const name = req.query.admin_name == undefined ? '' : req.query.admin_name;
   if (name.length == 0) {
     mysql.query(`SELECT * FROM ${admin} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
