@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>简单的登录框弹出层-jq22.com</title>
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/registe.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./js/registe.js">
+</head>
+
+<body>
+
+    <!-- 头部 -->
+    <div class="hide-center">
+        <div id="formhead">
+            <div id="formhead-title">Register</div>
+            <!-- 退出按钮 -->
+            <button type="button" id="close">X</button>
+        </div>
+        <form class="form-reg" id="user-reg">
+            <div id="formbody">
+                <!-- 注册用户名输入框 -->
+                <div class="loginUserName">
+                    <input id="input-name-loginInput" name="username" class="loginInput" placeholder="请设置用户名"
+                        type="text" value="">
+                    <span id=""></span>
+                </div>
+                <!-- 设置密码输入框 -->
+                <div class="loginPassword">
+                    <input id="input-pass-loginInput" name="password" class="loginInput" placeholder="请设置用户密码"
+                        type="password" style="border-bottom-right-radius:5px;">
+                    <i class="fa fa-eye-open"></i>
+                    <span id=""></span>
+                </div>
+                <!-- 注册手机号输入框 -->
+                <div class="loginPhone">
+                    <input id="input-phone-loginInput" name="userName" class="loginInput" placeholder="请输入您的手机号码"
+                        type="text" value="">
+                    <span id=""></span>
+                </div>
+                <!-- 选择性别 -->
+                <div class="loginSex">
+                    <span>请选择您的性别&nbsp;:</span>
+                    <label for="male">男</label>&nbsp;&nbsp;<input type="radio" name="sex" id="male" value="男">
+                    <label for="female">女</label>&nbsp;&nbsp;<input type="radio" checked name="sex" id="female"
+                        value="女">
+                </div>
+                <!-- 上传头像 -->
+                <div class="loginHead_img">
+                    <span>上传您的头像</span>
+                    <input type="file" name="photo" class="loginHead_img_elect">
+                </div>
+                <!-- 提交按钮 -->
+                <div id="formfoot">
+                    <button id="BSignIn" type="button"><a href="#">PUT IN</a></button>
+                </div>
+                <!-- 其他登录 -->
+                <div class="Other_login">
+                    <a href="./logon" class="last_step">>>>上一步</a>
+                    <a href="" class="Text_login">短信登录&nbsp;&nbsp;|&nbsp;&nbsp;其他登录</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="./js/registe.js"></script>
+</body>
+
+</html>
