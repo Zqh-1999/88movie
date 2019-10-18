@@ -77,10 +77,11 @@ module.exports.inquireMessageAll = (req, res) => {
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'add_time' // 以什么排序
   let sortRule = req.query.sortway || 'desc' // 排序规则
-  let filmID1 = req.query.film_id == undefined ? '' : req.query.film_id
-  let filmID = filmID1.length == 0 ? null : filmID1
-  mysql.query(`SELECT * FROM ${message} WHERE film_id = ? ORDER BY ? ? LIMIT ?, ?`,
-    [filmID, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+  let dataArr = [sortWhere,sortRule,fistPer,per_page]
+  let filmSQL= req.query.film_id == undefined ? '' : `WHERE film_id = ?`
+  req.parmsa.film_id == undefined ? null : dataArr.unshift(req.parmsa.film_id)
+  mysql.query(`SELECT * FROM ${message} ${filmSQL} ORDER BY ? ? LIMIT ?, ?`,
+     (err, results) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
