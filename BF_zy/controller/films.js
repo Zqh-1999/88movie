@@ -170,7 +170,10 @@ module.exports.inquireFilmAll = (req, res) => {
   req.query.address == undefined ? null : dataArr.push(req.query.address); // 地区
   req.query.recommend == undefined ? null : dataArr.push(req.query.recommend); // 推荐
   req.query.hot == undefined ? null : dataArr.push(req.query.hot); // 热门
-
+  dataArr.push(sortWhere)
+  dataArr.push(sortRule)
+  dataArr.push(fistPer)
+  dataArr.push(per_page)
   console.log(dataArr)
   mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER ? ? LIMIT ?, ?`,
   dataArr, (err, results) => {
