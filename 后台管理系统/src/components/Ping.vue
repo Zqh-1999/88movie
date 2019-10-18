@@ -6,17 +6,6 @@
       <el-breadcrumb-item>评论列表</el-breadcrumb-item>
     </el-breadcrumb>
     <el-card>
-      <!-- layout组件 -->
-      <el-row :gutter="20">
-        <el-col :span="2">
-          <el-button type="primary" @click="addFormVisible=!addFormVisible">添加评论</el-button>
-        </el-col>
-        <el-col :span="10">
-          <el-input v-model="queryInfo.username" placeholder="请输入评论名">
-            <el-button slot="append" icon="el-icon-search" @click="getpingList"></el-button>
-          </el-input>
-        </el-col>
-      </el-row>
       <!-- 表格组件 -->
       <el-table :data="pingList" style="width: 100%" border stripe>
         <el-table-column prop="id" label="评论ID"></el-table-column>
@@ -55,7 +44,7 @@ export default {
   data() {
     return {
       queryInfo: {
-        // username: "",
+        username: "",
         page: 1,
         pagenum: 10
       },
@@ -70,7 +59,6 @@ export default {
       if (res.code == "200") {
         this.total = res.total;
         this.pingList = res.data;
-        // console.log(res.data, res.total)
         return this.$message.success("获取评论列表成功");
       }
       return this.$message.error("获取评论列表失败");
@@ -95,7 +83,7 @@ export default {
       });
 
       if (result == "confirm") {
-        const { data: res } = await this.$http.delete(`/users/${id}`);
+        const { data: res } = await this.$http.delete(`/message/${id}`);
 
         if (res.code !== "200") return this.$message.error("评论删除失败");
         this.getpingList();
