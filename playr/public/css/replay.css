@@ -12,7 +12,7 @@
 
 .name {
     margin: 0;
-    color: darkgray;
+    color: rgb(241, 240, 240);
 }
 
 .name a {
@@ -257,7 +257,9 @@
     width: 50px;
     height: 50px;
 }
-
+.videourl{
+    margin-top: 10px;
+}
 .visitor-two {
     margin-top: 0px;
     padding-left: 10px;
@@ -316,37 +318,35 @@
 }
 .recommend ul{
     width: 1200px;
-    margin-left: -35px;
+    margin-left: -11px;
 }
 .recommend li{
-    float: left;
-    padding-top: 20px;
-    padding-right: 20px;
+    float: left;;
+    margin-right: 13px;
     height: 230px;
     width: 180px;
     overflow: hidden;
 }
 .recommend li img{
-  height: 230px;
-  width: 180px;
-  border-radius: 10px;
-   overflow: hidden;
+    height: 230px;
+    width: 180px;
+    margin-top: 10px;
 }
-.movie{
+.hot_movie{
   height: 230px;
   width: 180px;
   background-color: #000;
   opacity: 0.7;
   position: relative;
-  bottom: 61px;
+  bottom: 45px;
   border-radius: 10px;
   overflow: hidden;
   transition-duration:1s;
 }
-.movie:hover{
-    bottom: 255px;
+.hot_movie:hover{
+    bottom: 230px;
 }
-.recommend_list li p {
+.news_movie_temp  li p {
 	position: relative;
 	top: 10px;
 	overflow: hidden;
@@ -358,12 +358,12 @@
     margin-left: 12px;
      overflow: hidden;
 } 
-.recommend_list li p:nth-child(1){
+.news_movie_temp  p:nth-child(1){
     font-size: 20px;
     margin-bottom: 14px;
     font-weight: 600;
 }
-.recommend_list li i {
+.news_movie_temp  li i {
     position: relative;
     top: -219px;
     left: 134px;
@@ -376,7 +376,7 @@
     z-index: 50;
 }
 
-.recommend_list li .movie a {
+.news_movie_temp  li .hot_movie a {
     width: 53px;
     height: 50px;
     display: inline-block;
@@ -446,7 +446,6 @@
 .cource_tab li img {
     height: 16px;
     position: relative;
-    top: 5px;
     transition: transform 2s ease 0s;
 }
 .tab-item a {

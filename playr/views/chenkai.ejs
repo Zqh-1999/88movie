@@ -206,22 +206,25 @@
             <!--电影推荐  -->
             <div class="recommend">
                 <div class="title">除了<strong>"西行纪"</strong>你也可能喜欢以下影片</div>
-                <ul class="recommend_list clearfix">
-                    <!-- 影视推荐部分 -->
-                    <script type="text/template" id="cates_template">
-                   {{each list}}
-               <li><img src="{{$value.image_url}}" alt="">
-                  <a href="#">
-                <div class="mask">
-                    <span>{{$value.film_name}}</span>
-                    <p>{{$value.star}</p>
-                    <p>{{$value.subtype}}</p>
-                    <p>{{$value.year}}</p>
+                <div class="news_movie_center">
+                    <ul class="news_movie_temp clearfix">
+                        <script type="text/template" id="movie_template">
+                                        {{each list}}
+                                 <li>
+                                <a href=""><img src="{{$value.image_url}}" alt=""></a>
+                                <div class="hot_movie">
+                                <p class="name">{{$value.film_name}}</p>
+                                <p class="actor">{{$value.subtype}}</p>
+                                <p class="type">{{$value.type_name}}</p>
+                                <p class="time">{{$value.address}}</p>
+                                <a href="{{$value.url}}">      
+                                </a>
                 </div>
-                 </a></li>
-             {{/each}}
-      </script>
-                </ul>
+                                 </li>
+                         {{/each}}
+                                </script>
+                    </ul>
+                </div>
             </div>
         </div>
         <!-- js部分 -->
@@ -235,7 +238,7 @@
             let show = function (pagenum, pagesize) {
                 $("a").css("text-decoration", "none"); //去掉下划线
                 $.ajax({
-                    url: "http://127.0.0.1/api/v1/films/all",
+                    url: "http://127.0.0.1/api/v1/:id",
                     type: "get",
                     data: {
                         page: pagenum || 1,
@@ -278,7 +281,7 @@
         <!-- 发布评论 -->
         <script>
             $('.commonts-nnm').on('click', function () {
-                // console.log(123)
+                console.log(123)
                 let content = $('.textarea-fw').val()
                 //    console.log(btn)
                 $.ajax({
@@ -288,10 +291,16 @@
                         content: content
                     },
                     success: function (data) {
-                        console.log(data)
+                        // console.log(data)
+                        // if(data.textarea-fw.length == 0){
+                        //     error('评论框不可为空')
+                        //     return false
+                        // }
+                        $('.textarea-fw').val(' ');
                     }
                 })
-                $('.commonts-nnm').val('');
+                
+             
             })
             // 回显评论
             let showIndex = function () {
