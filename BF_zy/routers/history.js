@@ -20,7 +20,7 @@ router.delete(history, controller.deleteHistory)
 router.get(`${history}/:id(\\d+)`, controller.inquireHistory)
 
 // // 查询多个history
-// router.get(history, controller.inquireHistorys)
+router.get(history, controller.inquireHistorys)
 
 
 // 暴露路由
