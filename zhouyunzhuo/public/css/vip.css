@@ -151,7 +151,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.movie-title a {
+.movie-title p a {
     display: inline-block;
    width: 150px;
     overflow: hidden;
