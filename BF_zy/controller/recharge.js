@@ -10,9 +10,19 @@ const order = "cz_order"
 // // 查询所有会员
 module.exports.inquirerechargeAll = (req, res) => {
     
-mysql.query(`SELECT a.id,a.username,a.password,a.phone,a.head_img,a.sex,b.order_num,b.start_time,b.end_time FROM ${user} a INNER JOIN ${order} b ON a.id = b.user_id `,(err,result)=>{
+mysql.query(`SELECT a.id,a.password,a.phone,a.head_img,a.sex,b.order_num,b.start_time,b.end_time FROM ${user} a INNER JOIN ${order} b ON a.id = b.user_id `,(err,result)=>{
     if(err)return console.log(err)
-    console.log(result)
+    if (results.length == 0) {
+              res.json({
+                code: '400',
+                msg: '没有查到任何信息',
+              })
+            } else {
+              res.json({
+                code: '200',
+                data: results
+              })
+            }
 })
 }
 
