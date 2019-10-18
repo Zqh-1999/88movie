@@ -13,24 +13,27 @@ module.exports.addOrder = (req, res) => {
     money: req.body.money,
     state: req.body.state
   }
+  let 
   // 插入数据库的语句
-  mysql.query(`INSERT INTO ${order} SET ?;UPDATE ca_user SET ? where id = (SELECT user_id FORM 99));`, [data, ], (err, results) => {
-    if (err) return console.log(err)
-    if (results.affectedRows == 0) {
-      res.json({
-        code: '400'
-      })
-    } else if (results.affectedRows == 1) {
-      res.json({
-        code: '200'
-      })
-    } else {
-      res.json({
-        code: '10000',
-        msg: '未知错误,请自己检查'
-      })
-    }
-  })
+  mysql.query(`INSERT INTO ${order} SET ?;UPDATE ca_user SET ? where id = (SELECT user_id FORM cz_recharge WHERE order_id = (SELECT id FROM ${order} WHERE order_num = ?));`,
+    [data, data.order_num], (err, results) => {
+      console.log(results)
+      if (err) return console.log(err)
+      if (results.affectedRows == 0) {
+        res.json({
+          code: '400'
+        })
+      } else if (results.affectedRows == 1) {
+        res.json({
+          code: '200'
+        })
+      } else {
+        res.json({
+          code: '10000',
+          msg: '未知错误,请自己检查'
+        })
+      }
+    })
 }
 
 // 删除多个order
