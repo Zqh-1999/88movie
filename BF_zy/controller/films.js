@@ -163,8 +163,14 @@ module.exports.inquireFilmAll = (req, res) => {
   let recommend = req.query.recommend == undefined ? '' : `AND recommend = ?`; // 推荐
   let hot = req.query.hot == undefined ? '' : `AND hot = ?`; // 热门
 
-  let dataArr = [typeName]
-
+  let dataArr = []
+  dataArr.push(typeName)
+  req.query.subtype == undefined ? null : dataArr.push(req.query.subtype); // 子类型
+  req.query.year == undefined ? null : dataArr.push(req.query.year); // 年份
+  req.query.address == undefined ? null : dataArr.push(req.query.address); // 地区
+  req.query.recommend == undefined ? null : dataArr.push(req.query.recommend); // 推荐
+  req.query.hot == undefined ? null : dataArr.push(req.query.hot); // 热门
+  dataArr.push(typeName)
   req.query.subtype == undefined ? null : dataArr.push(req.query.subtype); // 子类型
   req.query.year == undefined ? null : dataArr.push(req.query.year); // 年份
   req.query.address == undefined ? null : dataArr.push(req.query.address); // 地区
@@ -174,11 +180,11 @@ module.exports.inquireFilmAll = (req, res) => {
   dataArr.push(sortRule)
   dataArr.push(fistPer)
   dataArr.push(per_page)
-  console.log(dataArr)
-  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
+  // console.log(dataArr)
+  mysql.query(`SELECT COUNT(*) AS total FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot}; SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
   dataArr, (err, results) => {
     if (err) return console.log(err)
-    // console.log(results)
+    console.log(results)
     res.json({
       code: '200',
       data: results
