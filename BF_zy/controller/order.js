@@ -13,7 +13,6 @@ module.exports.addOrder = (req, res) => {
     money: req.body.money,
     state: req.body.state
   }
-  let 
   // 插入数据库的语句
   mysql.query(`INSERT INTO ${order} SET ?;UPDATE ca_user SET ? where id = (SELECT user_id FORM cz_recharge WHERE order_id = (SELECT id FROM ${order} WHERE order_num = ?));`,
     [data, data.order_num], (err, results) => {
