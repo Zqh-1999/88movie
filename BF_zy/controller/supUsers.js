@@ -45,15 +45,8 @@ module.exports.addAdmin = (req, res) => {
 
 // 删除admin
 module.exports.deleteAdmin = (req, res) => {
-  let idArr = req.query.idArr
-  let a = idArr.length
-  let add = '?'
-  for (let i = 2; i <= a; i++) {
-    add = add + ',?'
-  }
-  let adds = (add)
   // 删除admin的sql语句
-  mysql.query(`DELETE FROM ${admin} WHERE id in (${adds})`, idArr, (err, results) => {
+  mysql.query(`DELETE FROM ${admin} WHERE id = ?`, req.params.id, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值

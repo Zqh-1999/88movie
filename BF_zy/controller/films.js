@@ -157,36 +157,22 @@ module.exports.inquireFilmAll = (req, res) => {
   let sortWhere = req.query.sorty || 'id' // 以什么排序
   let sortRule = req.query.sortway || 'asc' // 排序规则
   let typeName = req.query.type_name // 父类型
-  let subtype = req.query.subtype == undefined ? null : req.query.subtype; // 子类型
-  let year = req.query.year == undefined ? null : req.query.year; // 年份
-  let address = req.query.address == undefined ? null : req.query.address; // 地区
-  let recommend = req.query.recommend == undefined ? null : req.query.recommend // 推荐
-  let hot = req.query.hot == undefined ? null : req.query.hot // 热门
-  console.log(typeName, recommend)
-  if(subtype==null){
-    mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? OR year = ? OR address = ? OR recommend = ? OR hot = ? ORDER BY ? ? LIMIT ?, ?`, [typeName, year, address, recommend, hot, sortWhere, sortRule, fistPer, per_page],(err,results)=>{
-      if(err)return console.log(err);
-      console.log(results)
-      res.json({
-        code:"201",
-        data:results
-      })
-    })
-  }else{
-    mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ? ORDER BY ? ? LIMIT ?, ?`,
-    [typeName, subtype, year, address, recommend, hot, sortWhere, sortRule, fistPer, per_page], (err, results) => {
-      if (err) return console.log(err)
-      console.log(results)
-      res.json({
-        code: '200',
-        data: results,
-        // total: results[0].total,
-        per_page
-      })
-    })
-  }
-    
-  
+  let subtype = req.query.subtype == undefined ? '' : `AND subtype = ?`; // 子类型
+  let year = req.query.year == undefined ? '' : `AND year = ?`; // 年份
+  let address = req.query.address == undefined ? '' : `AND address = ?`; // 地区
+  let recommend = req.query.recommend == undefined ? '' : `AND recommend = ?`; // 推荐
+  let hot = req.query.hot == undefined ? '' : `AND hot = ?`; // 热门
+  let subtype1 = req.query.subtype == undefined ? null : req.query.subtype; // 子类型
+  let year1 = req.query.year == undefined ? null : req.query.year; // 年份
+  let address1 = req.query.address == undefined ? null : req.query.address; // 地区
+  let recommend1 = req.query.recommend == undefined ? null : req.query.recommend; // 推荐
+  let hot1 = req.query.hot == undefined ? null : req.query.hot; // 热门
+  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER ? ? LIMIT ?, ?`,
+  [typeName, subtype1, year1, address1, recommend1, hot1, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+    if (err) return console.log(err)
+    console.log(results)
+  })
+
 }
 
 // 查询多个影视(根据关键字搜索)
