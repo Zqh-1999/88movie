@@ -222,7 +222,15 @@ module.exports.inquireFilms = (req, res) => {
 
 
 
-
+module.exports.inquireFilmallinfo=(req,res)=>{
+  mysql.query(`SELECT * FROM ${filminfo}`, (err, results) => {
+    if (err) console.log(err)
+    res.json({
+      code: 200,
+     data:results[0]
+    })
+  })
+}
 
 
 // module.exports.inquireFilms = (req, res) => {
