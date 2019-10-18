@@ -147,7 +147,8 @@ module.exports.upFilm = (req, res) => {
     }
   })
 }
-
+// SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ?;
+// typeName, subtype, year, address, recommend, hot, 
 // 查询所有影视
 module.exports.inquireFilmAll = (req, res) => {
   let page = req.query.page || 1
@@ -156,22 +157,34 @@ module.exports.inquireFilmAll = (req, res) => {
   let sortWhere = req.query.sorty || 'id' // 以什么排序
   let sortRule = req.query.sortway || 'asc' // 排序规则
   let typeName = req.query.type_name // 父类型
-  let subtype = req.query.subtype == undefined ? null : req.query.subtype; // 子类型
-  let year = req.query.year == undefined ? null : req.query.year; // 年份
-  let address = req.query.address == undefined ? null : req.query.address; // 地区
-  let recommend = req.query.recommend == undefined ? null : req.query.recommend // 推荐
-  let hot = req.query.hot == undefined ? null : req.query.hot // 热门
-  console.log(typeName, recommend)
-  mysql.query(`SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ?; SELECT * FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ? ORDER BY ? ? LIMIT ?, ?`,
-    [typeName, subtype, year, address, recommend, hot, typeName, subtype, year, address, recommend, hot, sortWhere, sortRule, fistPer, per_page], (err, results) => {
-      if (err) return console.log(err)
-      res.json({
-        code: '200',
-        data: results[1],
-        total: results[0][0].total,
-        per_page
-      })
+  let subtype = req.query.subtype == undefined ? '' : `AND subtype = ?`; // 子类型
+  let year = req.query.year == undefined ? '' : `AND year = ?`; // 年份
+  let address = req.query.address == undefined ? '' : `AND address = ?`; // 地区
+  let recommend = req.query.recommend == undefined ? '' : `AND recommend = ?`; // 推荐
+  let hot = req.query.hot == undefined ? '' : `AND hot = ?`; // 热门
+
+  let dataArr = [typeName]
+
+  req.query.subtype == undefined ? null : dataArr.push(req.query.subtype); // 子类型
+  req.query.year == undefined ? null : dataArr.push(req.query.year); // 年份
+  req.query.address == undefined ? null : dataArr.push(req.query.address); // 地区
+  req.query.recommend == undefined ? null : dataArr.push(req.query.recommend); // 推荐
+  req.query.hot == undefined ? null : dataArr.push(req.query.hot); // 热门
+  dataArr.push(sortWhere)
+  dataArr.push(sortRule)
+  dataArr.push(fistPer)
+  dataArr.push(per_page)
+  console.log(dataArr)
+  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
+  dataArr, (err, results) => {
+    if (err) return console.log(err)
+    // console.log(results)
+    res.json({
+      code: '200',
+      data: results
     })
+  })
+
 }
 
 // 查询多个影视(根据关键字搜索)

@@ -25,6 +25,9 @@ router.put(`${user}/:id(\\d+)`, controller.upUser)
 // 查询多个user
 router.get(user, controller.inquireUsers)
 
+// 登录
+router.post(`${user}/login`, controller.loginUser)
+
 
 // 暴露路由
 module.exports = router
