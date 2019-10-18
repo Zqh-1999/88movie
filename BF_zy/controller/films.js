@@ -175,10 +175,14 @@ module.exports.inquireFilmAll = (req, res) => {
   dataArr.push(fistPer)
   dataArr.push(per_page)
   console.log(dataArr)
-  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER ? ? LIMIT ?, ?`,
+  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
   dataArr, (err, results) => {
     if (err) return console.log(err)
-    console.log(results)
+    // console.log(results)
+    res.json({
+      code: '200',
+      data: results
+    })
   })
 
 }

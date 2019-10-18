@@ -24,11 +24,13 @@
     font-size: 1px;
 }
 .episode {
+    font-size: 14px;
     background-color: #333333;
 }
 
 .episode-left {
-    display: inline;
+    color: aliceblue;
+    display: inline-block;
 }
 
 .episode-left p {
@@ -47,6 +49,7 @@
     float: right;
     margin-right: 10px;
     color: aliceblue;
+
 }
 
 .common-on {
@@ -68,8 +71,11 @@
 
 .circle p {
     padding-left: 8px;
-    line-height: 70%;
+    padding-top: 10px;
 
+}
+.pagination{
+    text-align: center;
 }
 
 .commentguest {
@@ -253,7 +259,7 @@
 }
 
 .visitor-two {
-    margin-top: -17px;
+    margin-top: 0px;
     padding-left: 10px;
 }
 
@@ -454,9 +460,11 @@
     height: 200px;
 }
 .products-h1 {
-    margin-top: -30px;
     height: 25px;
     border-bottom: 1px dotted rgb(217, 217, 215);
+}
+.commone{
+    text-align: center;
 }
 .videourl li {
     float: left;
