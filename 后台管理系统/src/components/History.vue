@@ -2,18 +2,14 @@
   <div class="user-list">
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>会员查询</el-breadcrumb-item>
-      <el-breadcrumb-item>会员列表</el-breadcrumb-item>
+      <el-breadcrumb-item>历史查询</el-breadcrumb-item>
+      <el-breadcrumb-item>历史列表</el-breadcrumb-item>
     </el-breadcrumb>
     <el-card>
-      <el-table :data="huiList" style="width: 100%" border stripe>
-        <el-table-column prop="id" label="用户ID"></el-table-column>
-        <el-table-column prop="username" label="姓名"></el-table-column>
-        <el-table-column prop="phone" label="电话"></el-table-column>
-        <el-table-column prop="sex" label="性别"></el-table-column>
-        <el-table-column prop="order_num" label="会员编号"></el-table-column>
-        <el-table-column prop="start_time" label="会员开通"></el-table-column>
-        <el-table-column prop="end_time" label="会员过期"></el-table-column>
+      <el-table :data="historyList" style="width: 100%" border stripe>
+        <el-table-column prop="username" label="用户姓名"></el-table-column>
+        <el-table-column prop="film_name" label="影片名称"></el-table-column>
+        <el-table-column prop="add_time" label="观影时间"></el-table-column>
       </el-table>
     </el-card>
   </div>
@@ -24,23 +20,23 @@ import querystring from "querystring";
 export default {
   data() {
     return {
-      huiList: [],
+      historyList: [],
     };
   },
   methods: {
     // 获取用户数据列表
-    async gethuiList() {
-      const { data: res } = await this.$http.get("/recharge/all");
+    async gethistoryList() {
+      const { data: res } = await this.$http.get("/history/all");
       console.log(res);
       if (res.code == "200") {
-        this.huiList = res.data;
-        return this.$message.success("获取会员列表成功");
+        this.historyList = res.data;
+        return this.$message.success("获取历史列表成功");
       }
-      return this.$message.error("获取会员列表失败");
+      return this.$message.error("获取历史列表失败");
     }
   },
   created: function() {
-    this.gethuiList();
+    this.gethistoryList();
   }
 };
 </script>

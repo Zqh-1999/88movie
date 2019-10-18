@@ -227,7 +227,7 @@ export default {
       const { data: res } = await this.$http.get("/films/all", {
         params: this.queryInfo
       });
-      console.log(res);
+      // console.log(res);
       if (res.code == "200") {
         this.total = res.total;
         this.userList = res.data;
