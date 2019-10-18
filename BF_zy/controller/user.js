@@ -175,3 +175,30 @@ module.exports.inquireUsers = (req, res) => {
       })
   }
 }
+
+// 登录
+module.exports.loginUser = (req, res) => {
+  let name = req.body.username
+  let password = req.body.password
+  mysql.query(`SELECT * FROM ${user} WHERE username = ? AND password =?`, [name, password], (err, results) => {
+    if (err) return console.log(err)
+    // console.log(results)
+    if (results.length == 0) {
+      res.json({
+        code: '400',
+        msg: '账号或密码错误'
+      })
+    } else if (results.length == 1) {
+      res.json({
+        code: '200',
+        msg: '登陆成功',
+        token: 'asgfyug87y437rydbg8 g7823rgydslg[gejhgiweug'
+      })
+    } else {
+      res.json({
+        code: '10000',
+        msg: '未知错误'
+      })
+    }
+  })
+}
