@@ -2,7 +2,6 @@
 const mysql = require('../db/db')
 
 // 设置表名
-const recharge = 'cz_recharge';
 const user = 'cz_user';
 const order = "cz_order"
 
@@ -11,9 +10,19 @@ const order = "cz_order"
 // // 查询所有会员
 module.exports.inquirerechargeAll = (req, res) => {
     
-mysql.query(`select * from ${user} a INNER JOIN (select user_id,order_num from ${recharge} a INNER JOIN ${order} b  on a.order_id = b.id  where user_id in (select id from ${user} where state = 1) ) b on a.id=b.user_id where state = 1 `,(err,result)=>{
+mysql.query(`SELECT a.id,a.username,a.phone,a.head_img,a.sex,b.order_num,b.start_time,b.end_time FROM ${user} a INNER JOIN ${order} b ON a.id = b.user_id `,(err,result)=>{
     if(err)return console.log(err)
-    console.log(result)
+    if (result.length == 0) {
+              res.json({
+                code: '400',
+                msg: '没有查到任何信息',
+              })
+            } else {
+              res.json({
+                code: '200',
+                data: result
+              })
+            }
 })
 }
 

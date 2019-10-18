@@ -26,11 +26,11 @@
             </div>
             <div class="w3_search">
                 <form>
-                    <input type="text" name="Search" placeholder="Search" required="" class="btn">
-                    <input type="button" value="Go" class="btn">
+                    <input type="text" name="Search" placeholder="Search" required="" class="text_btn">
+                    <input type="button" value="搜索" class="btn">
                 </form>
             </div>
-            <div class="login"> <a href="javascript:;">Login</a>
+            <div class="login"> <a href="javascript:;">登录</a>
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -806,7 +806,10 @@
             $.ajax({
                 url: "http://127.0.0.1/api/v1/films/all",
                 type: "get",
-                data: "",
+                data: {
+                    type_name: '电视剧'
+
+                },
                 success: function (data) {
                     console.log(data)
                     let MovieHtml = template('movie_template', {
@@ -820,7 +823,7 @@
 
         // 搜索功能 
         $('.btn').on('click', function () {
-            var btn_val = $('.btn').val()
+            var btn_val = $('.text_btn').val()
             console.log(btn_val)
             $.ajax({
                 url: "http://127.0.0.1/api/v1/films",
@@ -830,7 +833,8 @@
                 },
                 success: function (data) {
                     console.log(data.data[0].id)
-                    location.href = `/movie/${data.data[0].id}`
+                    location.href = `/movie/${btn_val}`
+                    $('.text_btn').val('')
                 }
             })
         })

@@ -1,7 +1,7 @@
 .external {
     margin-bottom: 20px;
     padding: 0px;
-    background: #1c1c1c url(../Images/pload.gif) no-repeat scroll center center;
+    background: #1c1c1c scroll center center;
 }
 
 .common {
@@ -276,33 +276,12 @@
     margin: 0;
 }
 
-#ul {
-    font-size: 0;
-    font-family: Microsoft YaHei;
-    display: inline-block;
-}
-
-#ul li {
-    user-select: none;
-    list-style: none;
-    float: left;
-    padding: 10px;
-    font-size: 13px;
-    border: 1px solid #ccc;
-    margin: 10px;
-    cursor: pointer;
-    color: #585858;
-}
-
-#div {
-    width: 100%;
-    text-align: center;
-}
-
-#ul .background {
-    background: #39C6F4;
-    color: white;
-    border: 1px solid #39C6F4;
+.lunbo-shu{
+    position: relative;
+    top: 41px;
+    margin-left: 119px;
+    color: #a8a1a1;
+    font-size: 14px;
 }
 .synopsis{
     margin-top: 15px;
