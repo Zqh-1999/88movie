@@ -43,6 +43,7 @@
             </div>
         </div>
     </div>
+    <!-- 视频播放源集数 -->
     <div class="common">
         <div class="source">
             <ul class="cource_tab">
@@ -198,7 +199,21 @@
         <div class="recommend">
             <div class="title">除了<strong>"西行纪"</strong>你也可能喜欢以下影片</div>
             <ul class="recommend_list clearfix">
-                <li>
+                <!-- 影视推荐部分 -->
+                <script type="text/template" id="cates_template">
+        {{each list}}
+           <li><img src="{{$value.image_url}}" alt="">
+            <a href="#">
+                <div class="mask">
+                    <span>{{$value.film_name}}</span>
+                    <p>{{$value.star}</p>
+                    <p>{{$value.subtype}}</p>
+                    <p>{{$value.year}}</p>
+                </div>
+            </a></li>
+        {{/each}}
+      </script>
+                <!-- <li>
                     <a href="">
                         <img src="./image/156993180187486821.jpg" alt="">
                     </a>
@@ -354,30 +369,33 @@
                         <p class="time">2019/大陆</p>
                         <a href=""></a>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
     <!-- js部分 -->
-    <script>
-        var oBtn = document.querySelector('#btn');
-        var oDiv = document.getElementById('fei');
-        var total = document.querySelector('.fenye-top')
-        oDiv.style.display = "none";
-        oBtn.onclick = function () {
-            if (oDiv.style.display == 'none') {
-                oDiv.style.display = 'block'
-                total.style.display = 'none'
 
-            } else {
-                oDiv.style.display = 'none'
-                total.style.display = 'block'
-            }
-        }
+    <script>
+        // var oBtn = document.querySelector('#btn');
+        // var oDiv = document.getElementById('fei');
+        // var total = document.querySelector('.fenye-top')
+        // oDiv.style.display = "none";
+        // oBtn.onclick = function () {
+        //     if (oDiv.style.display == 'none') {
+        //         oDiv.style.display = 'block'
+        //         total.style.display = 'none'
+        //     } else {
+        //         oDiv.style.display = 'none'
+        //         total.style.display = 'block'
+        //     }
+        // }
     </script>
     <script src="/js/jquery-1.10.2.js"></script>
     <script src="/js/jquery-3.3.1.js"></script>
     <script src="/js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>
+
+
+
     <!-- 分页   -->
     <script type="text/javascript">
         $("#pager").zPager({
@@ -394,13 +412,17 @@
             console.log("当前页码数：" + currentPage);
         }
 
+        // 电影推荐
         const change = function () {
             $.ajax({
-                url: 'http://127.0.0.1/api/v1/message',
+                url: 'http://127.0.0.1/api/v1/films/all',
                 type: 'get',
-                data: "",
+                data: {
+                    type_name: '电影',
+                    recommend: 1
+                },
                 success: function (data) {
-                    // console.log(data);
+                    console.log(data);
                 }
             })
             // console.log(345)

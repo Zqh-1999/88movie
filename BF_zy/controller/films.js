@@ -161,10 +161,10 @@ module.exports.inquireFilmAll = (req, res) => {
   let address = req.query.address == undefined ? null : req.query.address; // 地区
   let recommend = req.query.recommend == undefined ? null : req.query.recommend // 推荐
   let hot = req.query.hot == undefined ? null : req.query.hot // 热门
-  mysql.query(`SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ?; SELECT * FROM ${filminfo} WHERE type_name = ? OR subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ? ORDER BY ? ? LIMIT ?, ?`,
-    [typeName, subtype, year, address, typeName, subtype, year, address, recommend, hot, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+  console.log(typeName, recommend)
+  mysql.query(`SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ?; SELECT * FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ? ORDER BY ? ? LIMIT ?, ?`,
+    [typeName, subtype, year, address, recommend, hot, typeName, subtype, year, address, recommend, hot, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
-      console.log(results[1])
       res.json({
         code: '200',
         data: results[1],
