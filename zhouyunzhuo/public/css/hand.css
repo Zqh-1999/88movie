@@ -582,14 +582,7 @@ body {
 
 
 /* 登录显示头像 */
-.register i {
-    display: inline-block;
+.register img{
     width: 30px;
     height: 30px;
-    /* background-color: red; */
-    position: relative;
-    top: 10px;
-    left: -5px;
-    border-radius: 15px;
-    border: 1px solid #ccc;
 }

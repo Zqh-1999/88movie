@@ -103,9 +103,7 @@
             </div>
             <!-- 登录按钮 -->
             <div class="register">
-                <i>
-                   <img src=" " alt=" " class="img-circle">
-                </i>
+                   <img src="" alt=" " class="img-circle">
                 <a href="javascript:;">登录</a>
             </div>
         </div>
@@ -308,6 +306,7 @@
 
             }
             var formdate = $('#user-signin').serialize();
+            console.log(formdate)
             $.ajax({
                 url: "http://127.0.0.1/api/v1/users/login",
                 type: 'post',
@@ -318,6 +317,7 @@
                         alert(data.msg)
                     } else {
                         $('.wrapper').css('display', 'none');
+                        $('.register img').attr('src',data.img)
                     }
                 }
             })
@@ -370,6 +370,7 @@
                     } else {
                         $('.form-signin').css('display', 'block');
                         $('.form-signin1').css('display', 'none');
+                        
                     }
                 }
             })
@@ -379,7 +380,12 @@
         // 获取历史信息
         $(document).ready(function () {
             $.ajax({
-                type:'get'
+                url:'http://127.0.0.1/api/v1/:id',
+                type:'get',
+                data:" ",
+                success:function(data){
+           console.log(data)
+                }
             })
         })
     </script>
