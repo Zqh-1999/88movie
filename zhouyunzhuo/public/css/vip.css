@@ -49,7 +49,7 @@
 
 .vip-tab-nav li div {
     padding: 4px 10px 5px;
-    height: 16px;
+    height: 25px;
     line-height: 16px;
     border-radius: 25px;
     text-align: center;
@@ -292,8 +292,9 @@
     width: 281px;
     height: 112px;
     text-align: center;
-    margin: 0 22px 10px 0;
-    display: inline-block;
+    margin: 0 25px 10px 0;
+    /* display: inline-block; */
+    float: left;
 }
 
 .honourable-authority {
@@ -676,7 +677,7 @@
 
 .film-int li {
     display: inline-block;
-    width: 210px;
+    width: 244px;
     padding-right: 34px;
 }
 

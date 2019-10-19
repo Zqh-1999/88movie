@@ -25,7 +25,6 @@ module.exports.addFilm = (req, res) => {
     director: req.body.director,
     channel: req.body.channel,
     type_name: req.body.type_name,
-    type_id: req.body.type_id,
     year: req.body.year,
     describe: req.body.describe,
     address: req.body.address,
@@ -119,7 +118,7 @@ module.exports.upFilm = (req, res) => {
     director: req.body.director,
     channel: req.body.channel,
     type_name: req.body.type_name,
-    type_id: req.body.type_id,
+    subtype: req.body.subtype,
     year: req.body.year,
     describe: req.body.describe,
     address: req.body.address,
@@ -128,6 +127,7 @@ module.exports.upFilm = (req, res) => {
     recommend: req.body.recommend,
     hot: req.body.hot,
   }
+  console.log(data)
   // 修改数据库的语句
   mysql.query(`UPDATE ${filminfo} SET ? WHERE id = ?`, [data, req.params.id], (err, results) => {
     if (err) return console.log(err)
@@ -179,7 +179,7 @@ module.exports.inquireFilmAll = (req, res) => {
   dataArr.push(sortRule)
   dataArr.push(fistPer)
   dataArr.push(per_page)
-  // console.log(dataArr)
+  console.log(dataArr)
   mysql.query(`SELECT COUNT(*) AS total FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot}; SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
     dataArr, (err, results) => {
       if (err) return console.log(err)
@@ -201,10 +201,10 @@ module.exports.inquireFilms = (req, res) => {
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'id'
   let sortRule = req.query.sortway || 'asc'
-  let keyWords = req.query.keywords == undefined ? '' : req.query.keywords
-  let keyWords1 = keyWords.length == 0 ? null : `%${keyWords}%`;
-  mysql.query(`SELECT count(*) as total FROM ${filminfo} WHERE film_name LIKE ?;SELECT * FROM ${filminfo} WHERE film_name LIKE ? OR star LIKE ? OR director LIKE ? ORDER BY ? ? LIMIT ?, ?`,
-    [keyWords1, keyWords1, keyWords1, keyWords1, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+  let  keyWords = req.query.keyWords
+  console.log(req.query)
+  mysql.query(`SELECT count(*) as total FROM ${filminfo} WHERE film_name LIKE ?;SELECT * FROM ${filminfo} WHERE film_name LIKE ? ORDER BY ? ? LIMIT ?, ?`,
+    [`%${keyWords}%`, `%${keyWords}%`, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       if (results.length == 0) {
         res.json({
@@ -226,8 +226,10 @@ module.exports.inquireFilms = (req, res) => {
 
 
 module.exports.inquireFilmallinfo = (req, res) => {
-  let dataARR = [req.query.page - 0, req.query.pageSize - 0]
-  mysql.query(`SELECT COUNT(*) total FROM ${filminfo} order by id desc; SELECT * FROM ${filminfo} order by id desc limit ?,?`, dataARR, (err, results) => {
+  let page = req.query.page - 0
+  let per_page = req.query.per_page - 0
+  let fistPage = (page-1) * per_page
+  mysql.query(`SELECT COUNT(*) total FROM ${filminfo} order by id asc; SELECT * FROM ${filminfo} order by id asc limit ?,?`, [fistPage, per_page], (err, results) => {
     if (err) console.log(err)
     res.json({
       code: 200,

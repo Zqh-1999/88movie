@@ -12,8 +12,8 @@
           <el-button type="primary" @click="addFormVisible=!addFormVisible">添加电影</el-button>
         </el-col>
         <el-col :span="10">
-          <el-input v-model="queryInfo.film_name" placeholder="请输入电影名">
-            <el-button slot="append" icon="el-icon-search" @click="getUserList"></el-button>
+          <el-input v-model="keyWords" placeholder="请输入电影名">
+            <el-button slot="append" icon="el-icon-search" @click="getFilmList2"></el-button>
           </el-input>
         </el-col>
       </el-row>
@@ -44,7 +44,7 @@
               type="danger"
               icon="el-icon-delete"
               size="mini"
-              @click="removeUser(scop.row.id)"
+              @click="removeFilm(scop.row.id)"
             ></el-button>
           </template>
         </el-table-column>
@@ -62,26 +62,26 @@
 
     <!-- 添加电影弹出框 -->
     <el-dialog title="添加电影" :visible.sync="addFormVisible" width="25%" @close="resetForm">
-      <el-form :model="addUser" :rules="addUserRules" ref="addUserRef" label-width="70px">
+      <el-form :model="addFilm" :rules="addFilmRules" ref="addFilmRef" label-width="70px">
         <el-form-item label="电影名" prop="film_name">
-          <el-input v-model="addUser.film_name"></el-input>
+          <el-input v-model="addFilm.film_name"></el-input>
         </el-form-item>
         <el-form-item label="电影封面" prop="image_url">
-          <el-input v-model="addUser.image_url"></el-input>
+          <el-input v-model="addFilm.image_url"></el-input>
         </el-form-item>
         <el-form-item label="电影链接" prop="url">
-          <el-input v-model="addUser.url"></el-input>
+          <el-input v-model="addFilm.url"></el-input>
         </el-form-item>
         <el-form-item label="评分" prop="score">
-          <el-input v-model="addUser.score"></el-input>
+          <el-input v-model="addFilm.score"></el-input>
         </el-form-item>
         <el-form-item label="演员" prop="star">
-          <el-input v-model="addUser.star"></el-input>
+          <el-input v-model="addFilm.star"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="addFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addUserM">确 定</el-button>
+        <el-button type="primary" @click="addFilmM">确 定</el-button>
       </span>
     </el-dialog>
     <!-- 编辑电影弹出框 -->
@@ -118,21 +118,22 @@ export default {
     return {
       queryInfo: {
         page: 1,
-        pageSize: 10
+        per_page: 10
       },
+      keyWords:"",
       userList: [],
       total: 0,
       // 添加电影弹框
       addFormVisible: false,
       // 添加电影数据
-      addUser: {
+      addFilm: {
         film_name: "",
         image_url: "",
         url: "",
         star: "",
         score: ""
       },
-      addUserRules: {
+      addFilmRules: {
         film_name: [
           {
             required: true,
@@ -157,14 +158,14 @@ export default {
         score: [
           {
             required: true,
-            message: "电影是否为会员",
+            message: "请输入电影评分",
             trigger: "blur"
           }
         ],
         star: [
           {
             required: true,
-            message: "请输入手机号",
+            message: "请输入演员名",
             trigger: "blur"
           }
         ]
@@ -205,14 +206,14 @@ export default {
         score: [
           {
             required: true,
-            message: "电影是否为会员",
+            message: "请输入电影评分",
             trigger: "blur"
           }
         ],
         star: [
           {
             required: true,
-            message: "请输入手机号",
+            message: "请输入演员名",
             trigger: "blur"
           }
         ]
@@ -222,11 +223,10 @@ export default {
   },
   methods: {
     // 获取电影数据
-    async getUserList() {
+    async getFilmList() {
       const { data: res } = await this.$http.get("/films/allinfo", {
         params: this.queryInfo
       });
-      console.log(res);
       if (res.code == "200") {
         this.total = res.total;
         this.userList = res.data;
@@ -237,11 +237,24 @@ export default {
     // 处理每页显示多少条数据变化
     handleSizeChange(size) {
       this.queryInfo.per_page = size;
-      this.getUserList();
+      this.getFilmList();
     },
     handleCurrentChange(num) {
       this.queryInfo.page = num;
-      this.getUserList();
+      this.getFilmList();
+    },
+
+ async getFilmList2() {
+      const { data: res } = await this.$http.get("/films", {
+        params: {keyWords:this.keyWords}
+      });
+      console.log(res)
+      if (res.code == "200") {
+        this.total = res.total;
+        this.userList = res.data;
+        return this.$message.success("获取电影列表成功");
+      }
+      return this.$message.error("获取电影列表失败");
     },
 
     async changescore(id, score, data) {
@@ -257,26 +270,26 @@ export default {
       }
     },
     resetForm() {
-      this.$refs.addUserRef.resetFields();
+      this.$refs.addFilmRef.resetFields();
     },
 
-    addUserM() {
-      this.$refs.addUserRef.validate(async valid => {
+    addFilmM() {
+      this.$refs.addFilmRef.validate(async valid => {
         if (!valid) return;
         const { data: res } = await this.$http.post(
-          "/users",
-          querystring.stringify(this.addUser)
+          "/films",
+          querystring.stringify(this.addFilm)
         );
         if (res.code !== "200") {
           this.$message.error("添加电影失败");
         }
 
-        this.getUserList();
+        this.getFilmList();
         this.$message.success("添加电影成功");
         this.addFormVisible = false;
       });
     },
-    async removeUser(id) {
+    async removeFilm(id) {
       let result = await this.$confirm("将永久删除该电影", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
@@ -286,10 +299,10 @@ export default {
       });
 
       if (result == "confirm") {
-        const { data: res } = await this.$http.delete(`/users/${id}`);
+        const { data: res } = await this.$http.delete(`/films/${id}`);
 
         if (res.code !== "200") return this.$message.error("电影删除失败");
-        this.getUserList();
+        this.getFilmList();
         this.$message.success("电影删除成功");
       } else if (result == "cancel") {
         this.$message({
@@ -301,7 +314,7 @@ export default {
 
     async getUserById(id) {
       this.editFormDialog = true;
-      const { data: res } = await this.$http.get(`/users/${id}`);
+      const { data: res } = await this.$http.get(`/films/${id}`);
       if (res.code !== "200") {
         return this.$message.error("获取电影信息失败");
       }
@@ -311,7 +324,7 @@ export default {
       this.$refs.editFormRef.validate(async valid => {
         if (!valid) return false;
         const { data: res } = await this.$http.put(
-          `users/${this.editForm.id}`,
+          `/films/${this.editForm.id}`,
           querystring.stringify(this.editForm)
         );
         console.log(res);
@@ -321,13 +334,13 @@ export default {
 
         this.editFormDialog = false;
         // 更新页面
-        this.getUserList();
+        this.getFilmList();
         this.$message.success("电影信息更新成功");
       });
     }
   },
   created: function() {
-    this.getUserList();
+    this.getFilmList();
   }
 };
 </script>

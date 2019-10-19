@@ -44,9 +44,8 @@ export default {
   data() {
     return {
       queryInfo: {
-        username: "",
         page: 1,
-        pagenum: 10
+        per_page: 10
       },
       pingList: [],
       total: 0,
@@ -55,7 +54,8 @@ export default {
   methods: {
     // 获取评论数据列表
     async getpingList() {
-      const { data: res } = await this.$http.get("/message");
+      const { data: res } = await this.$http.get("/message", {params:this.queryInfo});
+      console.log(res)
       if (res.code == "200") {
         this.total = res.total;
         this.pingList = res.data;
@@ -65,7 +65,7 @@ export default {
     },
     // 处理每页显示多少条数据变化
     handleSizeChange(size) {
-      this.queryInfo.pagenum = size;
+      this.queryInfo.per_page = size;
       this.getpingList();
     },
     handleCurrentChange(num) {
