@@ -101,7 +101,7 @@
                             <script type="text/template" id="users_template">
                                     {{each list}}
                                     {{list}} 
-                                      <li>{{}}</li>
+                                      <li>{{$value.film_name}}</li>
                                     {{/each}}
                             </script>
                         </dd>
@@ -253,7 +253,7 @@
     <script src="/js/hand.js"></script>
     <script src="/js/img.js"></script>
     <script src="/js/bootstrapValidator.min.js"></script>
-
+    <script src="/js/template/template.js"></script>
     <script>
         $(function () {
             var img2 = new ImgUpload('.imgLog2', 100, 100, 100);
@@ -328,7 +328,7 @@
                     } else {
                         $('.wrapper').css('display', 'none');
                         $('.register img').attr('src', data.data[0].head_img);
-                        $('.form-control').val('  ')
+                        $('.form-control').val('')
                         alert(data.msg);
                         $.ajax({
                             url: `http://127.0.0.1/api/v1/history/${data.data[0].id}`,
@@ -337,9 +337,10 @@
                             success: function (data) {
                                 console.log(data)
                                 let usersStr = template('users_template', {
-                                    list: data.film_id
+                                    list: data.data
                                 });
                                 console.log(usersStr)
+                                $('.history dd').html(usersStr)
                             }
                         })
                     }
