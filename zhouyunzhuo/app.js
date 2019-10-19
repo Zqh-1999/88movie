@@ -18,6 +18,7 @@ app.use(routerVip)
 const ejs=require('ejs')
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views')
+
 app.listen(8000, () => {
     console.log('http://127.0.0.1:8000');
 })
