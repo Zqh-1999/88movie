@@ -812,9 +812,9 @@
 
                 },
                 success: function (data) {
-                    console.log(data.data[1])
+                    console.log(data.data)
                     let MovieHtml = template('movie_template', {
-                        list: data.data[1]
+                        list: data.data
                     })
                     $('.news_movie_temp ').html(MovieHtml)
                 }
@@ -831,7 +831,7 @@
                 success: function (data) {
                     // console.log(data.data.id)
                     let MovieHtml = template('series_template', {
-                        list: data.data[1]
+                        list: data.data
                     })
                     $('.news_serices_temp').html(MovieHtml)
                 }
@@ -847,7 +847,7 @@
                 success: function (data) {
                     // console.log(data.data.id)
                     let MovieHtml = template('Variety_template', {
-                        list: data.data[1]
+                        list: data.data
                     })
                     $('.news_Variety_temp ').html(MovieHtml)
                 }

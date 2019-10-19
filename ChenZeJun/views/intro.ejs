@@ -56,8 +56,8 @@
                                 <li><a href="#">其他剧</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">vip精彩</a></li>
-                        <li><a href="#">综艺 <i class="trian"></i> <i class="trian2"></i></a>
+                        <li><a href="/vip">vip精彩</a></li>
+                        <li><a href="javaScript:">综艺 <i class="trian"></i> <i class="trian2"></i></a>
                             <!-- 下拉框 -->
                             <ul class="classify-hide">
                                 <span>通知1: <i>最近由于神秘力量，可能会导致88ys.cc无法访问，请牢记88影视网备用地址：88ys.com</i></span>
@@ -171,7 +171,7 @@
                     <div class="look">
                         <script type="text/template" id="btn_template">
                             {{each}}
-                            <a href="">{{list.film_name}}在线观看</a>
+                            <a href="/replay">{{list.film_name}}在线观看</a>
                                 {{/each}}
                         </script>
                     </div>
@@ -268,9 +268,9 @@
 
                 },
                 success: function (data) {
-                    console.log(data.data[1])
+                    console.log(data.data)
                     let recommend_template = template('recommend_list_template', {
-                        list: data.data[1]
+                        list: data.data
                     })
                     $('.recommend_list').html(recommend_template)
                 }

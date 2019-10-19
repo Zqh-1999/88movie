@@ -118,7 +118,7 @@ export default {
     return {
       queryInfo: {
         page: 1,
-        pageSize: 10
+        per_page: 10
       },
       userList: [],
       total: 0,
@@ -226,7 +226,6 @@ export default {
       const { data: res } = await this.$http.get("/films/allinfo", {
         params: this.queryInfo
       });
-      console.log(res);
       if (res.code == "200") {
         this.total = res.total;
         this.userList = res.data;
