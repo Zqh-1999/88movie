@@ -179,7 +179,7 @@ module.exports.inquireFilmAll = (req, res) => {
   dataArr.push(sortRule)
   dataArr.push(fistPer)
   dataArr.push(per_page)
-  // console.log(dataArr)
+  console.log(dataArr)
   mysql.query(`SELECT COUNT(*) AS total FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot}; SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
     dataArr, (err, results) => {
       if (err) return console.log(err)
@@ -226,8 +226,10 @@ module.exports.inquireFilms = (req, res) => {
 
 
 module.exports.inquireFilmallinfo = (req, res) => {
-  let dataARR = [req.query.page - 0, req.query.pageSize - 0]
-  mysql.query(`SELECT COUNT(*) total FROM ${filminfo} order by id desc; SELECT * FROM ${filminfo} order by id desc limit ?,?`, dataARR, (err, results) => {
+  let page = req.query.page - 0
+  let per_page = req.query.per_page - 0
+  let fistPage = (page-1) * per_page
+  mysql.query(`SELECT COUNT(*) total FROM ${filminfo} order by id asc; SELECT * FROM ${filminfo} order by id asc limit ?,?`, [fistPage, per_page], (err, results) => {
     if (err) console.log(err)
     res.json({
       code: 200,
