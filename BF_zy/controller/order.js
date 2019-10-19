@@ -3,6 +3,7 @@ const mysql = require('../db/db')
 
 // 设置表名
 const order = 'cz_order'
+const user  = "cz_user"
 
 // 添加order
 module.exports.addOrder = (req, res) => {
@@ -118,13 +119,13 @@ module.exports.inquireOrders = (req, res) => {
   let page = req.query.page || 1
   let pagenum = req.query.pagenum - 0 || 5
   let fistPer = (page - 1) * pagenum - 0
-  let keyWords = req.query.keyWords == undefined ? '' : `WHERE user_id = (SELECT user_id FROM cz_user WHERE username LIKE "%?%")`
+  let keyWords = req.query.keyWords == undefined ? '' : `where user_id = (SELECT user_id FROM cz_user WHERE username LIKE "%?%")`
   let dataArr = []
   req.query.keyWords == undefined ? '' : dataArr.push(req.query.keyWords)
   req.query.keyWords == undefined ? '' : dataArr.push(req.query.keyWords)
   dataArr.push(fistPer)
   dataArr.push(pagenum)
-  mysql.query(`SELECT COUNT(*) total FROM ${order} ${keyWords}; SELECT * FROM ${order} ${keyWords} LIMIT ?, ?`, dataArr, (err, results) => {
+  mysql.query(`SELECT COUNT(*) total FROM ${order} ${keyWords}; SELECT a.*,b.username FROM ${order} a inner join ${userr} b on a.user_id = b.id ${keyWords} LIMIT ?, ?`, dataArr, (err, results) => {
     if (err) return console.log(err)
     res.json({
       code: 200,
