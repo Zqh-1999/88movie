@@ -314,15 +314,13 @@
 
             }
             var formdate = $('#user-signin').serialize();
-            console.log(formdate)
+            // console.log(formdate)
             $.ajax({
                 url: "http://127.0.0.1/api/v1/users/login",
                 type: 'post',
                 data: formdate,
                 success: function (data) {
-                    // console.log(data)
-                    // console.log(data.data[0].head_img);
-                    // console.log(data.data[0].id)
+                    console.log(data)
                     if (data.code == '400') {
                         alert(data.msg)
                     } else {
@@ -330,6 +328,15 @@
                         $('.register img').attr('src', data.data[0].head_img);
                         $('.form-control').val('')
                         alert(data.msg);
+                        $('.movie-title a').on('click', function () {
+                            console.log(1)
+                            if (data.data[0].state == '1') {
+                                location.href = "/in";
+                            } else {
+                                alert('请注册vip')
+                            }
+                        })
+
                         $.ajax({
                             url: `http://127.0.0.1/api/v1/history/${data.data[0].id}`,
                             type: 'get',
@@ -339,8 +346,9 @@
                                 let usersStr = template('users_template', {
                                     list: data.data
                                 });
-                                console.log(usersStr)
-                                $('.history dd').html(usersStr)
+                                // console.log(usersStr)
+                                $('.history dd').html(usersStr);
+
                             }
                         })
                     }
@@ -401,8 +409,26 @@
             })
         })
 
+        // 搜索
+        $('.sub').on('click', function () {
+            var formdate = $('.ss').val();
+            console.log(formdate)
+            $.ajax({
+                url: `http://127.0.0.1/api/v1/films/`,
+                type: 'get',
+                data: {
+                    keyWords:formdate
+                },
+               success:function(data){
+                   console.log(data);
+                   if(data.code){
+                       
+                   }
+               }
+                
+            })
+        })
 
- 
     </script>
 
 </body>
