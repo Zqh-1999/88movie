@@ -182,14 +182,15 @@ module.exports.inquireFilmAll = (req, res) => {
   dataArr.push(per_page)
   // console.log(dataArr)
   mysql.query(`SELECT COUNT(*) AS total FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot}; SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
-  dataArr, (err, results) => {
-    if (err) return console.log(err)
-    console.log(results)
-    res.json({
-      code: '200',
-      data: results
+    dataArr, (err, results) => {
+      if (err) return console.log(err)
+      console.log(results)
+      res.json({
+        code: '200',
+        data: results[1],
+        total: results[0][0].total
+      })
     })
-  })
 
 }
 
@@ -213,7 +214,8 @@ module.exports.inquireFilms = (req, res) => {
       } else {
         res.json({
           code: '200',
-          data: results,
+          data: results[1],
+          total: results[0][0].total
         })
       }
     })
@@ -222,13 +224,14 @@ module.exports.inquireFilms = (req, res) => {
 
 
 
-module.exports.inquireFilmallinfo=(req,res)=>{
-let dataARR = [req.query.page-0, req.query.pageSize-0]
-  mysql.query(`SELECT * FROM ${filminfo} order by id desc limit ?,?`, dataARR ,(err, results) => {
+module.exports.inquireFilmallinfo = (req, res) => {
+  let dataARR = [req.query.page - 0, req.query.pageSize - 0]
+  mysql.query(`SELECT COUNT(*) total FROM ${filminfo} order by id desc; SELECT * FROM ${filminfo} order by id desc limit ?,?`, dataARR, (err, results) => {
     if (err) console.log(err)
     res.json({
       code: 200,
-     data:results
+      data: results[1],
+      total: results[0][0].total
     })
   })
 }
