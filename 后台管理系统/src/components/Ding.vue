@@ -9,7 +9,7 @@
       <!-- layout组件 -->
       <el-row :gutter="20">
         <el-col :span="10">
-          <el-input v-model="queryInfo.username" placeholder="请输入用户名">
+          <el-input v-model="queryInfo.keyWords" placeholder="请输入用户名">
             <el-button slot="append" icon="el-icon-search" @click="getDingList"></el-button>
           </el-input>
         </el-col>
@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       queryInfo: {
-        username: "",
+        keyWords: "",
         page: 1,
         pagenum: 10
       },

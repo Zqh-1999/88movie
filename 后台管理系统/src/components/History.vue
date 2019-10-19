@@ -23,12 +23,17 @@ export default {
   data() {
     return {
       historyList: [],
+      queryInfo: {
+        username: "",
+        page: 1,
+        pagenum: 10
+      }
     };
   },
   methods: {
     // 获取用户数据列表
     async gethistoryList() {
-      const { data: res } = await this.$http.get("/history/all");
+      const { data: res } = await this.$http.get("/history/all",{params:this.queryInfo});
       console.log(res);
       if (res.code == "200") {
         this.historyList = res.data;
