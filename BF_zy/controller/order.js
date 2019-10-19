@@ -120,15 +120,15 @@ module.exports.inquireOrders = (req, res) => {
   let fistPer = (page - 1) * pagenum - 0
   let sortWhere = req.query.sorty || 'add_time'
   let sortRule = req.query.sortway || 'asc'
-  if (req.query.ordername.length == 0) {
-    mysql.query(`SELECT * FROM ${order} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
-      if (err) return console.log(err)
-      res.json({
-        code: '200',
-        data: results,
-      })
-    })
-  } else {
+  // if (req.query.ordername.length == 0) {
+  //   mysql.query(`SELECT * FROM ${order} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
+  //     if (err) return console.log(err)
+  //     res.json({
+  //       code: '200',
+  //       data: results,
+  //     })
+  //   })
+  // } else {
     mysql.query(`SELECT * FROM ${order} WHERE ordername like ? or phone like ? order by ? ? limit ?, ?`,
       [req.query.ordername.length == 0 ? null : `%${req.query.ordername}%`, req.query.phone.length == 0 ? null : `%${req.query.phone}%`, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
         if (err) return console.log(err)
@@ -143,5 +143,5 @@ module.exports.inquireOrders = (req, res) => {
           })
         }
       })
-  }
+  // }
 }
