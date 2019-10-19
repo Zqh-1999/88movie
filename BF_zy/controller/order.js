@@ -126,7 +126,6 @@ module.exports.inquireOrders = (req, res) => {
       res.json({
         code: '200',
         data: results,
-        total: results.length
       })
     })
   } else {
@@ -136,13 +135,11 @@ module.exports.inquireOrders = (req, res) => {
         if (results.length == 0) {
           res.json({
             code: '400',
-            data: '抱歉,没有此信息'
           })
         } else {
           res.json({
             code: '200',
             data: results,
-            total: results.length
           })
         }
       })
