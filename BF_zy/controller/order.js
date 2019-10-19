@@ -3,6 +3,7 @@ const mysql = require('../db/db')
 
 // 设置表名
 const order = 'cz_order'
+const user  = "cz_user"
 
 // 添加order
 module.exports.addOrder = (req, res) => {
@@ -113,35 +114,24 @@ module.exports.inquireOrder = (req, res) => {
   })
 }
 
-// 查询多个order
+// 查询所有order(关键字)
 module.exports.inquireOrders = (req, res) => {
   let page = req.query.page || 1
   let pagenum = req.query.pagenum - 0 || 5
   let fistPer = (page - 1) * pagenum - 0
-  let sortWhere = req.query.sorty || 'add_time'
-  let sortRule = req.query.sortway || 'asc'
-  if (req.query.ordername.length == 0) {
-    mysql.query(`SELECT * FROM ${order} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
-      if (err) return console.log(err)
-      res.json({
-        code: '200',
-        data: results,
-      })
+  let keyWords = req.query.keyWords == undefined ? '' : `where user_id = (SELECT user_id FROM cz_user WHERE username LIKE "%?%")`
+  let dataArr = []
+  req.query.keyWords == undefined ? '' : dataArr.push(req.query.keyWords)
+  req.query.keyWords == undefined ? '' : dataArr.push(req.query.keyWords)
+  dataArr.push(fistPer)
+  dataArr.push(pagenum)
+  mysql.query(`SELECT COUNT(*) total FROM ${order} ${keyWords}; SELECT a.*,b.username FROM ${order} a inner join ${user} b on a.user_id = b.id ${keyWords} LIMIT ?, ?`, dataArr, (err, results) => {
+    if (err) return console.log(err)
+    res.json({
+      code: 200,
+      data: results[1],
+      total: results[0][0].total,
+      pagenum
     })
-  } else {
-    mysql.query(`SELECT * FROM ${order} WHERE ordername like ? or phone like ? order by ? ? limit ?, ?`,
-      [req.query.ordername.length == 0 ? null : `%${req.query.ordername}%`, req.query.phone.length == 0 ? null : `%${req.query.phone}%`, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
-        if (err) return console.log(err)
-        if (results.length == 0) {
-          res.json({
-            code: '400',
-          })
-        } else {
-          res.json({
-            code: '200',
-            data: results,
-          })
-        }
-      })
-  }
+  })
 }

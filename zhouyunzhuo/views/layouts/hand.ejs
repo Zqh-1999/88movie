@@ -97,7 +97,14 @@
                             |
                             <a href="javascript:;" value="关闭">关闭</a>
                         </dt>
-                        <dd>暂无观看记录</dd>
+                        <dd>
+                            <script type="text/template" id="users_template">
+                                    {{each list}}
+                                    {{list}} 
+                                      <li>{{}}</li>
+                                    {{/each}}
+                            </script>
+                        </dd>
                     </dl>
                 </li>
             </div>
@@ -128,9 +135,9 @@
                             <p>¥198</p>
                         </li>
                         <li>
-                            <p>¥ <span class="as">45.00</span></p>
+                            <p>¥ <span class="as">15.00</span></p>
                             <p>/连续包季</p>
-                            <p>¥58</p>
+                            <p>¥15</p>
                         </li>
                         <li>
                             <p>¥ <span class="as">6.00</span></p>
@@ -266,7 +273,8 @@
             $(".wrapper").css('display', 'block')
         })
         $('.guanbi').on('click', function () {
-            $(".wrapper").css('display', 'none')
+            $(".wrapper").css('display', 'none');
+            $('.form-control').val('')
         })
         $('.btn-login').on('click', function () {
             var reg = /^[a-zA-Z]\S+/;
@@ -277,7 +285,7 @@
                 $('.nameVal').html("<i> </i>");
 
             }
-            if ($('#name').val().length < 6 || $('#name').val().length > 18) {
+            if ($('#name').val().length < 2 || $('#name').val().length > 18) {
                 $('.nameVal').html("<i>用户名长度大于6小于18!</i>");
                 return
             } else {
@@ -320,12 +328,18 @@
                     } else {
                         $('.wrapper').css('display', 'none');
                         $('.register img').attr('src', data.data[0].head_img);
+                        $('.form-control').val('  ')
+                        alert(data.msg);
                         $.ajax({
                             url: `http://127.0.0.1/api/v1/history/${data.data[0].id}`,
                             type: 'get',
                             data: " ",
                             success: function (data) {
                                 console.log(data)
+                                let usersStr = template('users_template', {
+                                    list: data.film_id
+                                });
+                                console.log(usersStr)
                             }
                         })
                     }
@@ -387,17 +401,7 @@
         })
 
 
-        // 获取历史信息
-        // $(document).ready(function () {
-        //     $.ajax({
-        //         url: 'http://127.0.0.1/api/v1/:id',
-        //         type: 'get',
-        //         data: " ",
-        //         success: function (data) {
-        //             console.log(data)
-        //         }
-        //     })
-        // })
+ 
     </script>
 
 </body>

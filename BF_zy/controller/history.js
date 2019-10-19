@@ -72,7 +72,7 @@ module.exports.deleteHistory = (req, res) => {
 module.exports.inquireHistory = (req, res) => {
   // 查询单个ID/回显history的sql语句
   console.log(req.params.id)
-  mysql.query(`SELECT * FROM ${history} WHERE user_id = ?`, req.params.id, (err, results) => {
+  mysql.query(`SELECT b.film_name,a.* FROM ${history} a inner join ${filminfo} b on a.film_id = b.id WHERE user_id = ?`, req.params.id, (err, results) => {
     if (err) return console.log(err)
     if (results.length == 0) {
       res.json({
