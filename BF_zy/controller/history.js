@@ -2,7 +2,10 @@
 const mysql = require('../db/db')
 
 // 设置表名
-const history = 'cz_history'
+const history = 'cz_history';
+const user = "cz_user";
+const filminfo = "ca_filminfo"
+
 
 // 添加history
 module.exports.addHistory = (req, res) => {
@@ -80,6 +83,31 @@ module.exports.inquireHistory = (req, res) => {
       res.json({
         code: '200',
         data: results
+      })
+    }
+  })
+}
+// SELECT username,film_name,add_time FROM cz_user a INNER JOIN cz_history b on a.id = b.user_id INNER JOIN ca_filminfo c on b.film_id = c.id
+
+module.exports.inquireHistorys = (req, res) => {
+  let page = req.query.page || 1
+  let pagenum = req.query.pagenum - 0 || 5
+  let fistPer = (page - 1) * pagenum - 0
+  let sortWhere = req.query.sorty || 'add_time'
+  let sortRule = req.query.sortway || 'asc'
+  mysql.query(`SELECT username,film_name,b.add_time FROM ${user} a INNER JOIN ${history} b on a.id = b.user_id INNER JOIN ${filminfo} c on b.film_id = c.id`, (err, results) => {
+    if (err) return console.log(err)
+    // console.log(results)
+    if (results.length == 0) {
+      res.json({
+        code: '400',
+        data: '抱歉,没有此信息'
+      })
+    } else {
+      res.json({
+        code: '200',
+        data: results,
+        total: results.length
       })
     }
   })

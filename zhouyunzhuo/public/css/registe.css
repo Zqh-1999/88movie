@@ -2,13 +2,12 @@
 .hide-center {
     width:557px;
 	height:520px;
-	position:absolute;
-	right:0;
-	left:0;
-	bottom:0;
-	top:0;
+	position:fixed;
+	right: 655px;
+	top:200px;
 	margin:auto;
-	z-index:1;
+    z-index:1;
+    /* display: none; */
 }
 /* 头部样式 */
 .hide-center #formhead {
@@ -23,11 +22,11 @@
 }
 /* 标题样式 */
 .hide-center #formhead-title {
-    width: 119px;
+    width: 167px;
     height: 24px;
     line-height: 24px;
-    margin-left: 240px;
-    margin-right: 144px;
+    margin-left: 215px;
+    margin-right: 130px;
     color: #bfbfbf;
     font-weight: 900;
     display: inline-block;
@@ -152,7 +151,7 @@
 /* 上传头像 */
 .loginHead_img{
     height: 40px;
-    width: 373px;
+    width: 390px;
     line-height: 40px;
     background-color: #141414;
     border-radius: 10px;
@@ -177,7 +176,7 @@
 }
 .Other_login .last_step{
 	color: #c5c2c2b4;  
-	padding-right: 336px;
+	/* padding-right: 336px; */
 	padding-left: 20px;
 }
 .Other_login .Text_login{

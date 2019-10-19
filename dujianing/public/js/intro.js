@@ -3,22 +3,19 @@ $('.cource_tab li').click(function () {
   $('.products .main').eq($(this).index()).addClass('selected').siblings('div').removeClass('selected')
 })
 
-
 var nav = document.querySelector(".intro_explain");
 var con = document.querySelector(".conceal");
 con.onclick = function () {
   if (con.innerHTML = "展开") {
-  con.innerHTML = "隐藏";
+    con.innerHTML = "隐藏";
   }
 }
-
-
 $('.btn-dow').on('click', function () {
   let id = $(this).data('id');
   $.ajax({
     type: 'get',
     url: '/admin/login',
-    data: {id: id},
+    data: { id: id },
     success: function (data) {
       if (data.code == '1201') {
         alert(data.message);
@@ -28,6 +25,7 @@ $('.btn-dow').on('click', function () {
     }
   })
 })
+
 // #endregion
 
 
