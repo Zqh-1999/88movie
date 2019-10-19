@@ -22,7 +22,15 @@
     }
     var close = document.querySelector('.close');
     close.onclick = function () {
-        vipbox.style.display = 'none'
+        setTimeout(function () {
+            vipbox.style.display = 'none';
+        }, 1000);
+        skena = window.sessionStorage.getItem("sken");
+        console.log(skena)
+        $.ajax({
+            url: "http://127.0.0.1/api/v1/history/order",
+            type: 'get',
+        })
     }
 })();
 
