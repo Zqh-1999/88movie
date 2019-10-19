@@ -25,6 +25,7 @@ module.exports.addFilm = (req, res) => {
     director: req.body.director,
     channel: req.body.channel,
     type_name: req.body.type_name,
+    type_id: req.body.type_id,
     year: req.body.year,
     describe: req.body.describe,
     address: req.body.address,
