@@ -125,7 +125,7 @@ module.exports.inquireOrders = (req, res) => {
   req.query.keyWords == undefined ? '' : dataArr.push(req.query.keyWords)
   dataArr.push(fistPer)
   dataArr.push(pagenum)
-  mysql.query(`SELECT COUNT(*) total FROM ${order} ${keyWords}; SELECT a.*,b.username FROM ${order} a inner join ${userr} b on a.user_id = b.id ${keyWords} LIMIT ?, ?`, dataArr, (err, results) => {
+  mysql.query(`SELECT COUNT(*) total FROM ${order} ${keyWords}; SELECT a.*,b.username FROM ${order} a inner join ${user} b on a.user_id = b.id ${keyWords} LIMIT ?, ?`, dataArr, (err, results) => {
     if (err) return console.log(err)
     res.json({
       code: 200,
