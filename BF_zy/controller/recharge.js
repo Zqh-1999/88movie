@@ -9,7 +9,7 @@ const order = "cz_order"
 
 // // 查询所有会员
 module.exports.inquirerechargeAll = (req, res) => {
-  mysql.query(`SELECT a.id,a.username,a.phone,a.head_img,a.sex,b.order_num,b.start_time,b.end_time FROM ${user} a INNER JOIN ${order} b ON a.id = b.user_id `, (err, result) => {
+  mysql.query(`SELECT a.id,a.username,a.phone,a.head_img,a.sex,b.order_num,b.start_time,b.end_time FROM ${user} a INNER JOIN ${order} b ON a.id = b.user_id where a.state='1' `, (err, result) => {
     if (err) return console.log(err)
     if (result.length == 0) {
       res.json({
