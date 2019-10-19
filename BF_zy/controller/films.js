@@ -147,8 +147,7 @@ module.exports.upFilm = (req, res) => {
     }
   })
 }
-// SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ?;
-// typeName, subtype, year, address, recommend, hot, 
+
 // 查询所有影视
 module.exports.inquireFilmAll = (req, res) => {
   let page = req.query.page || 1
@@ -188,7 +187,8 @@ module.exports.inquireFilmAll = (req, res) => {
       res.json({
         code: '200',
         data: results[1],
-        total: results[0][0].total
+        total: results[0][0].total,
+        per_page
       })
     })
 
@@ -215,7 +215,8 @@ module.exports.inquireFilms = (req, res) => {
         res.json({
           code: '200',
           data: results[1],
-          total: results[0][0].total
+          total: results[0][0].total,
+          per_page
         })
       }
     })
@@ -231,7 +232,8 @@ module.exports.inquireFilmallinfo = (req, res) => {
     res.json({
       code: 200,
       data: results[1],
-      total: results[0][0].total
+      total: results[0][0].total,
+      per_page
     })
   })
 }
