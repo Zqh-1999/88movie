@@ -54,7 +54,7 @@ export default {
   methods: {
     // 获取评论数据列表
     async getpingList() {
-      const { data: res } = await this.$http.get("/message", this.queryInfo);
+      const { data: res } = await this.$http.get("/message", {params:this.queryInfo});
       console.log(res)
       if (res.code == "200") {
         this.total = res.total;

@@ -12,7 +12,7 @@
           <el-button type="primary" @click="addFormVisible=!addFormVisible">添加电影</el-button>
         </el-col>
         <el-col :span="10">
-          <el-input v-model="film_name" placeholder="请输入电影名">
+          <el-input v-model="keyWords" placeholder="请输入电影名">
             <el-button slot="append" icon="el-icon-search" @click="getFilmList2"></el-button>
           </el-input>
         </el-col>
@@ -120,7 +120,7 @@ export default {
         page: 1,
         per_page: 10
       },
-      film_name:"",
+      keyWords:"",
       userList: [],
       total: 0,
       // 添加电影弹框
@@ -246,7 +246,7 @@ export default {
 
  async getFilmList2() {
       const { data: res } = await this.$http.get("/films", {
-        keyWords: this.film_name
+        params: {keyWords:this.keyWords}
       });
       console.log(res)
       if (res.code == "200") {
