@@ -48,14 +48,16 @@ export default {
         per_page: 10
       },
       pingList: [],
-      total: 0,
+      total: 0
     };
   },
   methods: {
     // 获取评论数据列表
     async getpingList() {
-      const { data: res } = await this.$http.get("/message", {params:this.queryInfo});
-      console.log(res)
+      const { data: res } = await this.$http.get("/message", {
+        params: this.queryInfo
+      });
+      console.log(res);
       if (res.code == "200") {
         this.total = res.total;
         this.pingList = res.data;
@@ -94,7 +96,7 @@ export default {
           message: "已取消删除"
         });
       }
-    },
+    }
   },
   created: function() {
     this.getpingList();

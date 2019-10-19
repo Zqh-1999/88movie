@@ -22,7 +22,7 @@ router.delete(`${order}/:id(\\d+)`, controller.deleteOrders)
 // 查询单个/回显order
 router.get(`${order}/:id(\\d+)`, controller.inquireOrder)
 
-// 查询多个order
+// 查询所有order(关键字)
 router.get(order, controller.inquireOrders)
 
 
