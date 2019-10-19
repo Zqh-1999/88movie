@@ -138,7 +138,7 @@
 
                         $('.movie-title a').on('click', function () {
                             if (data.data[0].state == '1') {
-                                location.href = "/in";
+                                location.href = "/replay";
                             } else {
                                 alert('请注册vip')
                             }
@@ -149,12 +149,15 @@
                             type: 'get',
                             data: " ",
                             success: function (data) {
-                                console.log(data)
-                                let usersStr = template('users_template', {
+                                // console.log(data)
+                                if(data.code=='200'){
+                                    let usersStr = template('users_template', {
                                     list: data.data
                                 });
                                 $('.history dd').html(usersStr);
 
+                                }
+                                
                             }
                         })
                     }
