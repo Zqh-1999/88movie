@@ -255,7 +255,6 @@ export default {
         return this.$message.success("获取电影列表成功");
       }
       return this.$message.error("获取电影列表失败");
-    }
     },
 
     async changescore(id, score, data) {
