@@ -124,7 +124,7 @@ module.exports.inquireOrders = (req, res) => {
   req.query.keyWords == undefined ? '' : dataArr.push(req.query.keyWords)
   dataArr.push(fistPer)
   dataArr.push(pagenum)
-  mysql.query(`SELECT COUNT(*) total FROM ${order} ${keyWords}; SELECT COUNT(*) FROM ${order} ${keyWords} LIMIT ?, ?`, dataArr, (err, results) => {
+  mysql.query(`SELECT COUNT(*) total FROM ${order} ${keyWords}; SELECT * FROM ${order} ${keyWords} LIMIT ?, ?`, dataArr, (err, results) => {
     if (err) return console.log(err)
     res.json({
       code: 200,
