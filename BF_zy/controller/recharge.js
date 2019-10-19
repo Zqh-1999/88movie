@@ -9,21 +9,20 @@ const order = "cz_order"
 
 // // 查询所有会员
 module.exports.inquirerechargeAll = (req, res) => {
-    
-mysql.query(`SELECT a.id,a.username,a.phone,a.head_img,a.sex,b.order_num,b.start_time,b.end_time FROM ${user} a INNER JOIN ${order} b ON a.id = b.user_id `,(err,result)=>{
-    if(err)return console.log(err)
+  mysql.query(`SELECT a.id,a.username,a.phone,a.head_img,a.sex,b.order_num,b.start_time,b.end_time FROM ${user} a INNER JOIN ${order} b ON a.id = b.user_id `, (err, result) => {
+    if (err) return console.log(err)
     if (result.length == 0) {
-              res.json({
-                code: '400',
-                msg: '没有查到任何信息',
-              })
-            } else {
-              res.json({
-                code: '200',
-                data: result
-              })
-            }
-})
+      res.json({
+        code: '400',
+        msg: '没有查到任何信息',
+      })
+    } else {
+      res.json({
+        code: '200',
+        data: result
+      })
+    }
+  })
 }
 
 // // 查询多个会员(根据关键字搜索)
@@ -55,40 +54,48 @@ mysql.query(`SELECT a.id,a.username,a.phone,a.head_img,a.sex,b.order_num,b.start
 
 
 // 添加会员
-// module.exports.addrecharge = (req, res) => {
-//   let myDate = new Date()
-//   // 获取前端数据
-//   let data = {
-//     user_id: req.body.user_id,
-//     order_id: req.body.order_id,
-//     start_time: req.body.start_time-0 || myDate.getTime(),
-//     end_time: req.body.start_time-0 + 43200,
-//   }
-//   console.log(data)
+module.exports.addrecharge = (req, res) => {
+  let myDate = new Date()
+  let mouns = req.body.money / 5
+  // 获取前端数据
+  let data = {
+    order_num: myDate.getTime() / 1000,
+    add_time: myDate.getTime(),
+    money: req.body.money,
+    state: 1,
+    user_id: req.body.user_id,
+    start_time: myDate.getTime(),
+    end_time: myDate.getTime() + 2592000 * mouns,
+  }
   // 插入数据库的语句
-//   mysql.query(`INSERT INTO ${recharge} SET ?`, data, (err, results) => {
-//     if (err) return console.log(err)
-//     // console.log(results)
-//     if (results.affectedRows == 0) {
-//         res.json({
-//             code: '400'
-//           })
-//     } else if (results.affectedRows == 1) {
-//         mysql.query(`UPDATE ${user} SET state = 0 WHERE id = ?`,data.user_id,(error,result)=>{
-//             if(error) return console.log(error);
-//             // 1常规用户   0会员
-//             res.json({
-//              code: '200'
-//            })
-//         })
-//     } else {
-//       res.json({
-//         code: '10000',
-//         msg: '未知错误,请自己检查'
-//       })
-//     }
-//   })
-// }
+  mysql.query(`SELECT * FROM ${order} WHERE user_id = ?`, data.user_id, (err, results) => {
+    if (err) return console.log(err)
+    if (results.length != 0) {
+      mysql.query(`DELETE FROM ${order} WHERE user_id = ?`, data.user_id, (err, results) => {
+        if (err) return console.log(err)
+        mysql.query(`INSERT INTO ${order} SET ?`, data, (err, results) => {
+          if (err) console.log(err)
+          if (results.length != 0) {
+            res.json({
+              code: '200',
+              msg: 'OK'
+            })
+          }
+        })
+      })
+    } else {
+      mysql.query(`INSERT INTO ${order} SET ?`, data, (err, results) => {
+        if (err) console.log(err)
+        if (results.length != 0) {
+          res.json({
+            code: '200',
+            msg: 'OK'
+          })
+        }
+      })
+    }
+  })
+}
 
 // // 删除会员
 // module.exports.deleterecharge = (req, res) => {
