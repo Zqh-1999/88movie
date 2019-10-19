@@ -14,9 +14,9 @@ const message = '/message'
 router.post(message, controller.addMessage)
 
 // // 删除留言
-router.delete(message, controller.deleteMessage)
+router.delete(`${message}/:id(\\d+)`, controller.deleteMessage)
 
-// 查询所有留言
+// 查询所有留言（根据用户名）
 router.get(message, controller.inquireMessageAll)
 
 

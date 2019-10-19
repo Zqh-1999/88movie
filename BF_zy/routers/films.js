@@ -28,6 +28,8 @@ router.get(`${films}/all`, controller.inquireFilmAll)
 // 查询多个影片(根据关键字搜索)
 router.get(films, controller.inquireFilms)
 
+router.get(`${films}/allinfo`, controller.inquireFilmallinfo)
+
 
 // 暴露路由
 module.exports = router

@@ -15,7 +15,7 @@ module.exports.addMessage = (req, res) => {
     user_id: req.body.user_id,
     film_id: req.body.film_id,
   }
-  console.log(data)
+  // console.log(data)
   // 插入数据库的语句
   mysql.query(`INSERT INTO ${message} SET ?`, data, (err, results) => {
     if (err) return console.log(err)
@@ -38,16 +38,9 @@ module.exports.addMessage = (req, res) => {
 
 // 删除message
 module.exports.deleteMessage = (req, res) => {
-  // let idArr = req.query.idArr
-  let idArr = [9,10]
-  let a = idArr.length
-  let add = '?'
-  for (let i = 2; i <= a; i++) {
-    add = add + ',?'
-  }
-  let adds = (add)
+  let a=req.params.id
   // 删除message的sql语句
-  mysql.query(`DELETE FROM ${message} WHERE id in (${adds})`, idArr, (err, results) => {
+  mysql.query(`DELETE FROM ${message} WHERE id = ?`, a, (err, results) => {
     // 错误
     if (err) return console.log(err)
     // 返回值
@@ -77,15 +70,22 @@ module.exports.inquireMessageAll = (req, res) => {
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'add_time' // 以什么排序
   let sortRule = req.query.sortway || 'desc' // 排序规则
-  let filmID1 = req.query.film_id == undefined ? '' : req.query.film_id
-  let filmID = filmID1.length == 0 ? null : filmID1
-  mysql.query(`SELECT * FROM ${message} WHERE film_id = ? ORDER BY ? ? LIMIT ?, ?`,
-    [filmID, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+  let filmSQL= req.query.film_id == undefined ? '' : `WHERE film_id = ?`
+  let dataArr = []
+  req.query.film_id == undefined ? null : dataArr.push(req.query.film_id)
+  req.query.film_id == undefined ? null : dataArr.push(req.query.film_id)
+  dataArr.push(sortWhere)
+  dataArr.push(sortRule)
+  dataArr.push(fistPer)
+  dataArr.push(per_page)
+  mysql.query(`SELECT count(*) total FROM ${message} ${filmSQL}; SELECT * FROM ${message} ${filmSQL} ORDER BY ? ? LIMIT ?, ?`,
+     dataArr,  (err, results) => {
+       console.log(results[0][0].total)
       if (err) return console.log(err)
       res.json({
         code: '200',
-        data: results,
-        total: results.length,
+        data: results[1],
+        total: results[0][0].total,
         per_page
       })
     })

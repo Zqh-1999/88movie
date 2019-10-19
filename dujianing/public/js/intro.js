@@ -3,16 +3,13 @@ $('.cource_tab li').click(function () {
   $('.products .main').eq($(this).index()).addClass('selected').siblings('div').removeClass('selected')
 })
 
-
 var nav = document.querySelector(".intro_explain");
 var con = document.querySelector(".conceal");
-$('.conceal').onclick = function () {
-  if ($('.conceal').html = "展开") {
-    $('.conceal').html = "隐藏";
+con.onclick = function () {
+  if (con.innerHTML = "展开") {
+    con.innerHTML = "隐藏";
   }
 }
-
-
 $('.btn-dow').on('click', function () {
   let id = $(this).data('id');
   $.ajax({
@@ -28,6 +25,7 @@ $('.btn-dow').on('click', function () {
     }
   })
 })
+
 // #endregion
 
 
