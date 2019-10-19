@@ -201,9 +201,10 @@ module.exports.inquireFilms = (req, res) => {
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'id'
   let sortRule = req.query.sortway || 'asc'
-  let  keyWords1 = req.query.keyWords
+  let  keyWords = req.query.keyWords
+  console.log(req.query)
   mysql.query(`SELECT count(*) as total FROM ${filminfo} WHERE film_name LIKE ?;SELECT * FROM ${filminfo} WHERE film_name LIKE ? ORDER BY ? ? LIMIT ?, ?`,
-    [keyWords1, keyWords1, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+    [`%${keyWords}%`, `%${keyWords}%`, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       if (results.length == 0) {
         res.json({

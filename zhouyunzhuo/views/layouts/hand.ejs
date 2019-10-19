@@ -103,9 +103,7 @@
             </div>
             <!-- 登录按钮 -->
             <div class="register">
-                <i>
-                   <img src=" " alt=" " class="img-circle">
-                </i>
+                <img src="" alt=" " class="img-circle">
                 <a href="javascript:;">登录</a>
             </div>
         </div>
@@ -183,64 +181,64 @@
 
     <!-- Modal -->
     <div class="wrapper">
-      <div class="wraLogin">
-          <button class="guanbi">X</button>
-        <!-- 登录 -->
-        <form class="form-signin" id="user-signin">
-            <div class="form-group">
-                <label for="name">管理员名</label>
-                <input id="name" class="form-control" name="username" type="text" placeholder="请输入管理员名">
-                <div class="nameVal"></div>
-            </div>
-            <div class="form-group">
-                <label for="password">密码</label>
-                <input id="password" class="form-control" name="password" type="password" placeholder="请输入密码">
-                <div class="nameVal1"></div>
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block btn-login" type="button">登录</button>
-                <a class="btn btn-lg btn-danger btn-block btn-reg" href="javascript:;">注 册</a>
-            </div>
-        </form>
-        <!-- 添加 -->
-        <form class="form-signin1" id="add-signin">
-            <div class="form-group">
-                <label for="name">管理员名</label>
-                <input id="add-name" class="form-control" name="username" type="text" placeholder="请输入管理员名">
-                <div class="nameVal"></div>
-            </div>
-            <div class="form-group">
-                <label for="password">密码</label>
-                <input id="add-password" class="form-control" name="password" type="password" placeholder="请输入密码">
-                <div class="nameVal1"></div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">密码</label>
-                <input type="password" class="form-control" id="add-password1" placeholder="请再次输入密码">
-                <div class="nameVal2"></div>
-            </div>
-            <div class="form-group">
-                <div class="box">
-                    <p>
-                        <div class="upload imgLog2">
-                            <span><i class="glyphicon glyphicon-open"></i>上传头像</span>
-                        </div>
-                    </p>
+        <div class="wraLogin">
+            <button class="guanbi">X</button>
+            <!-- 登录 -->
+            <form class="form-signin" id="user-signin">
+                <div class="form-group">
+                    <label for="name">管理员名</label>
+                    <input id="name" class="form-control" name="username" type="text" placeholder="请输入管理员名">
+                    <div class="nameVal"></div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input id="password" class="form-control" name="password" type="password" placeholder="请输入密码">
+                    <div class="nameVal1"></div>
+                </div>
 
-            <div class="radio">
-                <label class="radio-inline">
-                    <input type="radio" name="sex" id="inlineRadio1" value="0" checked> 男
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="sex" id="inlineRadio2" value="1"> 女
-                </label>
-            </div>
-            <button type="button" class="btn btn-default">注册</button>
-        </form>
-    </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block btn-login" type="button">登录</button>
+                    <a class="btn btn-lg btn-danger btn-block btn-reg" href="javascript:;">注 册</a>
+                </div>
+            </form>
+            <!-- 添加 -->
+            <form class="form-signin1" id="add-signin">
+                <div class="form-group">
+                    <label for="name">管理员名</label>
+                    <input id="add-name" class="form-control" name="username" type="text" placeholder="请输入管理员名">
+                    <div class="nameVal"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input id="add-password" class="form-control" name="password" type="password" placeholder="请输入密码">
+                    <div class="nameVal1"></div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">密码</label>
+                    <input type="password" class="form-control" id="add-password1" placeholder="请再次输入密码">
+                    <div class="nameVal2"></div>
+                </div>
+                <div class="form-group">
+                    <div class="box">
+                        <p>
+                            <div class="upload imgLog2">
+                                <span><i class="glyphicon glyphicon-open"></i>上传头像</span>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="radio">
+                    <label class="radio-inline">
+                        <input type="radio" name="sex" id="inlineRadio1" value="0" checked> 男
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="sex" id="inlineRadio2" value="1"> 女
+                    </label>
+                </div>
+                <button type="button" class="btn btn-default">注册</button>
+            </form>
+        </div>
 
 
     </div>
@@ -254,20 +252,20 @@
             var img2 = new ImgUpload('.imgLog2', 100, 100, 100);
             $(document).on('change', ".imgLog2 input", function (e) {
                 //模拟后台返回url
-                 window.url = window.URL.createObjectURL(e.target.files[0]);
+                window.url = window.URL.createObjectURL(e.target.files[0]);
                 $(this).parent().css('background', 'url(' + url + ')0% 0% / cover')
                 img2.setSpan(this)
             })
-            $('input').css('line-height','normal');
+            $('input').css('line-height', 'normal');
 
         })
-    //  console.log(url)
+        //  console.log(url)
 
         // 登录
         $('.register a').on('click', function () {
             $(".wrapper").css('display', 'block')
         })
-        $('.guanbi').on('click',function(){
+        $('.guanbi').on('click', function () {
             $(".wrapper").css('display', 'none')
         })
         $('.btn-login').on('click', function () {
@@ -308,16 +306,28 @@
 
             }
             var formdate = $('#user-signin').serialize();
+            console.log(formdate)
             $.ajax({
                 url: "http://127.0.0.1/api/v1/users/login",
                 type: 'post',
                 data: formdate,
                 success: function (data) {
-                    console.log(data)
+                    // console.log(data)
+                    // console.log(data.data[0].head_img);
+                    // console.log(data.data[0].id)
                     if (data.code == '400') {
                         alert(data.msg)
                     } else {
                         $('.wrapper').css('display', 'none');
+                        $('.register img').attr('src', data.data[0].head_img);
+                        $.ajax({
+                            url: `http://127.0.0.1/api/v1/history/${data.data[0].id}`,
+                            type: 'get',
+                            data: " ",
+                            success: function (data) {
+                                console.log(data)
+                            }
+                        })
                     }
                 }
             })
@@ -362,7 +372,7 @@
             $.ajax({
                 url: "http://127.0.0.1/api/v1/users",
                 type: 'post',
-                data: formdate + '&head_img='+url ,
+                data: formdate + '&head_img=' + url,
                 success: function (data) {
                     console.log(data)
                     if (data.code == '400') {
@@ -370,18 +380,24 @@
                     } else {
                         $('.form-signin').css('display', 'block');
                         $('.form-signin1').css('display', 'none');
+                        $('.form-control').val('')
                     }
                 }
             })
         })
-        
+
 
         // 获取历史信息
-        $(document).ready(function () {
-            $.ajax({
-                type:'get'
-            })
-        })
+        // $(document).ready(function () {
+        //     $.ajax({
+        //         url: 'http://127.0.0.1/api/v1/:id',
+        //         type: 'get',
+        //         data: " ",
+        //         success: function (data) {
+        //             console.log(data)
+        //         }
+        //     })
+        // })
     </script>
 
 </body>
