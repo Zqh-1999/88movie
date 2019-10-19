@@ -16,20 +16,23 @@ app.get('/movie/:id', (req, res) => {
 app.get('/Details', (req, res) => {
     res.render('Details')
 })
+// 登录
 app.get('/login', (req, res) => {
     res.render('logon')
 })
+// vip页面
 app.get('/vip', (req, res) => {
     res.render('vip')
 })
+// 视频详情
 app.get('/intro/:id', (req, res) => {
     res.render('intro')
 })
 
 //  播放视频页面
-// app.get('/replay', (req, res) => {
-//     res.render('replay')
-// })
+app.get('/replay', (req, res) => {
+    res.render('replay')
+})
 
 //#region 3.配置ejs模板引擎
 // 3.1 下载ejs包
