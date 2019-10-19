@@ -141,17 +141,18 @@ module.exports.inquireUsers = (req, res) => {
   let name1 = req.query.username == undefined ?  '' : req.query.username
   let name = name1.length == 0 ?  null : `%${req.query.username}%`
   if (name == null) {
-    mysql.query(`SELECT * FROM ${user} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
+    mysql.query(`SELECT COUNT(*) total FROM ${user} order by ? ?;SELECT * FROM ${user} order by ? ? limit ?, ?`, [sortWhere,sortRule,sortWhere, sortRule, fistPer, pagenum], (err, results) => {
       if (err) return console.log(err)
       res.json({
         code: '200',
-        data: results,
-        total: results.length
+        data: results[1],
+        total: results[0][0].total,
+        pagenum
       })
     })
   } else {
-    mysql.query(`SELECT * FROM ${user} WHERE username like ? order by ? ? limit ?, ?`,
-      [name, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
+    mysql.query(`SELECT COUNT(*) total FROM ${user} WHERE username like ? order by ? ?; SELECT * FROM ${user} WHERE username like ? order by ? ? limit ?, ?`,
+      [name,sortWhere,sortRule,name, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
         if (err) return console.log(err)
         if (results.length == 0) {
           res.json({
@@ -161,8 +162,9 @@ module.exports.inquireUsers = (req, res) => {
         } else {
           res.json({
             code: '200',
-            data: results,
-            total: results.length
+            data: results[1],
+            total: results[0][0].total,
+            pagenum
           })
         }
       })
