@@ -391,7 +391,7 @@
                                 url: "http://127.0.0.1/api/v1/films",
                                 type: "get",
                                 data: {
-                                        keywords: arr2
+                                        keyWords: arr2
                                 },
                                 success: function (data) {
                                         console.log(data)
@@ -399,6 +399,10 @@
                                                 list: data.total
                                         })
                                         $('.results').html(pageHtml)
+                                        let movieHtml = template('movie_template', {
+                                                list: data.data
+                                        })
+                                        $('.news_movie_temp').html(movieHtml)
                                 }
                         })
                 }

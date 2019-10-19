@@ -39,7 +39,7 @@
                                         <span class="filter">筛选</span>
                                         <i class="filter_icon"></i>
                                         <div class="nav_list">
-                                                <dl class="clearfix">
+                                                <dl class=" nav_list_a clearfix">
                                                         <dt><span>按分类</span></dt>
 
                                                         <dd><a href="javaScript:;" value='动作片'>动作片</a></dd>
@@ -290,7 +290,7 @@
                                         <p class="actor">{{$value.star}}</p>
                                         <p class="type">{{$value.type_name}}</p>
                                         <p class="time">{{$value.adress}}</p>
-                                        <a href="{{$value.url}}">      
+                                        <a href="/intro/{{$value.id}}">      
                                         </a>
                         </div>
                                          </li>
@@ -331,6 +331,7 @@
         <script src="/js/jquery-3.3.1.js"></script>
         <script src="/js/template/template-web.js"></script>
         <script src="/js/twbs-pagination/jquery.twbsPagination.min.js"></script>
+        <script src="/js/header.js"></script>
         <!-- ajax请求 -->
         <script>
                 // 首页渲染
@@ -345,7 +346,7 @@
                                         type_name: "电影"
                                 },
                                 success: function (data) {
-                                        console.log(data)
+                                        // console.log(data)
                                         let MovieHtml = template('movie_template', {
                                                 list: data.data,
                                         })
@@ -364,9 +365,9 @@
                                                 onPageClick: function (
                                                         evt,
                                                         page) {
-                                                        console.log(
-                                                                page
-                                                        );
+                                                        // console.log(
+                                                        //         page
+                                                        // );
                                                         show(
                                                                 page
                                                         );
@@ -385,7 +386,7 @@
                                         type_name: "电影"
                                 },
                                 success: function (data) {
-                                        console.log(data)
+                                        // console.log(data)
                                         let pageHtml = template('page_template', {
                                                 list: data.total
                                         })
@@ -422,7 +423,85 @@
                                 }
                         })
                 })
+
+                $('.classify-nav ul li a').on('click', function () {
+                        const a_text = $(this).text()
+                        const father_val = $(this).parent().parent().parent().text().slice(0, 2)
+                        console.log(father_val)
+                        console.log(a_text)
+                        $.ajax({
+                                url: "http://127.0.0.1/api/v1/films/all",
+                                type: "get",
+                                data: {
+                                        subtype: a_text,
+                                        type_name: father_val,
+                                },
+                                success: function (data) {
+                                        let MovieHtml = template(
+                                                'movie_template', {
+                                                        list: data.data,
+                                                })
+                                        $('.news_movie_temp').html(MovieHtml)
+                                        let pageHtml = template(
+                                                'page_template', {
+                                                        list: data.total
+                                                })
+                                        $('.results').html(pageHtml)
+                                        // 分页
+                                        $('.pagination').twbsPagination({
+                                                // 总页数
+                                                totalPages: Math
+                                                        .ceil(
+                                                                data
+                                                                .total /
+                                                                data
+                                                                .per_page
+                                                        ),
+                                                visiblePages: 3,
+                                                // 当你点击的时候 获取页码
+                                                onPageClick: function (
+                                                        evt,
+                                                        page
+                                                ) {
+                                                        // console.log(
+                                                        //         page
+                                                        // );
+                                                        show(
+                                                                page
+                                                        );
+                                                }
+                                        });
+                                }
+                        })
+                })
+
+                $('.sub').on('click', function () {
+                        var formdate = $('.ss').val();
+                        console.log(formdate)
+                        $.ajax({
+                                url: `http://127.0.0.1/api/v1/films/`,
+                                type: 'get',
+                                data: {
+                                        keyWords: formdate
+                                },
+                                success: function (data) {
+                                        console.log(data)
+                                        let MovieHtml = template(
+                                                'movie_template', {
+                                                        list: data.data,
+                                                })
+                                        $('.news_movie_temp').html(MovieHtml);
+                                        let pageHtml = template(
+                                        'page_template', {
+                                                list: data.total
+                                        })
+                                        $('.results').html(pageHtml)
+                                }
+
+                        })
+                })
         </script>
+
 </body>
 
 </html>

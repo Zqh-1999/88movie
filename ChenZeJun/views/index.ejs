@@ -54,7 +54,7 @@
                 <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                     <nav>
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="">首页</a></li>
+                            <li class="active"><a href="/">首页</a></li>
                             <li class="dropdown">
                                 <a href="/Details" class="dropdown-toggle" data-toggle="dropdown" value='电影'>电影 <b
                                         class="caret"></b></a>
@@ -92,11 +92,13 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="series.html">电视剧</a></li>
-                            <li><a href="news.html">vip精彩</a></li>
+                            <li><a href="/serises">电视剧</a></li>
+                            <li><a href="/vip">vip精彩</a></li>
                             <li class="dropdown">
-                                <a href="" class="dropdown-toggle" data-toggle="dropdown">综艺 <b class="caret"></b></a>
-                                <ul class="dropdown-menu multi-column columns-3">
+                                <a href="/Variety" class="dropdown-toggle" data-toggle="dropdown">综艺 
+                                    <!-- <b class="caret"></b> -->
+                                </a>
+                                <!-- <ul class="dropdown-menu multi-column columns-3">
                                     <li>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
@@ -124,10 +126,10 @@
                                         </div>
                                         <div class="clearfix"></div>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </li>
-                            <li><a href="short-codes.html"> vip充值</a></li>
-                            <li><a href="list.html">历史记录</a></li>
+                            <li><a href="javaScript:;"> vip充值</a></li>
+                            <li><a href="javaScript:;">历史记录</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -863,10 +865,10 @@
                 url: "http://127.0.0.1/api/v1/films",
                 type: "get",
                 data: {
-                    keywords: btn_val
+                    keyWords: btn_val
                 },
                 success: function (data) {
-                    console.log(data.data[0].id)
+                    console.log(data)
                     location.href = `/movie/${btn_val}`
                     $('.text_btn').val('')
                 }

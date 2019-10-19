@@ -319,18 +319,63 @@
     margin-top: 20px;
 }
 
+/* 推荐影片 */
+.recommend {
+    height: 558px;
+}
+
+.recommend_title {
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
 .recommend ul {
     width: 1200px;
-    margin-left: -35px;
 }
 
 .recommend li {
     float: left;
-    padding-top: 20px;
+    padding-bottom: 20px;
     padding-right: 20px;
     height: 230px;
     width: 180px;
+}
+
+.recommend li img {
+    height: 230px;
+    width: 180px;
+    border-radius: 10px;
+}
+
+/* 推荐影片 */
+.recommend {
+    height: 100%;
+    margin-top: 20px;
+}
+
+.recommend_title {
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.recommend ul {
+    width: 1200px;
+}
+
+.recommend li {
+    float: left;
+    /* padding-top: 20px; */
+    margin-bottom: 30px;
+    margin-right: 20px;
+    height: 230px;
+    width: 180px;
     overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: relative;
+    /* transition: all 2s */
 }
 
 .recommend li img {
@@ -345,20 +390,29 @@
     width: 180px;
     background-color: #000;
     opacity: 0.7;
-    position: relative;
-    bottom: 61px;
+    position: absolute;
+    bottom: -195px;
     border-radius: 10px;
-    overflow: hidden;
-    transition-duration: 1s;
+
+    transition: all 3s;
+
 }
 
-.movie:hover {
-    bottom: 255px;
+.recommend li:hover .movie {
+    top: 0
+}
+
+.movie p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
 }
 
 .recommend_list li p {
     position: relative;
-    top: 10px;
+    top: 0px;
     overflow: hidden;
     color: #bfbfde;
     cursor: pointer;
@@ -366,6 +420,7 @@
     color: #fff;
     font-size: 16px;
     margin-left: 12px;
+    padding-bottom: 12px;
     overflow: hidden;
 }
 
@@ -378,7 +433,7 @@
 .recommend_list li i {
     position: relative;
     top: -219px;
-    left: 134px;
+    left: 141px;
     padding: 14px 8px;
     background: #090;
     color: #fff;
@@ -392,10 +447,19 @@
     width: 53px;
     height: 50px;
     display: inline-block;
-    background-image: url(../image/fang.png);
+    background-image: url(/img/fang.png);
     background-repeat: no-repeat;
     background-position: 22px 18px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
+    position: absolute;
+    bottom: 20px;
+    left: 30%;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
 .clearfix:after {
