@@ -14,7 +14,7 @@ const films = '/films'
 router.post(films, controller.addFilm)
 
 // 删除影片
-router.delete(films, controller.deleteFilm)
+router.delete(`${films}/:id(\\d+)`, controller.deleteFilm)
 
 // 查询单个/回显影片
 router.get(`${films}/:id(\\d+)`, controller.inquireFilm)
