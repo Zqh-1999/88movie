@@ -3,7 +3,13 @@
     width: 1200px;
     margin: 0 auto;
 }
-
+a:hover{
+    text-decoration: none;
+    /* color: ; */
+}
+a{
+    color: black;
+}
 .clearfix:after {
     content: "";
     display: block;
