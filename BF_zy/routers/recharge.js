@@ -11,17 +11,7 @@ const controller = require('../controller/recharge')
 const recharges = '/recharge'
 
 // 添加会员
-// router.post(recharges, controller.addrecharge)
-
-
-// // 查询单个/回显会员
-// router.get(`${recharges}/:id(\\d+)`, controller.inquirerecharge)
-
-// // 修改会员
-// router.put(`${recharges}/:id(\\d+)`, controller.uprecharge)
-
-// // 查询多个会员
-// router.get(recharges, controller.inquirerecharges)
+router.post(recharges, controller.addrecharge)
 
 // // 查询所有会员
 router.get(`${recharges}/all`, controller.inquirerechargeAll)
