@@ -26,10 +26,18 @@
             vipbox.style.display = 'none';
         }, 1000);
         skena = window.sessionStorage.getItem("sken");
-        console.log(skena)
+        // console.log(skena)
         $.ajax({
-            url: "http://127.0.0.1/api/v1/history/order",
-            type: 'get',
+            url: 'http://127.0.0.1/api/v1/recharge',
+            type: 'post',
+            data:{
+                money:5,
+                user_id:skena
+            },
+            success:function(data){
+                console.log(data)
+                alert('充值成功')
+            }
         })
     }
 })();
