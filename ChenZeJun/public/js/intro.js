@@ -6,9 +6,10 @@ $('.cource_tab li').click(function () {
 
 var nav = document.querySelector(".intro_explain");
 var con = document.querySelector(".conceal");
-$('.conceal').onclick = function () {
-  if ($('.conceal').html = "展开") {
-    $('.conceal').html = "隐藏";
+con.onclick = function () {
+  if (con.value = "展开") {
+    con.innerHTML = "隐藏";
+
   }
 }
 

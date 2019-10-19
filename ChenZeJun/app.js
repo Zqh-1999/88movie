@@ -16,6 +16,15 @@ app.get('/movie/:id', (req, res) => {
 app.get('/Details', (req, res) => {
     res.render('Details')
 })
+app.get('/login', (req, res) => {
+    res.render('logon')
+})
+app.get('/vip', (req, res) => {
+    res.render('vip')
+})
+app.get('/intro/:id', (req, res) => {
+    res.render('intro')
+})
 
 //  播放视频页面
 // app.get('/replay', (req, res) => {
