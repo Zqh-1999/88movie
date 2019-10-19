@@ -17,16 +17,17 @@ import "./assets/css/base.css";
 // 
 import tableTree from 'vue-table-with-tree-grid';
 // 注册组件
-Vue.component("table-tree",tableTree);
+Vue.component("table-tree", tableTree);
 
 
 // 配置vue-quill-editor
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
-Vue.use(VueQuillEditor, /* { default global options } */)
+Vue.use(VueQuillEditor)
 
-
+// 时间戳
+import moment from 'moment'
 
 // 配置axios
 import Axios from "axios";
@@ -42,6 +43,16 @@ Axios.interceptors.request.use(function (config) {
 }, function (error) {
   return Promise.reject(error);
 });
+
+Vue.filter('setTime', function (value, formatString) {  //挂载全局 时间格式化 过滤器  value  是输入内容
+  if (value == 0) {
+    return '时间信息错误!'
+  } else {
+    formatString = formatString || 'YYYY-MM-DD HH:mm';
+    return moment.unix(value/1000).format(formatString); // 这是时间戳转时间
+  }
+
+})
 
 Vue.config.productionTip = false;
 
