@@ -1,0 +1,175 @@
+.hide-center {
+	width:557px;
+	height:356px;
+	position:absolute;
+	right:0;
+	left:0;
+	bottom:0;
+	top:0;
+	margin:auto;
+	/* display:none; */
+	z-index:1;
+}
+.hide-center #formhead {
+	width:557px;
+	height:42px;
+	margin:0;
+	padding-top:12px;
+	padding-bottom:-30px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color:#101010;
+}
+.hide-center #formhead-title {
+    width: 119px;
+    height: 24px;
+    margin-left: 223px;
+    margin-right: 173px;
+    color: #bfbfbf;
+    font-weight: 900;
+    display: inline-block;
+}
+.hide-center #close {
+	width:35px;
+	height:20px;
+	border:0;
+	border-radius:20%;
+	background-color:black;
+	color:white;
+	display:inline-block;
+}
+.hide-center #formbody {
+	width:557px;
+	height:310px;
+	background-color:#1e1e1e;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.hide-center .loginHead {
+	margin-right:-8px;
+	padding:13px;
+	width:25px;
+	height:28px;
+	background-color:#141414;
+	vertical-align:middle;
+}
+.hide-center .loginInput {
+    height: 52px;
+    width: 373px;
+    padding-left: 10px;
+    margin-bottom: 22px;
+    border-radius: 10px;
+    border: 0;
+    background-color: #141414;
+    color: aliceblue;
+}
+.hide-center .loginUserName {
+	padding-left:30px;
+	padding-top:20px;
+}
+.hide-center .login1 #img-topleft-loginHead {
+	border-top-left-radius:5px;
+}
+.hide-center .login1 #input-topright-loginInput {
+	border-top-right-radius:5px;
+}
+.hide-center .login1 #img-bottomleft-loginHead {
+	border-bottom-left-radius:5px;
+}
+.hide-center .login1 #input-bottomright-loginInput {
+	border-bottom-right-radius:5px;
+}
+.hide-center .loginPassword {
+	padding-left:30px;
+}
+.hide-center #formfoot {
+	margin-top:6px;
+	margin-left:30px;
+}
+.hide-center #BSignIn {
+	border:0;
+	background:#329d90;
+	color:#ffffff;
+	width:480px;
+	height:40px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+.loginUserName #select_region{
+    width: 93px;
+    height: 50px;
+    background-color: #141414;
+    color: #aaaaaa;
+    appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    line-height: 50px;
+    appearance: none;
+    padding-left: 14px;
+    border-radius: 10px;
+}
+.loginPassword,.n-txtCss{
+    display: flex;
+    align-items: center;
+   }
+.loginPassword .fa{
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    margin-left: 33px;
+    position: absolute;
+    right: 152px;
+    top: 24px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+   .fa-eye-open{
+    margin-top: 144px;
+    margin-left: 7px;
+    width: 24px;
+    height: 20px;
+    background-image: url("../img/密码不可见.png");
+    background-repeat: no-repeat;
+    background-size: 24px 17px;
+   }
+   .fa-eye{
+    margin-top: 144px;
+    width: 24px;
+    margin-left: 7px;
+    height: 20px;
+    background-image: url("../img/密码可见.png");
+    background-repeat: no-repeat;
+    background-size: 24px 17px;
+   }
+
+   .login_deal{
+      color: #757575;
+      font-size: 12px;
+      
+   }
+   .login_deal a{
+    text-decoration:none;
+    display:inline-block;
+    color: #329d90;  
+   }
+.Other_login{
+    padding-left: 30px;
+    background-color: #101010;
+    height: 56px;
+    border-bottom-left-radius:12px;
+    border-bottom-right-radius:12px;
+    line-height: 60px;
+}
+.Other_login .login_button,.Other_login .Text_login{
+    text-decoration:none;
+    display:inline-block;
+    color: #ffffffb4;  
+    font-size: 12px;
+}
+.Other_login .Text_login{
+   padding-left: 354px;
+}

@@ -256,13 +256,13 @@
                         <div class="filter_results clearfix">
                                 <p class="results">
                                         <script type="text/template" id="page_template">
-                                        {{each}}
-                                                共<span>{{list}}</span> 个筛选结果
+                                                {{each}}
+                                                共<span>{{total}}</span> 个筛选结果
                                         {{/each}}
                                         </script>
                                 </p>
                                 <p class="px">
-                                
+
                                         <a href="">
                                                 最新
                                                 <i></i>
@@ -306,11 +306,11 @@
         <!-- 分页 -->
         <div class="common">
                 <ul class="pagination pagination-lg">
-                        <li><a href=" #">上一页</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <!-- <li><a href="#">下一页</a></li> -->
+                        <li><a href="JavaScript:;">上一页</a></li>
+                        <li><a href="JavaScript:;">1</a></li>
+                        <li><a href="JavaScript:;">2</a></li>
+                        <li><a href="JavaScript:;">3</a></li>
+                        <li><a href="JavaScript:;">下一页</a></li>
                 </ul>
         </div>
 
@@ -347,24 +347,21 @@
                                 success: function (data) {
                                         console.log(data)
                                         let MovieHtml = template('movie_template', {
-                                                list: data.data,
+                                                list: data.data[1],
                                         })
                                         $('.news_movie_temp').html(MovieHtml)
                                         // 分页
                                         $('.pagination').twbsPagination({
                                                 // 总页数
-                                        totalPages: Math.ceil(data.total /data.per_page),
+                                                totalPages: Math.ceil(data.data[0][0].total /data.per_page
+                                                ),
                                                 visiblePages: 3,
                                                 // 当你点击的时候 获取页码
                                                 onPageClick: function (
                                                         evt,
                                                         page) {
-                                                        console.log(
-                                                                page
-                                                        );
-                                                        show(
-                                                                page
-                                                        );
+                                                        console.log(page);
+                                                        show(page );
                                                 }
                                         });
                                 }
@@ -372,16 +369,18 @@
                 }
                 show();
                 // 总条数
-                let pageShow = function(){
+                let pageShow = function () {
                         $.ajax({
-                                url: "http://127.0.0.1/api/v1/films",
+                                url: "http://127.0.0.1/api/v1/films/all",
                                 type: "get",
-                                data:{
-                                        type_name:"电影"
+                                data: {
+                                        type_name: "电影"
                                 },
-                                success:function(data){
-                                        console.log(data.total)
-                                        let pageHtml = template('page_template',{list:data.total})
+                                success: function (data) {
+                                        console.log(data.data[0])
+                                        let pageHtml = template('page_template', {
+                                                list: data.data
+                                        })
                                         $('.results').html(pageHtml)
                                 }
                         })

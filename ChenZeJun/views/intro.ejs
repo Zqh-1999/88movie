@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/intro.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.min.css">
-    <script src="./js/intro.js"></script>
+    <link rel="stylesheet" href="/css/intro.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/bottom.css">
     <title>高清播放</title>
 </head>
 
@@ -20,11 +19,11 @@
                 <!-- login图标 -->
                 <div class="login">
                     <a href="#">
-                        <img src="./img/logo.png" alt="">
+                        <img src="/img/logo.png" alt="">
                     </a>
                 </div>
                 <!-- 顶部导航分类 -->
-                <div class="classify-nav">
+                <div class="classify-nav" style="float: left">
                     <ul>
                         <li><a href="#">首页</a></li>
                         <li><a href="#">电影 <i class="trian"></i> <i class="trian2"></i></a>
@@ -80,7 +79,7 @@
                 <!-- 顶部搜索 -->
                 <div class="seach-nav clearfix">
                     <form action="">
-                        <input type="text" class="ss" value="请输入影片或演员名">
+                        <input type="text" class="ss" placeholder="请输入影片或演员名">
                         <input type="submit" class="sub" value="">
                     </form>
                 </div>
@@ -95,7 +94,6 @@
                         <dl>
                             <dt>
                                 <a href="#">清空</a>
-                                |
                                 <a href="#">关闭</a>
                             </dt>
                             <dd>暂无观看记录</dd>
@@ -107,21 +105,24 @@
         <!-- 中间内容区域 -->
         <div class="content">
             <div class="content_center">
+                <script type="text/template" id="movie_template">
+                    {{each}}
                 <!--  当前位置提示栏 -->
-                <div class="location">
+                    <div class="location">
                     <p>当前位置:</p>
                     <ul>
+        
                         <li>
                             <a href="">首页</a> >
                         </li>
                         <li>
-                            <a href="">最新电影</a> >
+                            <a href="">{{list.type_name}}</a> >
                         </li>
                         <li>
-                            <a href="">剧情片</a> >
+                            <a href="">{{list.fsubtype}}</a> >
                         </li>
                         <li>
-                            中国机长
+                                {{list.film_name}}
                         </li>
                     </ul>
                 </div>
@@ -129,162 +130,154 @@
                 <div class="film">
                     <!-- 影片封面图片 -->
                     <div class="film_img">
-                        <img src="./img/156993180187486821.jpg" alt="">
+                        <img src="{{list.image_url}}" alt="">
                     </div>
                     <!-- 影片介绍 -->
                     <div class="film_intro">
-                        <h1>中国机长</h1>
+                        <h1>{{list.film_name}}</h1>
                         <dt><span>状态：</span>HC</dt>
-                        <dt><span>主演：</span>张涵予,欧豪,杜江,袁泉,张天爱,李沁,雅玫,杨祺如,高戈,黄志忠,朱亚文,李现,杨颖,陈数,焦俊艳,吴樾,阚清子,余皑磊,刘浩,李岷城,冯文娟
+                        <dt><span>主演：</span> {{list.star}}
                         </dt>
-                        <dt><span>相关：</span></dt>
-                        <dd><span>类型：</span>电影 剧情片</dd>
+                        <dt><span>相关：未知</span></dt>
+                        <dd><span>类型：</span>{{list.subtype}} {{list.type_name}}</dd>
                         <dd><span>更新：</span>2019-10-05 07:25</dd>
-                        <dd><span>导演：</span>刘伟强</dd>
-                        <dd><span>地区：</span>大陆</dd>
-                        <dd><span>年份：</span>2019</dd>
+                        <dd><span>导演：</span>{{list.director}}</dd>
+                        <dd><span>地区：</span>{{list.address}}</dd>
+                        <dd><span>年份：</span>{{list.year}}</dd>
                         <dd><span>语言：</span>国语</dd>
                         </dl>
                         <div class="intro_explain">
                             <span>剧情简介:</span>
-                            电影《中国机长》根据2018年5月14日四川航空3U8633航班机组成功处置特情真实事件改编：机组执行航班任务时，在万米高空突遇驾驶舱风挡玻璃爆裂脱落、座舱释压的极端罕见险情，生死关头，他们临危不乱、果断应对、正确处置，确保了机上全部人员的生命安全，创造了世界民航史上的奇迹。《中国机长》电影于2019年10月05号由88影视网收集自网络发布，同时提供在线观看服务。
+                            {{list.describe}}
                             <a href="javascript:;" name="yingcang" class="conceal">隐藏</a>
                         </div>
 
                     </div>
                     <!-- 二维码扫描区域 -->
                     <div class="scan">
-                        <img src="./img/88ysapp.png" alt="">
+                        <img src="/img/88ysapp.png" alt="">
                     </div>
                 </div>
-
+            {{/each}}
+            </script>
             </div>
+
             <!-- 在线观看列表 -->
             <div class="watch">
                 <!-- 点击按钮 -->
                 <div class="watch_button">
                     <!-- 点击观看按钮 -->
-                    <div class="look"><a href="">中国机长在线观看按钮</a></div>
+
+                    <div class="look">
+                        <script type="text/template" id="btn_template">
+                            {{each}}
+                            <a href="">{{list.film_name}}在线观看</a>
+                                {{/each}}
+                        </script>
+                    </div>
+
+
                     <!-- 点击下载按钮 -->
                     <div class=" download">
                         <a href="">在线下载</a>
                         <img src="./img/xia.png" alt="">
                     </div>
                 </div>
-                <!-- 选择播放源栏 -->
-                <div class="source">
-                    <ul class="cource_tab">
-                        <li class="tab-item active">
-                            <img src="./img/bo2.png" alt="">
-                            <a href="javascript:;">酷云播放源</a>
-                        </li>
-                        <li class="tab-item">
-                            <img src="./img/bo2.png" alt="">
-                            <a href="javascript:;"> ZDm3u8播放源</a>
-                        </li>
-                        <li class="tab-item">
-                            <img src="./img/bo2.png" alt="">
-                            <a href="javascript:;">bdm3u8播放源</a>
-                        </li>
-                        <li class="tab-item">
-                            <img src="./img/bo2.png" alt="">
-                            <a href="javascript:;">八戒播放源</a>
-                        </li>
-                        <li class="tab-item">
-                            <img src="./img/bo2.png" alt="">
-                            <a href="javascript:;"> 33uu播放源</a>
-                        </li>
-                    </ul>
-                    <div class="products">
-                        <div class="main selected">
-                            因版权原因下架了
-                        </div>
-                        <div class="main">
-                            因版权原因下架了啊啊啊
-                        </div>
-                        <div class="main">
-                            因版权原因下架了上的相安无事的
-                        </div>
-                        <div class="main">
-                            因版权原因下架了阿达哇荡秋千
-                        </div>
-                    </div>
-                </div>
                 <!-- 选择集数 -->
                 <div class="set"></div>
             </div>
+
             <!-- 影片推荐区域 -->
             <div class="recommend">
                 <!-- 推荐标题 -->
-                <div class="recommend_title">除了"<strong>中国机长</strong>"你也可能喜欢以下影片：</div>
-                <ul>
-                    <li>
+                <div class="recommend_title">
+                    <script type="text/template" id="recommend_template">
+                        {{each}}除了<strong>"{{list.film_name}}"</strong>你也可能喜欢以下影片：
+                        {{/each}}
+                    </script>
+                </div>
+                <ul class="recommend_list">
+                    <script type="text/template" id="recommend_list_template">
+                        {{each list}}
+                        <li>
                         <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
+                            <img src="{{$value.image_url}}" alt="">
                         </a>
+                        <div class="movie">
+                                        <p class="name">{{$value.film_name}}</p>
+                                        <p class="actor">{{$value.star}}</p>
+                                        <p class="type">{{$value.type_name}}</p>
+                                        <p class="time">{{$value.adress}}</p>
+                                        <a href="/intro/{{$value.id}}"></a>
+                        </div>
                     </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/15704541720.jpg" alt="">
-                        </a>
-                    </li>
+                    {{/each}}
+                </script>
                 </ul>
             </div>
         </div>
+        <!-- 底部 -->
+        <%- include('./layouts/footer.ejs') %>
+
     </div>
 
-    <script src="./js/jquery-3.3.1.js"></script>
-    <script src="./js/intro.js"></script>
+
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script src="/js/template/template-web.js"></script>
+    <script src="/js/intro.js"></script>
+    <script>
+        // 获取地址栏参数
+        var name, value;
+        var str = location.href; //取得整个地址栏
+        // console.log(str)
+        var num = str.indexOf("?")
+        str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+        var arr = str.split("/"); //各个参数放到数组里
+        var keywords = arr.length - 1;
+        let id = decodeURIComponent(arr[keywords])
+        console.log(id)
+        // 首页渲染
+        let showIndex = function () {
+            // 通过id查询单个电影
+            $.ajax({
+                url: `http://127.0.0.1/api/v1/films/${id}`,
+                type: "get",
+                data: "",
+                success: function (data) {
+                    console.log(data.data)
+                    let MovieHtml = template('movie_template', {
+                        list: data.data
+                    })
+                    let btn_template = template('btn_template', {
+                        list: data.data
+                    })
+                    let re_template = template('recommend_template', {
+                        list: data.data
+                    })
+                    $('.content_center').html(MovieHtml)
+                    $('.look').html(btn_template)
+                    $('.recommend_title').html(re_template)
+                }
+            })
+            // 获取所有电影数据
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/films/all",
+                type: "get",
+                data: {
+                    type_name: '电影'
+
+                },
+                success: function (data) {
+                    console.log(data.data[1])
+                    let recommend_template = template('recommend_list_template', {
+                        list: data.data[1]
+                    })
+                    $('.recommend_list').html(recommend_template)
+                }
+            })
+        }
+        showIndex()
+    </script>
 
 </body>
 
