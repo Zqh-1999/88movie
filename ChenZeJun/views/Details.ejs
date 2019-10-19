@@ -257,7 +257,7 @@
                                 <p class="results">
                                         <script type="text/template" id="page_template">
                                                 {{each}}
-                                                共<span>{{total}}</span> 个筛选结果
+                                                共<span>{{list}}</span> 个筛选结果
                                         {{/each}}
                                         </script>
                                 </p>
@@ -345,23 +345,31 @@
                                         type_name: "电影"
                                 },
                                 success: function (data) {
-                                        console.log(data)
+                                        // console.log(data)
                                         let MovieHtml = template('movie_template', {
-                                                list: data.data[1],
+                                                list: data.data,
                                         })
                                         $('.news_movie_temp').html(MovieHtml)
                                         // 分页
                                         $('.pagination').twbsPagination({
                                                 // 总页数
-                                                totalPages: Math.ceil(data.data[0][0].total /data.per_page
+                                                totalPages: Math.ceil(
+                                                        data
+                                                        .total /
+                                                        data
+                                                        .per_page
                                                 ),
                                                 visiblePages: 3,
                                                 // 当你点击的时候 获取页码
                                                 onPageClick: function (
                                                         evt,
                                                         page) {
-                                                        console.log(page);
-                                                        show(page );
+                                                        console.log(
+                                                                page
+                                                                );
+                                                        show(
+                                                                page
+                                                                );
                                                 }
                                         });
                                 }
@@ -377,15 +385,19 @@
                                         type_name: "电影"
                                 },
                                 success: function (data) {
-                                        console.log(data.data[0])
+                                        console.log(data)
                                         let pageHtml = template('page_template', {
-                                                list: data.data
+                                                list: data.total
                                         })
                                         $('.results').html(pageHtml)
                                 }
                         })
                 }
                 pageShow()
+                // 点击事件
+                $('.nav_bottom_right').on('click', function () {
+                        $('.nav_list').css('display-block')
+                })
         </script>
 </body>
 
