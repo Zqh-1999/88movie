@@ -119,7 +119,7 @@ module.exports.upFilm = (req, res) => {
     director: req.body.director,
     channel: req.body.channel,
     type_name: req.body.type_name,
-    type_id: req.body.type_id,
+    subtype: req.body.subtype,
     year: req.body.year,
     describe: req.body.describe,
     address: req.body.address,
@@ -128,6 +128,7 @@ module.exports.upFilm = (req, res) => {
     recommend: req.body.recommend,
     hot: req.body.hot,
   }
+  console.log(data)
   // 修改数据库的语句
   mysql.query(`UPDATE ${filminfo} SET ? WHERE id = ?`, [data, req.params.id], (err, results) => {
     if (err) return console.log(err)

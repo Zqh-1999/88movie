@@ -157,14 +157,14 @@ export default {
         score: [
           {
             required: true,
-            message: "电影是否为会员",
+            message: "请输入电影评分",
             trigger: "blur"
           }
         ],
         star: [
           {
             required: true,
-            message: "请输入手机号",
+            message: "请输入演员名",
             trigger: "blur"
           }
         ]
@@ -205,14 +205,14 @@ export default {
         score: [
           {
             required: true,
-            message: "电影是否为会员",
+            message: "请输入电影评分",
             trigger: "blur"
           }
         ],
         star: [
           {
             required: true,
-            message: "请输入手机号",
+            message: "请输入演员名",
             trigger: "blur"
           }
         ]
@@ -300,17 +300,19 @@ export default {
 
     async getUserById(id) {
       this.editFormDialog = true;
-      const { data: res } = await this.$http.get(`/users/${id}`);
+      const { data: res } = await this.$http.get(`/films/${id}`);
+      console.log(666+res)
       if (res.code !== "200") {
         return this.$message.error("获取电影信息失败");
       }
       this.editForm = res.data;
+      console.log(this.editForm.id)
     },
     updateUser() {
       this.$refs.editFormRef.validate(async valid => {
         if (!valid) return false;
         const { data: res } = await this.$http.put(
-          `users/${this.editForm.id}`,
+          `/films/${this.editForm.id}`,
           querystring.stringify(this.editForm)
         );
         console.log(res);
