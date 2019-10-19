@@ -257,7 +257,7 @@
                                 <p class="results">
                                         <script type="text/template" id="page_template">
                                                 {{each}}
-                                                共<span>{{list}}</span> 个筛选结果
+                                                共<span>{{total}}</span> 个筛选结果
                                         {{/each}}
                                         </script>
                                 </p>
@@ -379,7 +379,7 @@
                                 success: function (data) {
                                         console.log(data.data[0])
                                         let pageHtml = template('page_template', {
-                                                list: data.data[0]
+                                                list: data.data
                                         })
                                         $('.results').html(pageHtml)
                                 }
