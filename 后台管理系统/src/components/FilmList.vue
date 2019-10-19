@@ -117,9 +117,8 @@ export default {
   data() {
     return {
       queryInfo: {
-        film_name: "",
         page: 1,
-        per_page: 10
+        pageSize: 10
       },
       userList: [],
       total: 0,
@@ -224,10 +223,10 @@ export default {
   methods: {
     // 获取电影数据
     async getUserList() {
-      const { data: res } = await this.$http.get("/films/all", {
+      const { data: res } = await this.$http.get("/films/allinfo", {
         params: this.queryInfo
       });
-      // console.log(res);
+      console.log(res);
       if (res.code == "200") {
         this.total = res.total;
         this.userList = res.data;

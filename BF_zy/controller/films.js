@@ -223,11 +223,12 @@ module.exports.inquireFilms = (req, res) => {
 
 
 module.exports.inquireFilmallinfo=(req,res)=>{
-  mysql.query(`SELECT * FROM ${filminfo}`, (err, results) => {
+let dataARR = [req.query.page-0, req.query.pageSize-0]
+  mysql.query(`SELECT * FROM ${filminfo} order by id desc limit ?,?`, dataARR ,(err, results) => {
     if (err) console.log(err)
     res.json({
       code: 200,
-     data:results[0]
+     data:results
     })
   })
 }
