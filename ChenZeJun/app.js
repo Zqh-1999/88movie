@@ -33,6 +33,15 @@ app.get('/intro/:id', (req, res) => {
 app.get('/replay', (req, res) => {
     res.render('replay')
 })
+app.get('/serises', (req, res) => {
+    res.render('serises')
+})
+app.get('/Animation', (req, res) => {
+    res.render('Animation')
+})
+app.get('/Variety', (req, res) => {
+    res.render('Animation')
+})
 
 //#region 3.配置ejs模板引擎
 // 3.1 下载ejs包

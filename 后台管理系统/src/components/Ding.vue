@@ -20,9 +20,12 @@
         <el-table-column prop="username" label="用户名"></el-table-column>
         <el-table-column prop="order_num" label="订单编号"></el-table-column>
         <el-table-column prop="money" label="人民币"></el-table-column>
-        <el-table-column prop="sex" label="性别"></el-table-column>
-        <el-table-column prop="start_time" label="开通时间"></el-table-column>
-        <el-table-column prop="end_time" label="过期时间"></el-table-column>
+        <el-table-column label="开通时间">
+          <template slot-scope="scope">{{scope.row.start_time | setTime}}</template>
+        </el-table-column>
+        <el-table-column label="过期时间">
+          <template slot-scope="scope">{{scope.row.end_time | setTime}}</template>
+        </el-table-column>
         <el-table-column label="会员">
           <template slot-scope="scop">
             <el-switch
@@ -55,11 +58,12 @@ export default {
   data() {
     return {
       queryInfo: {
+        username: "",
         page: 1,
         pagenum: 10
       },
       orderList: [],
-      total: 0,
+      total: 0
     };
   },
   methods: {
@@ -72,6 +76,7 @@ export default {
       if (res.code == "200") {
         this.total = res.total;
         this.orderList = res.data;
+        console.log(this.orderList);
         return this.$message.success("获取用户列表成功");
       }
       return this.$message.error("获取用户列表失败");
@@ -84,7 +89,7 @@ export default {
     handleCurrentChange(num) {
       this.queryInfo.page = num;
       this.getDingList();
-    },
+    }
   },
   created: function() {
     this.getDingList();

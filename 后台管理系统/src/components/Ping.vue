@@ -11,7 +11,9 @@
         <el-table-column prop="id" label="评论ID"></el-table-column>
         <el-table-column prop="username" label="用户名"></el-table-column>
         <el-table-column prop="content" label="评论"></el-table-column>
-        <el-table-column prop="add_time" label="评论时间"></el-table-column>
+        <el-table-column label="过期时间">
+          <template slot-scope="scope">{{scope.row.add_time | setTime}}</template>
+        </el-table-column>
         <el-table-column prop="film_id" label="影片ID"></el-table-column>
         <el-table-column prop="date" label="操作" width="220">
           <template slot-scope="scop">
