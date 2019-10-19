@@ -30,7 +30,7 @@
                     <input type="button" value="搜索" class="btn">
                 </form>
             </div>
-            <div class="login"> <a href="javascript:;">登录</a>
+            <div class="login"> <a href="/login">登录</a>
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -568,7 +568,7 @@
                                     <p class="actor">{{$value.star}}</p>
                                     <p class="type">{{$value.type_name}}</p>
                                     <p class="time">{{$value.adress}}</p>
-                                    <a href="{{$value.url}}"></a>
+                                    <a href="/intro/{{$value.id}}"></a>
                                 </div>
                             </li>
                             {{/each}}
@@ -586,8 +586,8 @@
                 <h2>最新电视剧</h2>
             </div>
             <div class="news_movie_center">
-                <ul class="news_movie_temp clearfix">
-                    <script type="text/template" id="movie_template">
+                <ul class="news_serices_temp clearfix">
+                    <script type="text/template" id="series_template">
                         {{each list}}
                         <li>
                                 <a href=""><img src="{{$value.image_url}}" alt=""><i>HD</i></a>
@@ -596,7 +596,7 @@
                                     <p class="actor">{{$value.star}}</p>
                                     <p class="type">{{$value.type_name}}</p>
                                     <p class="time">{{$value.adress}}</p>
-                                    <a href="{{$value.url}}"></a>
+                                    <a href="/intro/{{$value.id}}"></a>
                                 </div>
                             </li>
                             {{/each}}
@@ -614,8 +614,8 @@
                 <h2>最新综艺</h2>
             </div>
             <div class="news_movie_center">
-                <ul class="news_movie_temp clearfix">
-                    <script type="text/template" id="movie_template">
+                <ul class="news_Variety_temp clearfix">
+                    <script type="text/template" id="Variety_template">
                         {{each list}}
                         <li>
                                 <a href=""><img src="{{$value.image_url}}" alt=""><i>HD</i></a>
@@ -624,7 +624,7 @@
                                     <p class="actor">{{$value.star}}</p>
                                     <p class="type">{{$value.type_name}}</p>
                                     <p class="time">{{$value.adress}}</p>
-                                    <a href="{{$value.url}}"></a>
+                                    <a href="/intro/{{$value.id}}"></a>
                                 </div>
                             </li>
                             {{/each}}
@@ -801,8 +801,26 @@
 
     <!-- 发送ajax请求后台数据 -->
     <script>
-        // 首页渲染
+        // 渲染动态数据
         var show = function () {
+            // 渲染电影页
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/films/all",
+                type: "get",
+                data: {
+                    type_name: '电影'
+
+                },
+                success: function (data) {
+                    console.log(data.data)
+                    let MovieHtml = template('movie_template', {
+                        list: data.data
+                    })
+                    $('.news_movie_temp ').html(MovieHtml)
+                }
+            })
+
+            // 渲染电视剧
             $.ajax({
                 url: "http://127.0.0.1/api/v1/films/all",
                 type: "get",
@@ -811,15 +829,31 @@
 
                 },
                 success: function (data) {
-                    console.log(data)
-                    let MovieHtml = template('movie_template', {
+                    // console.log(data.data.id)
+                    let MovieHtml = template('series_template', {
                         list: data.data
                     })
-                    $('.news_movie_temp ').html(MovieHtml)
+                    $('.news_serices_temp').html(MovieHtml)
+                }
+            })
+            // 渲染综艺
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/films/all",
+                type: "get",
+                data: {
+                    type_name: '综艺'
+
+                },
+                success: function (data) {
+                    // console.log(data.data.id)
+                    let MovieHtml = template('Variety_template', {
+                        list: data.data
+                    })
+                    $('.news_Variety_temp ').html(MovieHtml)
                 }
             })
         }
-        show()
+        show();
 
         // 搜索功能 
         $('.btn').on('click', function () {

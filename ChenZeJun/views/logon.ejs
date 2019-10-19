@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/logon.css">
+    <link rel="stylesheet" href="./js/logon.js">
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+ 
+  <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+
+
+    <!-- 中心登录区域 -->
+    <div class="hide-center">
+        <div id="formhead">
+            <div id="formhead-title">Users Landing </div>
+            <button type="button" id="close">X</button>
+        </div>
+        <div id="formbody">
+            <form class="form-signin" id="user-signin">
+                <!-- 账号输入框 -->
+                <div class="loginUserName">
+                    <input id="input-topright-loginInput" name="username" class="loginInput" placeholder="请输入手机号或邮箱"
+                        type="text">
+                    <select name="region" id="select_region">
+                        <option selected="selected" value="shanghai">中国大陆&nbsp;&nbsp;&nbsp;+86</option>
+                        <option value="chongqing">中国香港+886</option>
+                    </select>
+                    <span id=""></span>
+                </div>
+                <!-- 密码输入框 -->
+                <div class="loginPassword">
+                    <input id="input-bottomright-loginInput" name="password" class="loginInput" placeholder="请输入用户密码"
+                        type="password" style="border-bottom-right-radius:5px;">
+                    <i class="fa fa-eye-open"></i>
+                    <span id=""></span>
+                </div>
+                <!-- 账户密码登录进入口 -->
+                <div id="formfoot">
+                    <button id="BSignIn" type="button">Sign in</button>
+                    <p class="login_deal">登录即代表同意<a href="">《用户服务协议》</a>与<a href="">《隐私政策》</a></p>
+                </div>
+                <!-- 其他登录 -->
+                <div class="Other_login">
+                    <a href="./registe" class="login_button">注册</a>
+                    <a href="" class="Text_login">短信登录&nbsp;&nbsp;|&nbsp;&nbsp;其他登录</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./js/logon.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
+  <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+ 
+ 
+</body>
+
+</html>

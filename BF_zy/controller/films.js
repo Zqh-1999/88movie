@@ -25,7 +25,6 @@ module.exports.addFilm = (req, res) => {
     director: req.body.director,
     channel: req.body.channel,
     type_name: req.body.type_name,
-    type_id: req.body.type_id,
     year: req.body.year,
     describe: req.body.describe,
     address: req.body.address,
@@ -119,7 +118,7 @@ module.exports.upFilm = (req, res) => {
     director: req.body.director,
     channel: req.body.channel,
     type_name: req.body.type_name,
-    type_id: req.body.type_id,
+    subtype: req.body.subtype,
     year: req.body.year,
     describe: req.body.describe,
     address: req.body.address,
@@ -128,6 +127,7 @@ module.exports.upFilm = (req, res) => {
     recommend: req.body.recommend,
     hot: req.body.hot,
   }
+  console.log(data)
   // 修改数据库的语句
   mysql.query(`UPDATE ${filminfo} SET ? WHERE id = ?`, [data, req.params.id], (err, results) => {
     if (err) return console.log(err)
@@ -147,8 +147,7 @@ module.exports.upFilm = (req, res) => {
     }
   })
 }
-// SELECT COUNT(*) as total FROM ${filminfo} WHERE type_name = ? AND subtype = ? OR year = ? OR address = ? OR recommend = ? OR hot = ?;
-// typeName, subtype, year, address, recommend, hot, 
+
 // 查询所有影视
 module.exports.inquireFilmAll = (req, res) => {
   let page = req.query.page || 1
@@ -163,8 +162,14 @@ module.exports.inquireFilmAll = (req, res) => {
   let recommend = req.query.recommend == undefined ? '' : `AND recommend = ?`; // 推荐
   let hot = req.query.hot == undefined ? '' : `AND hot = ?`; // 热门
 
-  let dataArr = [typeName]
-
+  let dataArr = []
+  dataArr.push(typeName)
+  req.query.subtype == undefined ? null : dataArr.push(req.query.subtype); // 子类型
+  req.query.year == undefined ? null : dataArr.push(req.query.year); // 年份
+  req.query.address == undefined ? null : dataArr.push(req.query.address); // 地区
+  req.query.recommend == undefined ? null : dataArr.push(req.query.recommend); // 推荐
+  req.query.hot == undefined ? null : dataArr.push(req.query.hot); // 热门
+  dataArr.push(typeName)
   req.query.subtype == undefined ? null : dataArr.push(req.query.subtype); // 子类型
   req.query.year == undefined ? null : dataArr.push(req.query.year); // 年份
   req.query.address == undefined ? null : dataArr.push(req.query.address); // 地区
@@ -175,15 +180,17 @@ module.exports.inquireFilmAll = (req, res) => {
   dataArr.push(fistPer)
   dataArr.push(per_page)
   console.log(dataArr)
-  mysql.query(`SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
-  dataArr, (err, results) => {
-    if (err) return console.log(err)
-    // console.log(results)
-    res.json({
-      code: '200',
-      data: results
+  mysql.query(`SELECT COUNT(*) AS total FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot}; SELECT * FROM ${filminfo} WHERE type_name = ? ${subtype} ${year} ${address} ${recommend} ${hot} ORDER BY ? ? LIMIT ?, ?`,
+    dataArr, (err, results) => {
+      if (err) return console.log(err)
+      console.log(results)
+      res.json({
+        code: '200',
+        data: results[1],
+        total: results[0][0].total,
+        per_page
+      })
     })
-  })
 
 }
 
@@ -194,10 +201,9 @@ module.exports.inquireFilms = (req, res) => {
   let fistPer = (page - 1) * per_page - 0
   let sortWhere = req.query.sorty || 'id'
   let sortRule = req.query.sortway || 'asc'
-  let keyWords = req.query.keywords == undefined ? '' : req.query.keywords
-  let keyWords1 = keyWords.length == 0 ? null : `%${keyWords}%`;
-  mysql.query(`SELECT count(*) as total FROM ${filminfo} WHERE film_name LIKE ?;SELECT * FROM ${filminfo} WHERE film_name LIKE ? OR star LIKE ? OR director LIKE ? ORDER BY ? ? LIMIT ?, ?`,
-    [keyWords1, keyWords1, keyWords1, keyWords1, sortWhere, sortRule, fistPer, per_page], (err, results) => {
+  let  keyWords1 = req.query.keyWords
+  mysql.query(`SELECT count(*) as total FROM ${filminfo} WHERE film_name LIKE ?;SELECT * FROM ${filminfo} WHERE film_name LIKE ? ORDER BY ? ? LIMIT ?, ?`,
+    [keyWords1, keyWords1, sortWhere, sortRule, fistPer, per_page], (err, results) => {
       if (err) return console.log(err)
       if (results.length == 0) {
         res.json({
@@ -207,7 +213,9 @@ module.exports.inquireFilms = (req, res) => {
       } else {
         res.json({
           code: '200',
-          data: results,
+          data: results[1],
+          total: results[0][0].total,
+          per_page
         })
       }
     })
@@ -216,7 +224,20 @@ module.exports.inquireFilms = (req, res) => {
 
 
 
-
+module.exports.inquireFilmallinfo = (req, res) => {
+  let page = req.query.page - 0
+  let per_page = req.query.per_page - 0
+  let fistPage = (page-1) * per_page
+  mysql.query(`SELECT COUNT(*) total FROM ${filminfo} order by id asc; SELECT * FROM ${filminfo} order by id asc limit ?,?`, [fistPage, per_page], (err, results) => {
+    if (err) console.log(err)
+    res.json({
+      code: 200,
+      data: results[1],
+      total: results[0][0].total,
+      per_page
+    })
+  })
+}
 
 
 // module.exports.inquireFilms = (req, res) => {

@@ -14,7 +14,7 @@ const films = '/films'
 router.post(films, controller.addFilm)
 
 // 删除影片
-router.delete(films, controller.deleteFilm)
+router.delete(`${films}/:id(\\d+)`, controller.deleteFilm)
 
 // 查询单个/回显影片
 router.get(`${films}/:id(\\d+)`, controller.inquireFilm)
@@ -27,6 +27,8 @@ router.get(`${films}/all`, controller.inquireFilmAll)
 
 // 查询多个影片(根据关键字搜索)
 router.get(films, controller.inquireFilms)
+
+router.get(`${films}/allinfo`, controller.inquireFilmallinfo)
 
 
 // 暴露路由
