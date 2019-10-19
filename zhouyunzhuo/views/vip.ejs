@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/bottom.css">
     <link rel="stylesheet" href="./css/hand.css">
     <link type="text/css" rel="stylesheet" href="./css/carousel.css">
+
 </head>
 
 <body>
@@ -1607,7 +1608,7 @@
     <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/jquery.carousel.js"></script>
     <script src="./js/hand.js"></script>
-    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <!-- <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script> -->
     <script>
         Caroursel.init($('.caroursel'))
     </script>
@@ -1616,7 +1617,7 @@
 
         $('.seach-nav .sub').on('click',function () {
             var filmName = $('.seach-nav .ss').val();
-            // console.log(filmName)
+             
             $.ajax({
                 url: "http://127.0.0.1/api/v1/films",
                 type: "get",

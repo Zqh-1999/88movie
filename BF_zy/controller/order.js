@@ -93,58 +93,58 @@ module.exports.deleteOrders = (req, res) => {
   })
 }
 
-// // 查询单个ID/回显order
-// module.exports.inquireOrder = (req, res) => {
-//   // 查询单个ID/回显order的sql语句
-//   console.log(req.params.id)
-//   mysql.query(`SELECT * FROM ${order} WHERE user_id = ?`, req.params.id, (err, results) => {
-//     if (err) return console.log(err)
-//     if (results.length == 0) {
-//       res.json({
-//         code: '400',
-//         msg: '查询的order不存在'
-//       })
-//     } else {
-//       res.json({
-//         code: '200',
-//         data: results
-//       })
-//     }
-//   })
-// }
+// 查询单个ID/回显order
+module.exports.inquireOrder = (req, res) => {
+  // 查询单个ID/回显order的sql语句
+  console.log(req.params.id)
+  mysql.query(`SELECT * FROM ${order} WHERE user_id = ?`, req.params.id, (err, results) => {
+    if (err) return console.log(err)
+    if (results.length == 0) {
+      res.json({
+        code: '400',
+        msg: '查询的order不存在'
+      })
+    } else {
+      res.json({
+        code: '200',
+        data: results
+      })
+    }
+  })
+}
 
-// // 查询多个order
-// module.exports.inquireOrders = (req, res) => {
-//   let page = req.query.page || 1
-//   let pagenum = req.query.pagenum - 0 || 5
-//   let fistPer = (page - 1) * pagenum - 0
-//   let sortWhere = req.query.sorty || 'add_time'
-//   let sortRule = req.query.sortway || 'asc'
-//   if (req.query.ordername.length == 0) {
-//     mysql.query(`SELECT * FROM ${order} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
-//       if (err) return console.log(err)
-//       res.json({
-//         code: '200',
-//         data: results,
-//         total: results.length
-//       })
-//     })
-//   } else {
-//     mysql.query(`SELECT * FROM ${order} WHERE ordername like ? or phone like ? order by ? ? limit ?, ?`,
-//       [req.query.ordername.length == 0 ? null : `%${req.query.ordername}%`, req.query.phone.length == 0 ? null : `%${req.query.phone}%`, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
-//         if (err) return console.log(err)
-//         if (results.length == 0) {
-//           res.json({
-//             code: '400',
-//             data: '抱歉,没有此信息'
-//           })
-//         } else {
-//           res.json({
-//             code: '200',
-//             data: results,
-//             total: results.length
-//           })
-//         }
-//       })
-//   }
-// }
+// 查询多个order
+module.exports.inquireOrders = (req, res) => {
+  let page = req.query.page || 1
+  let pagenum = req.query.pagenum - 0 || 5
+  let fistPer = (page - 1) * pagenum - 0
+  let sortWhere = req.query.sorty || 'add_time'
+  let sortRule = req.query.sortway || 'asc'
+  if (req.query.ordername.length == 0) {
+    mysql.query(`SELECT * FROM ${order} order by ? ? limit ?, ?`, [sortWhere, sortRule, fistPer, pagenum], (err, results) => {
+      if (err) return console.log(err)
+      res.json({
+        code: '200',
+        data: results,
+        total: results.length
+      })
+    })
+  } else {
+    mysql.query(`SELECT * FROM ${order} WHERE ordername like ? or phone like ? order by ? ? limit ?, ?`,
+      [req.query.ordername.length == 0 ? null : `%${req.query.ordername}%`, req.query.phone.length == 0 ? null : `%${req.query.phone}%`, sortWhere, sortRule, fistPer, pagenum], (err, results) => {
+        if (err) return console.log(err)
+        if (results.length == 0) {
+          res.json({
+            code: '400',
+            data: '抱歉,没有此信息'
+          })
+        } else {
+          res.json({
+            code: '200',
+            data: results,
+            total: results.length
+          })
+        }
+      })
+  }
+}

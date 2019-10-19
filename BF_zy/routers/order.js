@@ -19,11 +19,11 @@ router.delete(order, controller.deleteOrder)
 // 删除多个order
 router.delete(`${order}/:id(\\d+)`, controller.deleteOrders)
 
-// // 查询单个/回显order
-// router.get(`${order}/:id(\\d+)`, controller.inquireOrder)
+// 查询单个/回显order
+router.get(`${order}/:id(\\d+)`, controller.inquireOrder)
 
 // 查询多个order
-// router.get(order, controller.inquireOrders)
+router.get(order, controller.inquireOrders)
 
 
 // 暴露路由
