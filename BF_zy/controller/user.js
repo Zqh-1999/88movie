@@ -187,7 +187,8 @@ module.exports.loginUser = (req, res) => {
       res.json({
         code: '200',
         msg: '登陆成功',
-        token: 'asgfyug87y437rydbg8 g7823rgydslg[gejhgiweug'
+        token: 'asgfyug87y437rydbg8 g7823rgydslg[gejhgiweug',
+        img: results[0].head_img
       })
     } else {
       res.json({
