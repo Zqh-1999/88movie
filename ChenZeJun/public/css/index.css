@@ -147,6 +147,27 @@
 	text-decoration: none
 }
 
+.histroy {
+	position: relative;
+}
+
+.history_list {
+	position: absolute;
+	z-index: 9989;
+	background-color: #ffffff;
+	width: 168px;
+	z-index: 9989;
+	height: 500px;
+	border-left: 1px dotted #ccc;
+	border-right: 1px dotted #ccc;
+}
+
+.history_list li {
+	height: 10%;
+	border-top: 1px dotted #ccc;
+	border-bottom: 1px dotted #ccc;
+}
+
 /*-- //header --*/
 /*-- nav --*/
 .navbar-default {

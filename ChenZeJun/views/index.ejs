@@ -11,8 +11,8 @@
     <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/jquery.slidey.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/bottom.css">
-    <!-- js -->
-    <!-- <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="/css/hand.css"> -->
+
 </head>
 
 <body>
@@ -95,7 +95,7 @@
                             <li><a href="/serises">电视剧</a></li>
                             <li><a href="/vip">vip精彩</a></li>
                             <li class="dropdown">
-                                <a href="/Variety" class="dropdown-toggle" data-toggle="dropdown">综艺 
+                                <a href="/Variety" class="dropdown-toggle" data-toggle="dropdown">综艺
                                     <!-- <b class="caret"></b> -->
                                 </a>
                                 <!-- <ul class="dropdown-menu multi-column columns-3">
@@ -129,7 +129,15 @@
                                 </ul> -->
                             </li>
                             <li><a href="javaScript:;"> vip充值</a></li>
-                            <li><a href="javaScript:;">历史记录</a></li>
+                            <li class="histroy"><a href="javaScript:;">历史记录</a>
+                                <ul class="history_list">
+                                    <li>
+                                        <p></p>
+                                        <span></span>
+                                    </li>
+                                </ul>
+
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -874,6 +882,19 @@
                 }
             })
         })
+        let showHistory = function () {
+            $.ajax({
+                url: `http://127.0.0.1/api/v1/history/${data.data.id}`,
+                type: "get",
+                data: {
+                    user_id: id
+                },
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+        }
+        showHistory()
     </script> `
 </body>
 

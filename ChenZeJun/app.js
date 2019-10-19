@@ -18,7 +18,7 @@ app.get('/Details', (req, res) => {
 })
 // 登录
 app.get('/login', (req, res) => {
-    res.render('logon')
+    res.render('dl')
 })
 // vip页面
 app.get('/vip', (req, res) => {
@@ -42,6 +42,7 @@ app.get('/Animation', (req, res) => {
 app.get('/Variety', (req, res) => {
     res.render('Animation')
 })
+
 
 //#region 3.配置ejs模板引擎
 // 3.1 下载ejs包
