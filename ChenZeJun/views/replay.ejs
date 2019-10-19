@@ -209,7 +209,7 @@
                 <ul class="recommend_list clearfix">
                     <!-- 影视推荐部分 -->
                     <script type="text/template" id="cates_template">
-                   {{each list}}
+                        {{each list}}
                <li><img src="{{$value.image_url}}" alt="">
                   <a href="#">
                 <div class="mask">
@@ -231,49 +231,49 @@
         <script src="/js/template/template-web.js"></script>
         <script src="/js/twbs-pagination/jquery.twbsPagination.min.js"></script>
         <!-- 分页   -->
-        <!-- <script>
-            let show = function (pagenum, pagesize) {
-                $("a").css("text-decoration", "none"); //去掉下划线
-                $.ajax({
-                    url: "http://127.0.0.1/api/v1/films/all",
-                    type: "get",
-                    data: {
-                        page: pagenum || 1,
-                        per_page: pagesize || 3,
-                    },
-                    success: function (data) {
-                        console.log(data)
-                        let MovieHtml = template('movie_template', {
-                            list: data.data,
-                        })
-                        $('.news_movie_temp').html(MovieHtml)
-                        // 分页
-                        $('.pagination').twbsPagination({
-                            // 总页数
-                            totalPages: Math.ceil(
-                                data
-                                    .total /
-                                data
-                                    .per_page
-                            ),
-                            visiblePages: 3,
-                            // 当你点击的时候 获取页码
-                            onPageClick: function (
-                                evt,
-                                page) {
-                                console.log(
-                                    page
-                                );
-                                show(
-                                    page
-                                );
-                            }
-                        });
-                    }
-                })
-            }
-            show();
-        </script> -->
+        <script>
+            // let show = function (pagenum, pagesize) {
+            //     $("a").css("text-decoration", "none"); //去掉下划线
+            //     $.ajax({
+            //         url: "http://127.0.0.1/api/v1/films/all",
+            //         type: "get",
+            //         data: {
+            //             page: pagenum || 1,
+            //             per_page: pagesize || 3,
+            //         },
+            //         success: function (data) {
+            //             console.log(data.data)
+            //             let MovieHtml = template('movie_template', {
+            //                 list: data.data,
+            //             })
+            //             $('.news_movie_temp').html(MovieHtml)
+            //             // 分页
+            //             $('.pagination').twbsPagination({
+            //                 // 总页数
+            //                 totalPages: Math.ceil(
+            //                     data
+            //                     .total /
+            //                     data
+            //                     .per_page
+            //                 ),
+            //                 visiblePages: 3,
+            //                 // 当你点击的时候 获取页码
+            //                 onPageClick: function (
+            //                     evt,
+            //                     page) {
+            //                     console.log(
+            //                         page
+            //                     );
+            //                     show(
+            //                         page
+            //                     );
+            //                 }
+            //             });
+            //         }
+            //     })
+            // }
+            // show();
+        </script>
 
         <!-- 发布评论 -->
         <script>
@@ -294,26 +294,28 @@
                 $('.commonts-nnm').val('');
             })
             // 回显评论
-            let showIndex = function () {
+            let showIndex = function (pagenum, pagesize) {
                 $.ajax({
                     url: "http://127.0.0.1/api/v1/message",
                     type: "get",
                     data: {
                         film_id: 3,
+                        page: pagenum || 1,
+                        per_page: pagesize || 3,
                     },
                     success: function (data) {
-                        // console.log(data)
+                        console.log(data)
                         let list = data.data;
-                        let templateHtml = template('comnent_template', { list: list })
+                        let templateHtml = template('comnent_template', {
+                            list: list
+                        })
                         // console.log(list)
                         $('.comment').html(templateHtml)
                     }
                 })
             }
-            showIndex()  
-        </script>
-        <!-- 推荐电影 -->
-        <script>
+            showIndex()
+            // !--推荐电影-- >
             var show = function () {
                 $.ajax({
                     url: "http://127.0.0.1/api/v1/films/all",
@@ -333,6 +335,8 @@
             }
             show()
         </script>
+
+
 
 </body>
 

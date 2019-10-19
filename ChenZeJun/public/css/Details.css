@@ -153,10 +153,8 @@ body {
 
 }
 
-.nav_bottom_right:hover .nav_list {
-    display: block;
 
-}
+
 
 .filter_results {
     font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif;

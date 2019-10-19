@@ -345,7 +345,7 @@
                                         type_name: "电影"
                                 },
                                 success: function (data) {
-                                        console.log(data)
+                                        // console.log(data)
                                         let MovieHtml = template('movie_template', {
                                                 list: data.data,
                                         })
@@ -382,7 +382,7 @@
                                 url: "http://127.0.0.1/api/v1/films/all",
                                 type: "get",
                                 data: {
-                                        type_name: "电影"
+                                        type_name: "综艺"
                                 },
                                 success: function (data) {
                                         console.log(data)
@@ -410,7 +410,7 @@
                                 type: "get",
                                 data: {
                                         subtype: a_text,
-                                        type_name: "电影"
+                                        type_name: "综艺"
                                 },
                                 success: function (data) {
                                         console.log(data)

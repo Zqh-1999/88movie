@@ -188,7 +188,7 @@
             </div>
 
             <!-- 影片推荐区域 -->
-            <div class="recommend">
+            <div class="recommend clearfix">
                 <!-- 推荐标题 -->
                 <div class="recommend_title">
                     <script type="text/template" id="recommend_template">
@@ -196,7 +196,7 @@
                         {{/each}}
                     </script>
                 </div>
-                <ul class="recommend_list">
+                <ul class="recommend_list clearfix">
                     <script type="text/template" id="recommend_list_template">
                         {{each list}}
                         <li>
@@ -244,7 +244,7 @@
                 type: "get",
                 data: "",
                 success: function (data) {
-                    console.log(data.data)
+                    // console.log(data.data)
                     let MovieHtml = template('movie_template', {
                         list: data.data
                     })
@@ -268,7 +268,7 @@
 
                 },
                 success: function (data) {
-                    console.log(data.data)
+                    console.log(data)
                     let recommend_template = template('recommend_list_template', {
                         list: data.data
                     })
