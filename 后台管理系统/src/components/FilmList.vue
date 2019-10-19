@@ -44,7 +44,7 @@
               type="danger"
               icon="el-icon-delete"
               size="mini"
-              @click="removeUser(scop.row.id)"
+              @click="removeFilm(scop.row.id)"
             ></el-button>
           </template>
         </el-table-column>
@@ -275,7 +275,7 @@ export default {
         this.addFormVisible = false;
       });
     },
-    async removeUser(id) {
+    async removeFilm(id) {
       let result = await this.$confirm("将永久删除该电影", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
@@ -285,7 +285,7 @@ export default {
       });
 
       if (result == "confirm") {
-        const { data: res } = await this.$http.delete(`/users/${id}`);
+        const { data: res } = await this.$http.delete(`/films/${id}`);
 
         if (res.code !== "200") return this.$message.error("电影删除失败");
         this.getUserList();
