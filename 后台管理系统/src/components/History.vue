@@ -9,7 +9,9 @@
       <el-table :data="historyList" style="width: 100%" border stripe>
         <el-table-column prop="username" label="用户姓名"></el-table-column>
         <el-table-column prop="film_name" label="影片名称"></el-table-column>
-        <el-table-column prop="add_time" label="观影时间"></el-table-column>
+        <el-table-column label="过期时间">
+          <template slot-scope="scope">{{scope.row.add_time | setTime}}</template>
+        </el-table-column>
       </el-table>
     </el-card>
   </div>

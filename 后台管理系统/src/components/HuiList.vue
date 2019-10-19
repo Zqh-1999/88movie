@@ -12,8 +12,12 @@
         <el-table-column prop="phone" label="电话"></el-table-column>
         <el-table-column prop="sex" label="性别"></el-table-column>
         <el-table-column prop="order_num" label="会员编号"></el-table-column>
-        <el-table-column prop="start_time" label="会员开通"></el-table-column>
-        <el-table-column prop="end_time" label="会员过期"></el-table-column>
+        <el-table-column label="开通时间">
+          <template slot-scope="scope">{{scope.row.start_time | setTime}}</template>
+        </el-table-column>
+        <el-table-column label="过期时间">
+          <template slot-scope="scope">{{scope.row.end_time | setTime}}</template>
+        </el-table-column>
       </el-table>
     </el-card>
   </div>
