@@ -59,7 +59,7 @@ module.exports.addrecharge = (req, res) => {
         })
       })
     } else {
-      mysql.query(`INSERT INTO ${order} SET ? ; UPDATE ${user} SET ? WHERE id = ?`, [data,data.user_id], (err, results) => {
+      mysql.query(`INSERT INTO ${order} SET ? ; UPDATE ${user} SET ? WHERE id = ?`, [data,data.state,data.user_id], (err, results) => {
         if (err) console.log(err)
         if (results.length != 0) {
           res.json({
