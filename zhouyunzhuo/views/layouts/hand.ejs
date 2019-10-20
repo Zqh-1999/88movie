@@ -191,22 +191,6 @@
     <script src="/js/bootstrapValidator.min.js"></script>
     <script src="/js/template/template.js"></script>
    
-
-    <script>
-        $(function () {
-            var img2 = new ImgUpload('.imgLog2', 100, 100, 100);
-            $(document).on('change', ".imgLog2 input", function (e) {
-                //模拟后台返回url
-                window.url = window.URL.createObjectURL(e.target.files[0]);
-                $(this).parent().css('background', 'url(' + url + ')0% 0% / cover')
-                img2.setSpan(this)
-            })
-            $('input').css('line-height', 'normal');
-
-        })
-        //  console.log(url)
-    </script>
-
 </body>
 
 </html>
