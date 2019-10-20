@@ -130,12 +130,6 @@
                             </li>
                             <li><a href="javaScript:;"> vip充值</a></li>
                             <li class="histroy"><a href="javaScript:;">历史记录</a>
-                                <ul class="history_list">
-                                    <li>
-                                        <p></p>
-                                        <span></span>
-                                    </li>
-                                </ul>
 
                             </li>
                         </ul>
@@ -811,8 +805,26 @@
 
     <!-- 发送ajax请求后台数据 -->
     <script>
+        window.onload = function () {
+            // 登录按钮
+            if (window.sessionStorage.getItem('sken') != "") {
+                $('.login a').html('已登录');
+                $('.login a').attr('href', 'javaScript:;');
+                $('.login ').css('backgroundColor', 'red')
+            }
+            if ((window.sessionStorage.getItem('sken') === null)) {
+                $('.login a').html('登录');
+                $('.login').css('backgroundColor', '')
+                $('.login a').attr('href', '/login');
+
+                alert('您还未登录')
+            }
+
+
+        }
         // 渲染动态数据
         var show = function () {
+
             // 渲染电影页
             $.ajax({
                 url: "http://127.0.0.1/api/v1/films/all",
@@ -844,6 +856,7 @@
                         list: data.data
                     })
                     $('.news_serices_temp').html(MovieHtml)
+                    console.log(window.sessionStorage.getItem('sken'))
                 }
             })
             // 渲染综艺
@@ -882,19 +895,7 @@
                 }
             })
         })
-        let showHistory = function () {
-            $.ajax({
-                url: `http://127.0.0.1/api/v1/history/${data.data.id}`,
-                type: "get",
-                data: {
-                    user_id: id
-                },
-                success: function (data) {
-                    console.log(data)
-                }
-            })
-        }
-        showHistory()
+
     </script> `
 </body>
 

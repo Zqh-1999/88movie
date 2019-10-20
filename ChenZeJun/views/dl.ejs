@@ -8,7 +8,9 @@
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="/css/bottom.css">
-<!-- <link rel="stylesheet" href="/css/hand.css"> -->
+<link rel="stylesheet" href="/css/dl.css">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/hand.css">
 
 <body>
     <!-- Modal -->
@@ -51,13 +53,10 @@
                     <div class="nameVal2"></div>
                 </div>
                 <div class="form-group">
-                    <div class="box">
-                        <p>
-                            <div class="upload imgLog2">
-                                <span><i class="glyphicon glyphicon-open"></i>上传头像</span>
-                            </div>
-                        </p>
-                    </div>
+                    <label for="feature">特色图像</label>
+                    <!-- show when image chose -->
+                    <img class="help-block thumbnail feature-img" style="display: none">
+                    <input id="feature" class="form-control" type="file">
                 </div>
 
                 <div class="radio">
@@ -73,6 +72,9 @@
         </div>
     </div>
 
+
+    <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/jquery.carousel.js"></script>
     <script>
         // 登录
         $('.register a').on('click', function () {
@@ -80,6 +82,7 @@
         })
         $('.guanbi').on('click', function () {
             $(".wrapper").css('display', 'none');
+            $('.form-signin1').css('display', 'none');
             $('.form-control').val('')
         })
         $('.btn-login').on('click', function () {
@@ -136,10 +139,12 @@
                         alert(data.msg);
                         // $.cookie('sken',)
                         window.sessionStorage.setItem("sken", data.data[0].id);
+                        location.href = '/'
+                        console.log(window.sessionStorage.getItem('sken'))
 
                         $('.movie-title a').on('click', function () {
                             if (data.data[0].state == '1') {
-                                location.href = "/in";
+                                location.href = "/replay";
                             } else {
                                 alert('请注册vip')
                             }
@@ -150,11 +155,14 @@
                             type: 'get',
                             data: " ",
                             success: function (data) {
-                                console.log(data)
-                                let usersStr = template('users_template', {
-                                    list: data.data
-                                });
-                                $('.history dd').html(usersStr);
+                                // console.log(data)
+                                if (data.code == '200') {
+                                    let usersStr = template('users_template', {
+                                        list: data.data
+                                    });
+                                    $('.history dd').html(usersStr);
+
+                                }
 
                             }
                         })
@@ -202,7 +210,7 @@
             $.ajax({
                 url: "http://127.0.0.1/api/v1/users",
                 type: 'post',
-                data: formdate + '&head_img=' + url,
+                data: formdate + '&head_img=' + url1,
                 success: function (data) {
                     console.log(data)
                     if (data.code == '400') {
@@ -217,8 +225,36 @@
         })
     </script>
 
-    <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/jquery.carousel.js"></script>
+
+
+    <script>
+        $('#feature').on('change', function () {
+            // 1.获取input中的文件信息
+            let file = $(this)[0].files[0];
+            // 2.实例化formdata
+            let formdata = new FormData();
+            // 3.把获取到的文件信息 添加到formdata中
+            formdata.append('feature', file);
+            console.log(formdata)
+            // 4.发起ajax请求
+            $.ajax({
+                type: 'post',
+                url: '/Files',
+                data: formdata,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                    window.url1 = data.picAddr
+                    $('.feature-img').show().attr('src', data.picAddr).after(
+                        '<input name="feature" type="hidden" value="' + data.picAddr + '">');
+                }
+            })
+            // 5.把后台返回来的图片地址放到img标签中 
+            // 6.把图片地址放到隐藏域中
+        })
+    </script>
+
 </body>
 
 </html>
