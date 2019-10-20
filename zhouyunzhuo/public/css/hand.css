@@ -463,13 +463,11 @@ body {
 
 .wrapper .form-group {
     position: relative;
-    /* margin-bottom: 30px; */
 }
 
 .wraLogin {
     width: 600px;
     height: 600px;
-    /* background-color: red; */
     position: relative;
     top: 200px;
     margin: auto;
@@ -511,9 +509,9 @@ body {
 
 .form-signin1 {
     position: relative;
-    top: -6%;
+    /* top: -6%; */
     max-width: 400px;
-    height: 620px;
+    /* height: 620px; */
     padding: 50px 35px 10px 35px;
     margin: 0 auto;
     background-color: #fff;
@@ -521,6 +519,11 @@ body {
     display: none;
 }
 
+.form-signin1 .zc{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
     margin-bottom: 30px;
