@@ -867,6 +867,8 @@
                 $('.login a').html('已登录');
                 $('.login a').attr('href', 'javaScript:;');
                 $('.login ').css('backgroundColor', 'red')
+                $('.form-control').val('')
+                $('.form-signin1').val("");
             }
             if ((window.sessionStorage.getItem('sken') === null)) {
                 $('.login a').html('登录');
@@ -935,7 +937,7 @@
         show();
 
         // 搜索功能 
-        $('.btn_a').on('click', function () {
+        $('.w3_search .btn').on('click', function () {
             var btn_val = $('.text_btn').val()
             console.log(btn_val)
             $.ajax({
@@ -954,7 +956,38 @@
     </script> `
     <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="/js/jquery.carousel.js"></script>
+
     <script>
+
+    </script>
+    <script>
+        $('#feature').on('change', function () {
+            // 1.获取input中的文件信息
+            console.log($(this))
+            let file = $(this)[0].files[0];
+            // 2.实例化formdata
+            let formdata = new FormData();
+            // 3.把获取到的文件信息 添加到formdata中
+            formdata.append('feature', file);
+            console.log(formdata)
+            // 4.发起ajax请求
+            $.ajax({
+                type: 'post',
+                url: '/Files',
+                data: formdata,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                    window.url1 = data.picAddr
+                    $('.feature-img').show().attr('src', data.picAddr).after(
+                        '<input name="feature" type="hidden" value="' + data.picAddr + '">');
+                    $('.feature-img').css('height', "50px")
+                }
+            })
+            // 5.把后台返回来的图片地址放到img标签中 
+            // 6.把图片地址放到隐藏域中
+        })
         // 登录
         $('.login a').on('click', function () {
             $(".wrapper").css('display', 'block')
@@ -962,6 +995,7 @@
         $('.guanbi').on('click', function () {
             $(".wrapper").css('display', 'none');
             $('.form-signin1').css('display', 'none');
+            $('.form-signin1').val("");
             $('.form-control').val('')
         })
         $('.btn-login').on('click', function () {
@@ -1023,7 +1057,7 @@
 
                         $('.movie-title a').on('click', function () {
                             if (data.data[0].state == '1') {
-                                location.href = "/replay";
+                                // location.href = "/replay";
                             } else {
                                 alert('请注册vip')
                             }
@@ -1095,45 +1129,16 @@
                     if (data.code == '400') {
                         alert(data.msg)
                     } else {
+                        alert(data.msg)
                         $('.form-signin').css('display', 'block');
                         $('.form-signin1').css('display', 'none');
                         $('.form-control').val('')
+                        $('.form-signin1').val("");
                     }
                 }
             })
         })
     </script>
-
-
-
-    <script>
-        $('#feature').on('change', function () {
-            // 1.获取input中的文件信息
-            let file = $(this)[0].files[0];
-            // 2.实例化formdata
-            let formdata = new FormData();
-            // 3.把获取到的文件信息 添加到formdata中
-            formdata.append('feature', file);
-            console.log(formdata)
-            // 4.发起ajax请求
-            $.ajax({
-                type: 'post',
-                url: '/Files',
-                data: formdata,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    console.log(data);
-                    window.url1 = data.picAddr
-                    $('.feature-img').show().attr('src', data.picAddr).after(
-                        '<input name="feature" type="hidden" value="' + data.picAddr + '">');
-                }
-            })
-            // 5.把后台返回来的图片地址放到img标签中 
-            // 6.把图片地址放到隐藏域中
-        })
-    </script>
-
 </body>
 
 </html>

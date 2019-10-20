@@ -513,8 +513,8 @@ body {
     position: relative;
     /* top: 25%; */
     max-width: 400px;
-    height: 560px;
-    padding: 50px 35px 10px 35px;
+    /* height: 560px; */
+    padding: 50px 40px 10px 35px;
     margin: 0 auto;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -577,6 +577,7 @@ body {
     width: 200px;
     margin-left: 66px;
     margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 /* 登录显示头像 */

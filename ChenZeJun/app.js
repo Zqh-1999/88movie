@@ -43,6 +43,10 @@ app.get('/Variety', (req, res) => {
     res.render('Animation')
 })
 
+//图片上传接口
+const routFile=require('./routes/routFile');
+app.use(routFile)
+
 
 //#region 3.配置ejs模板引擎
 // 3.1 下载ejs包
