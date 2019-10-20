@@ -18,6 +18,8 @@ module.exports.inquirerechargeAll = (req, res) => {
       })
     } else {
       res.json({
+
+        
         code: '200',
         data: result
       })
