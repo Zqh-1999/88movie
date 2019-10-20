@@ -134,7 +134,7 @@
                         $('.register img').attr('src', data.data[0].head_img);
                         $('.form-control').val('');
                         alert(data.msg);
-                        // $.cookie('sken',)
+                       
                         window.sessionStorage.setItem("sken", data.data[0].id);
                         $('.movie-title a').on('click', function () {
                             if (data.data[0].state == '1') {
