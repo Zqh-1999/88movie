@@ -26,7 +26,7 @@
             vipbox.style.display = 'none';
         }, 1000);
         skena = window.sessionStorage.getItem("sken");
-        // console.log(skena)
+        console.log(skena)
         $.ajax({
             url: 'http://127.0.0.1/api/v1/recharge',
             type: 'post',
