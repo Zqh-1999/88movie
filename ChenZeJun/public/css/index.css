@@ -129,7 +129,7 @@
 	padding-right: 1em;
 }
 
-.login {
+.container .login {
 	float: right;
 	width: 90px;
 	height: 41px;
