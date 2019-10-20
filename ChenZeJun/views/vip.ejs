@@ -1630,7 +1630,12 @@
 
         $('img').on('click', function () {
             // console.log(1312)
-            alert('您还不是会员,请登陆')
+
+            // 登录按钮
+            if (window.sessionStorage.getItem('sken') == null) {
+                alert('您还不是会员')
+                location.href = '/vip'
+            }
         })
     </script>
 </body>
