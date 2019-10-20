@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/index.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/jquery.slidey.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bottom.css">
+    <link rel="stylesheet" href="/css/hand.css">
+
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <div class="w3layouts_logo clearfix">
+                <a href="">
+                    <img src="./images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="w3_search">
+                <form>
+                    <input type="text" name="Search" placeholder="Search" required="" class="text_btn">
+                    <input type="button" value="搜索" class="btn">
+                </form>
+            </div>
+            <div class="login"> <a href="javaScript:;">登录</a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- header -->
+
+    <!-- nav -->
+    <div class="movies_nav">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header navbar-left">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <nav>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="/">首页</a></li>
+                            <li class="dropdown">
+                                <a href="/Details" class="dropdown-toggle" data-toggle="dropdown" value='电影'>电影 <b
+                                        class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <li>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="">动作片</a></li>
+                                                <li><a href="">喜剧片</a></li>
+                                                <li><a href="">爱情片</a></li>
+                                                <li><a href="">科幻片</a></li>
+                                                <li><a href="">恐怖片</a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="">剧情片</a></li>
+                                                <li><a href="">战争片</a></li>
+                                                <li><a href="">动画片</a></li>
+                                                <li><a href="">微电影</a></li>
+                                                <li><a href="">纪录片</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="">冒险片</a></li>
+                                                <li><a href="">犯罪片</a></li>
+                                                <li><a href="">惊悚片</a></li>
+
+                                                <li><a href="">其他片</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="/serises">电视剧</a></li>
+                            <li><a href="/vip">vip精彩</a></li>
+                            <li class="dropdown">
+                                <a href="/Variety" class="dropdown-toggle" data-toggle="dropdown">综艺
+                                    <!-- <b class="caret"></b> -->
+                                </a>
+                                <!-- <ul class="dropdown-menu multi-column columns-3">
+                                    <li>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="genres.html">Asia</a></li>
+                                                <li><a href="genres.html">France</a></li>
+                                                <li><a href="genres.html">Taiwan</a></li>
+                                                <li><a href="genres.html">United States</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="genres.html">China</a></li>
+                                                <li><a href="genres.html">HongCong</a></li>
+                                                <li><a href="genres.html">Japan</a></li>
+                                                <li><a href="genres.html">Thailand</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="genres.html">Euro</a></li>
+                                                <li><a href="genres.html">India</a></li>
+                                                <li><a href="genres.html">Korea</a></li>
+                                                <li><a href="genres.html">United Kingdom</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </ul> -->
+                            </li>
+                            <li><a href="javaScript:;"> vip充值</a></li>
+                            <li class="histroy"><a href="javaScript:;">历史记录</a>
+
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- nav -->
+
+    <!-- banner轮播图开始 -->
+    <div id="slidey" style="display:none;">
+        <ul>
+            <li><img src="./images/banner01.jpg" alt=" ">
+                <p class='title'>空降利刃</p>
+                <p class='description'>
+                    电视剧《空降利刃》以张启、潘野、齐小天等空降特种兵为代表......
+                </p>
+            </li>
+            <li><img src="./images/banner07.jpg" alt=" ">
+                <p class='title'>西行记</p>
+                <p class='description'>唐三藏师徒取得奇经交予天庭的十六年后，世界却并没有因此变好 ...</p>
+            </li>
+            <li><img src="./images/banner03.jpg" alt=" ">
+                <p class='title'>我和我的祖国</p>
+                <p class='description'>七位导演分别取材新中国成立70周年以来，祖国经历的无数个历史性经典瞬间...</p>
+            </li>
+            <li><img src="./images/banner04.jpg" alt=" ">
+                <p class='title'> 画江湖之不良人第三季 </p>
+                <p class='description'>画江湖之不良人》第三季侠影归来，再现唐末乱世风云！王者弈天下，大唐生死局...</p>
+            </li>
+            <li><img src="./images/banner05.jpg" alt=" ">
+                <p class='title'>中国机长 </p>
+                <p class='description'>电影《中国机长》根据2018年5月14日四川航空3U8633航班机组成功处置特情真实事件改编...</p>
+            </li>
+            <li><img src="./images/banner06.jpg" alt=" ">
+                <p class='title'>
+                    海贼王</p>
+                <p class='description'>
+                    传奇海盗哥尔•D•罗杰在临死前曾留下关于其毕生的财富“OnePiece”的消息，由此引得群雄并起，众海盗们为了这笔传说中的巨额财富展开争夺，各种势力、政权不断交替，整个世界进入了动荡混乱的“大海贼时代”。生长在东海某小村庄的路飞受到海贼香克斯的精神指引，决定成为一名出色的海盗。为了达成这个目标，并找到万众瞩目的OnePiece...
+                    ...</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- banner轮播图结束 -->
+
+    <!-- 热门电影 -->
+    <div class="Recommend">
+        <div class="common clearfix">
+            <div class="Recommend_left">
+                <div class="Recommend_left_top">
+                    <h2>最新热门影片推荐</h2>
+                </div>
+                <ul class="Recommend_list clearfix">
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000001.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">中国机长</p>
+                            <p class="actor">张涵予</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href="/intro"></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000002.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">斗罗大陆</p>
+                            <p class="actor">沈磊</p>
+                            <p class="type">国产动漫</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000003.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">西行记</p>
+                            <p class="actor">夏磊 ，吴磊</p>
+                            <p class="type">国产动漫</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000004.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">我和我的祖国</p>
+                            <p class="actor">贾乃亮，邢佳栋</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000005.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">攀登者</p>
+                            <p class="actor">吴京，章子怡，张译</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000006.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">我在未来等你</p>
+                            <p class="actor">邢昭林，白鹿</p>
+                            <p class="type">爱情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000007.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">在远方</p>
+                            <p class="actor">刘烨</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000008.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">陈情令</p>
+                            <p class="actor">肖战，王一博</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000009.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">火影忍者</p>
+                            <p class="actor">竹内顺子</p>
+                            <p class="type">动漫</p>
+                            <p class="time">2019/大日本</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000010.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">海贼王给</p>
+                            <p class="actor">田中真工</p>
+                            <p class="type">动漫</p>
+                            <p class="time">2002/日本</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000011.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">画江湖之不良人</p>
+                            <p class="actor">边江</p>
+                            <p class="type">国产动漫</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000012.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">斗破苍穹</p>
+                            <p class="actor"></p>
+                            <p class="type">国产动漫</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000013.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">银河补习班</p>
+                            <p class="actor">张涵予</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000014.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">中国机长</p>
+                            <p class="actor">张涵予</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000016.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">中国机长</p>
+                            <p class="actor">张涵予</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000017.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">中国机长</p>
+                            <p class="actor">张涵予</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000018.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">中国机长</p>
+                            <p class="actor">张涵予</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./images/ia_100000019.jpg" alt="">
+                        </a>
+                        <i>高清</i>
+                        <div class="movie">
+                            <p class="name">中国机长</p>
+                            <p class="actor">张涵予</p>
+                            <p class="type">剧情片</p>
+                            <p class="time">2019/大陆</p>
+                            <a href="/replay"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="Recommend_right">
+                <div class="Recommend_right_top">
+                    <h2>2019大片精选</h2>
+                </div>
+                <ul class="Recommend_right_list">
+                    <li>
+                        <a href="">
+                            <span>02</span>
+                            <p>铁旗门</p>
+                            <em>HD</em>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="">
+                            <span>05</span>
+                            <p>夺宝奇兵4</p>
+                            <em>正片</em>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>05</span>
+                            <p>绿芥刑警</p>
+                            <em>高清中字</em>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>07</span>
+                            <p>钢刀</p>
+                            <em>高清中字</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span>08</span>
+                            <p>消音器</p>
+                            <em>BD</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span>09</span>
+                            <p>龙女降妖记</p>
+                            <em>BD</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span>10</span>
+                            <p>一石二鸟2005</p>
+                            <em>高清</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span>12</span>
+                            <p>逃亡雅典娜</p>
+                            <em>BD</em>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="">
+                            <span>13</span>
+                            <p>王者天下</p>
+                            <em>HD</em>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="">
+                            <span>14</span>
+                            <p>精英部队</p>
+                            <em>高清中字</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span>15</span>
+                            <p>致命毒岛</p>
+                            <em>高清中字</em>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="">
+                            <span>1</span>
+                            <p>哪吒</p>
+                            <em>高清</em>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="">
+                            <span>3</span>
+                            <p>斗罗大陆</p>
+                            <em>HD</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span>6</span>
+                            <p>画江湖之不良人</p>
+                            <em>HD</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <span>8</span>
+                            <p>我在未来等你</p>
+                            <em>HD</em>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--  最新电影 -->
+    <div class="news_movie">
+        <div class="common">
+            <div class="news_movie_top">
+                <h2>最新电影</h2>
+            </div>
+            <div class="news_movie_center">
+                <ul class="news_movie_temp clearfix">
+                    <script type="text/template" id="movie_template">
+                        {{each list}}
+                        <li>
+                                <a href=""><img src="{{$value.image_url}}" alt=""><i>HD</i></a>
+                                <div class="hot_movie">
+                                    <p class="name">{{$value.film_name}}</p>
+                                    <p class="actor">{{$value.star}}</p>
+                                    <p class="type">{{$value.type_name}}</p>
+                                    <p class="time">{{$value.adress}}</p>
+                                    <a href="/intro/{{$value.id}}"></a>
+                                </div>
+                            </li>
+                            {{/each}}
+                    </script>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!--  最新电视剧-->
+    <div class="news_movie">
+        <div class="common">
+            <div class="news_movie_top">
+                <h2>最新电视剧</h2>
+            </div>
+            <div class="news_movie_center">
+                <ul class="news_serices_temp clearfix">
+                    <script type="text/template" id="series_template">
+                        {{each list}}
+                        <li>
+                                <a href=""><img src="{{$value.image_url}}" alt=""><i>HD</i></a>
+                                <div class="hot_movie">
+                                    <p class="name">{{$value.film_name}}</p>
+                                    <p class="actor">{{$value.star}}</p>
+                                    <p class="type">{{$value.type_name}}</p>
+                                    <p class="time">{{$value.adress}}</p>
+                                    <a href="/intro/{{$value.id}}"></a>
+                                </div>
+                            </li>
+                            {{/each}}
+                    </script>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 最新综艺 -->
+    <div class="news_movie">
+        <div class="common">
+            <div class="news_movie_top">
+                <h2>最新综艺</h2>
+            </div>
+            <div class="news_movie_center">
+                <ul class="news_Variety_temp clearfix">
+                    <script type="text/template" id="Variety_template">
+                        {{each list}}
+                        <li>
+                                <a href=""><img src="{{$value.image_url}}" alt=""><i>HD</i></a>
+                                <div class="hot_movie">
+                                    <p class="name">{{$value.film_name}}</p>
+                                    <p class="actor">{{$value.star}}</p>
+                                    <p class="type">{{$value.type_name}}</p>
+                                    <p class="time">{{$value.adress}}</p>
+                                    <a href="/intro/{{$value.id}}"></a>
+                                </div>
+                            </li>
+                            {{/each}}
+                    </script>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 轮播图部分开始 -->
+    <div class="banner_navbar">
+        <div class="box">
+            <div class="box-1">
+                <ul>
+                    <li>
+                        <img src="./images/banner01.jpg" alt=" ">
+                        <h2>这里是第一张图片这里是第一张图片</h2>
+                    </li>
+                    <li>
+                        <img src="./images/banner023.jpg" alt=" ">
+                        <h2>这里是第二张图片这里是第二张图片</h2>
+                    </li>
+                    <li>
+                        <img src="./images/banner03.jpg" alt=" ">
+                        <h2>这里是第三张图片这里是第三张图片</h2>
+                    </li>
+                    <li>
+                        <img src="./images/banner04.jpg" alt=" ">
+                        <h2>这里是第四张图片这里是第四张图片</h2>
+                    </li>
+                    <li>
+                        <img src="./images/banner05.jpg" alt=" ">
+                        <h2>这里是第五张图片这里是第五张图片</h2>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-2">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="box-3">
+                <span class="prev">
+                    < </span> <span class="next"> >
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 底部 -->
+    <%- include('./layouts/footer.ejs') %>
+
+    <div class="wrapper">
+        <div class="wraLogin">
+            <button class="guanbi">X</button>
+            <!-- 登录 -->
+            <form class="form-signin" id="user-signin">
+                <div class="form-group">
+                    <label for="name">管理员名</label>
+                    <input id="name" class="form-control" name="username" type="text" placeholder="请输入管理员名">
+                    <div class="nameVal"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input id="password" class="form-control" name="password" type="password" placeholder="请输入密码">
+                    <div class="nameVal1"></div>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block btn-login" type="button">登录</button>
+                    <a class="btn btn-lg btn-danger btn-block btn-reg" href="javascript:;">注 册</a>
+                </div>
+            </form>
+            <!-- 添加 -->
+            <form class="form-signin1" id="add-signin">
+                <div class="form-group">
+                    <label for="name">管理员名</label>
+                    <input id="add-name" class="form-control" name="username" type="text" placeholder="请输入管理员名">
+                    <div class="nameVal"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input id="add-password" class="form-control" name="password" type="password" placeholder="请输入密码">
+                    <div class="nameVal1"></div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">密码</label>
+                    <input type="password" class="form-control" id="add-password1" placeholder="请再次输入密码">
+                    <div class="nameVal2"></div>
+                </div>
+                <div class="form-group">
+                    <label for="feature">特色图像</label>
+                    <!-- show when image chose -->
+                    <img class="help-block thumbnail feature-img" style="display: none">
+                    <input id="feature" class="form-control" type="file">
+                </div>
+
+                <div class="radio">
+                    <label class="radio-inline">
+                        <input type="radio" name="sex" id="inlineRadio1" value="0" checked> 男
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="sex" id="inlineRadio2" value="1"> 女
+                    </label>
+                </div>
+                <button type="button" class="btn_a btn-default">注册</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- js部分 -->
+
+    <script src="/js/template/template-web.js"></script>
+    <!-- js无限循环轮播图部分 -->
+    <script type="text/javascript">
+        window.onload = function () {
+            function $(param) {
+                if (arguments[1] == true) {
+                    return document.querySelectorAll(param);
+                } else {
+                    return document.querySelector(param);
+                }
+            }
+            var $box = $(".box");
+            var $box1 = $(".box-1 ul li", true);
+            var $box2 = $(".box-2 ul");
+            var $box3 = $(".box-3");
+            var $length = $box1.length;
+
+            var str = "";
+            for (var i = 0; i < $length; i++) {
+                if (i == 0) {
+                    str += "<li class='on'>" + (i + 1) + "</li>";
+                } else {
+                    str += "<li>" + (i + 1) + "</li>";
+                }
+            }
+            $box2.innerHTML = str;
+
+            var current = 0;
+
+            var timer;
+            timer = setInterval(go, 2000);
+
+            function go() {
+                for (var j = 0; j < $length; j++) {
+                    $box1[j].style.display = "none";
+                    $box2.children[j].className = "";
+                }
+                if ($length == current) {
+                    current = 0;
+                }
+                $box1[current].style.display = "block";
+                $box2.children[current].className = "on";
+                current++;
+            }
+
+            for (var k = 0; k < $length; k++) {
+                $box1[k].onmouseover = function () {
+                    clearInterval(timer);
+                }
+                $box1[k].onmouseout = function () {
+                    timer = setInterval(go, 1000);
+                }
+            }
+            for (var p = 0; p < $box3.children.length; p++) {
+                $box3.children[p].onmouseover = function () {
+                    clearInterval(timer);
+                };
+                $box3.children[p].onmouseout = function () {
+                    timer = setInterval(go, 1000);
+                }
+            }
+
+            for (var u = 0; u < $length; u++) {
+                $box2.children[u].index = u;
+                $box2.children[u].onmouseover = function () {
+                    clearInterval(timer);
+                    for (var j = 0; j < $length; j++) {
+                        $box1[j].style.display = "none";
+                        $box2.children[j].className = "";
+                    }
+                    this.className = "on";
+                    $box1[this.index].style.display = "block";
+                    current = this.index + 1;
+                }
+                $box2.children[u].onmouseout = function () {
+                    timer = setInterval(go, 1000);
+                }
+            }
+
+            $box3.children[0].onclick = function () {
+                back();
+            }
+            $box3.children[1].onclick = function () {
+                go();
+            }
+
+            function back() {
+                for (var j = 0; j < $length; j++) {
+                    $box1[j].style.display = "none";
+                    $box2.children[j].className = "";
+                }
+                if (current == 0) {
+                    current = $length;
+                }
+                $box1[current - 1].style.display = "block";
+                $box2.children[current - 1].className = "on";
+                current--;
+            }
+        }
+    </script>
+    <!-- 轮播图部分结束 -->
+
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <!-- js轮播图 -->
+    <script src="js/jquery.slidey.js"></script>
+    <script type="text/javascript">
+        $("#slidey").slidey({
+            interval: 8000,
+            listCount: 5,
+            autoplay: false,
+            showList: true
+        });
+        $(".slidey-list-description");
+    </script>
+
+    <!-- 发送ajax请求后台数据 -->
+    <script>
+        window.onload = function () {
+            // 登录按钮
+            if (window.sessionStorage.getItem('sken') != "") {
+                $('.login a').html('已登录');
+                $('.login a').attr('href', 'javaScript:;');
+                $('.login ').css('backgroundColor', 'red')
+                $('.form-control').val('')
+                $('.form-signin1').val("");
+            }
+            if ((window.sessionStorage.getItem('sken') === null)) {
+                $('.login a').html('登录');
+                $('.login').css('backgroundColor', '')
+                // $('.login a').attr('href', '/login');
+
+                // alert('您还未登录')
+            }
+
+
+        }
+        // 渲染动态数据
+        var show = function () {
+
+            // 渲染电影页
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/films/all",
+                type: "get",
+                data: {
+                    type_name: '电影'
+
+                },
+                success: function (data) {
+                    console.log(data.data)
+                    let MovieHtml = template('movie_template', {
+                        list: data.data
+                    })
+                    $('.news_movie_temp ').html(MovieHtml)
+                }
+            })
+
+            // 渲染电视剧
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/films/all",
+                type: "get",
+                data: {
+                    type_name: '电视剧'
+
+                },
+                success: function (data) {
+                    // console.log(data.data.id)
+                    let MovieHtml = template('series_template', {
+                        list: data.data
+                    })
+                    $('.news_serices_temp').html(MovieHtml)
+                    console.log(window.sessionStorage.getItem('sken'))
+                }
+            })
+            // 渲染综艺
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/films/all",
+                type: "get",
+                data: {
+                    type_name: '综艺'
+
+                },
+                success: function (data) {
+                    // console.log(data.data.id)
+                    let MovieHtml = template('Variety_template', {
+                        list: data.data
+                    })
+                    $('.news_Variety_temp ').html(MovieHtml)
+                }
+            })
+        }
+        show();
+
+        // 搜索功能 
+        $('.w3_search .btn').on('click', function () {
+            var btn_val = $('.text_btn').val()
+            console.log(btn_val)
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/films",
+                type: "get",
+                data: {
+                    keyWords: btn_val
+                },
+                success: function (data) {
+                    console.log(data)
+                    location.href = `/movie/${btn_val}`
+                    $('.text_btn').val('')
+                }
+            })
+        })
+    </script> `
+    <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/jquery.carousel.js"></script>
+
+    <script>
+
+    </script>
+    <script>
+        $('#feature').on('change', function () {
+            // 1.获取input中的文件信息
+            console.log($(this))
+            let file = $(this)[0].files[0];
+            // 2.实例化formdata
+            let formdata = new FormData();
+            // 3.把获取到的文件信息 添加到formdata中
+            formdata.append('feature', file);
+            console.log(formdata)
+            // 4.发起ajax请求
+            $.ajax({
+                type: 'post',
+                url: '/Files',
+                data: formdata,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                    window.url1 = data.picAddr
+                    $('.feature-img').show().attr('src', data.picAddr).after(
+                        '<input name="feature" type="hidden" value="' + data.picAddr + '">');
+                    $('.feature-img').css('height', "50px")
+                }
+            })
+            // 5.把后台返回来的图片地址放到img标签中 
+            // 6.把图片地址放到隐藏域中
+        })
+        // 登录
+        $('.login a').on('click', function () {
+            $(".wrapper").css('display', 'block')
+        })
+        $('.guanbi').on('click', function () {
+            $(".wrapper").css('display', 'none');
+            $('.form-signin1').css('display', 'none');
+            $('.form-signin1').val("");
+            $('.form-control').val('')
+        })
+        $('.btn-login').on('click', function () {
+            var reg = /^[a-zA-Z]\S+/;
+            if ($('#name').val() == '') {
+                $('.nameVal').html("<i>用户名不能为空!</i>");
+                return
+            } else {
+                $('.nameVal').html("<i> </i>");
+
+            }
+            if ($('#name').val().length < 2 || $('#name').val().length > 18) {
+                $('.nameVal').html("<i>用户名长度大于6小于18!</i>");
+                return
+            } else {
+                $('.nameVal').html("<i> </i>");
+
+            }
+            if ($('#name').val() == $('#password').val()) {
+                $('.nameVal1').html("<i>密码不能和用户名相同!</i>");
+                return
+            } else {
+                $('.nameVal1').html("<i> </i>");
+
+            }
+            if ($('#password').val().length == '') {
+                $('.nameVal1').html("<i>密码不能为空!</i>");
+                return
+            } else {
+                $('.nameVal1').html("<i> </i>");
+
+            }
+            if ($('#password').val().length < 6 || $('#password').val().length > 18) {
+                $('.nameVal1').html("<i>密码长度大于6小于20!</i>");
+                return
+            } else {
+                $('.nameVal1').html("<i> </i>");
+
+            }
+            var formdate = $('#user-signin').serialize();
+            // console.log(formdate)
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/users/login",
+                type: 'post',
+                data: formdate,
+                success: function (data) {
+                    console.log(data)
+                    if (data.code == '400') {
+                        alert(data.msg)
+                    } else {
+                        $('.wrapper').css('display', 'none');
+                        $('.register img').attr('src', data.data[0].head_img);
+                        $('.form-control').val('');
+                        alert(data.msg);
+                        // $.cookie('sken',)
+                        window.sessionStorage.setItem("sken", data.data[0].id);
+                        location.href = '/'
+                        console.log(window.sessionStorage.getItem('sken'))
+
+                        $('.movie-title a').on('click', function () {
+                            if (data.data[0].state == '1') {
+                                // location.href = "/replay";
+                            } else {
+                                alert('请注册vip')
+                            }
+                        })
+
+                        $.ajax({
+                            url: `http://127.0.0.1/api/v1/history/${data.data[0].id}`,
+                            type: 'get',
+                            data: " ",
+                            success: function (data) {
+                                // console.log(data)
+                                if (data.code == '200') {
+                                    let usersStr = template('users_template', {
+                                        list: data.data
+                                    });
+                                    $('.history dd').html(usersStr);
+
+                                }
+
+                            }
+                        })
+                    }
+                }
+            })
+
+        })
+        //    注册
+        $('.btn-reg').on('click', function () {
+            $('.form-signin').css('display', 'none');
+            $('.form-signin1').css('display', 'block');
+        })
+        $('.btn-default').on('click', function () {
+            var username = $('#add-name').val();
+            var password = $('#add-password').val()
+            var password1 = $('#add-password1').val()
+            if (username.length < 6 || username.length > 18) {
+                $('.nameVal').html("<i>用户名长度大于6小于18!</i>");
+                return
+            } else {
+                $('.nameVal').html("<i></i>");
+            }
+            if (password.length < 6 || password.length > 18) {
+                $('.nameVal1').html("<i>密码长度大于6小于18!</i>");
+                return
+            } else {
+                $('.nameVal1').html("<i></i>");
+            }
+            if (username == password) {
+                $('.nameVal1').html("<i>密码不能和用户名相同!</i>");
+                return
+            } else {
+                $('.nameVal1').html("<i></i>");
+            }
+
+            if (password !== password1) {
+                $('.nameVal2').html("<i>密码不相同!</i>");
+                return
+            } else {
+                $('.nameVal2').html("<i></i>");
+            }
+            var formdate = $('#add-signin').serialize();
+            console.log(formdate)
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/users",
+                type: 'post',
+                data: formdate + '&head_img=' + url1,
+                success: function (data) {
+                    console.log(data)
+                    if (data.code == '400') {
+                        alert(data.msg)
+                    } else {
+                        alert(data.msg)
+                        $('.form-signin').css('display', 'block');
+                        $('.form-signin1').css('display', 'none');
+                        $('.form-control').val('')
+                        $('.form-signin1').val("");
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

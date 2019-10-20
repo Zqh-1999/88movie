@@ -1,0 +1,648 @@
+﻿/* 清除浮动 */
+.clearfix:after,
+.clearfix:before {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.clearfix {
+	IEzoom: 1;
+
+}
+
+.common {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+/*-- header --*/
+
+
+.slidey-row .slidey-controls-previous {
+	background-image: url('../images/btn.png');
+	background-position: -7px -77px;
+}
+
+.slidey-row .slidey-controls-next {
+	background-image: url('../images/btn.png');
+	background-position: -65px -77px;
+}
+
+.header {
+	padding: 1em 0;
+	border-top: 3px solid #FF8D1B;
+}
+
+.w3layouts_logo {
+	float: left;
+}
+
+.w3layouts_logo a {
+	display: block;
+	text-decoration: none;
+}
+
+
+.w3layouts_logo a h1 span {
+	color: #FF8D1B;
+	font-size: .3em;
+	display: block;
+	font-weight: 300;
+	letter-spacing: 5px;
+	text-align: right;
+	line-height: 0;
+}
+
+.w3_search {
+	float: left;
+	width: 40%;
+	margin-left: 15em;
+	margin-top: .7em;
+}
+
+.w3_search input[type="text"] {
+	outline: none;
+	border: none;
+	background: #EFEFEF;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+	color: #999;
+	width: 78%;
+	float: left;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.w3_search input[type="button"] {
+	outline: none;
+	border: none;
+	background: #212121;
+	padding: 9px 0;
+	font-size: 16px;
+	color: #fff;
+	width: 22%;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	font-weight: bold;
+}
+
+.w3_search input[type="button"]:hover {
+	background: #FF8D1B;
+}
+
+.w3l_sign_in_register {
+	float: right;
+	margin-top: 1em;
+	width: 25%;
+}
+
+.w3l_sign_in_register ul li a {
+	color: #fff;
+	display: inline-block;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #FF8D1B;
+	text-align: center;
+	padding: 6px 30px;
+	font-weight: bold;
+}
+
+.w3l_sign_in_register ul li a:focus {
+	outline: none;
+}
+
+.w3l_sign_in_register ul li a:hover {
+	background: #212121;
+}
+
+.w3l_sign_in_register ul li {
+	display: inline-block;
+	color: #212121;
+	font-size: 1em;
+}
+
+.w3l_sign_in_register ul li i,
+.w3l_sign_in_register ul li:first-child {
+	padding-right: 1em;
+}
+
+.container .login {
+	float: right;
+	width: 90px;
+	height: 41px;
+	margin-left: 50px;
+	background-color: black;
+	margin-top: 10px;
+	text-align: center;
+	line-height: 40px;
+}
+
+.login a {
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none
+}
+
+.histroy {
+	position: relative;
+}
+
+.history_list {
+	position: absolute;
+	z-index: 9989;
+	background-color: #ffffff;
+	width: 168px;
+	z-index: 9989;
+	height: 500px;
+	border-left: 1px dotted #ccc;
+	border-right: 1px dotted #ccc;
+}
+
+.history_list li {
+	height: 10%;
+	border-top: 1px dotted #ccc;
+	border-bottom: 1px dotted #ccc;
+}
+
+/*-- //header --*/
+/*-- nav --*/
+.navbar-default {
+	background: none;
+	border: none;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+.navbar-left {
+	float: none !important;
+}
+
+.navbar-right {
+	float: none !important;
+	margin-right: 0;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus {
+	color: #fff;
+	background-color: #212121;
+}
+
+.navbar-collapse {
+	padding: 0;
+}
+
+.movies_nav {
+	background: black;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.navbar-nav>li {
+	font-size: 16px;
+	font-weight: bold;
+	float: left;
+	border-right: 1px dotted #fff;
+	width: 14.27%;
+	text-align: center;
+}
+
+.w3_home_act {
+	border-left: 1px dotted #fff;
+}
+
+.navbar-nav {
+	float: none;
+	margin: 0;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+	color: #fff;
+	background-color: #212121;
+}
+
+/* ul.nav.navbar-nav li.active {
+	border-right: none;
+} */
+
+ul.dropdown-menu.multi-column ul li {
+	display: block;
+	margin-bottom: .5em;
+}
+
+ul.dropdown-menu.multi-column ul li a {
+	color: #212121;
+}
+
+ul.dropdown-menu.multi-column {
+	width: 400px;
+	left: 0;
+	padding: 1em;
+}
+
+ul.dropdown-menu.multi-column ul li a:hover {
+	color: #FF8D1B;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block
+}
+
+.nav ul li .genres {
+	width: 400px;
+	height: 0px;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	background-color: #fff;
+	/* display: none; */
+	transition: all 0.8s;
+	background-color: #cfcfcf;
+	z-index: 999;
+}
+
+.dropdown-menu {
+	transition: all 0.3s
+}
+
+.slidey-list-description {
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+}
+
+/*-- //nav --*/
+
+
+/* Recommend 热门电影 */
+.Recommend {}
+
+.Recommend_left {
+	float: left;
+	width: 940px;
+}
+
+.Recommend_left_top {
+	height: 56px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+.Recommend_left_top h2 {
+	color: #444;
+	font-size: 25px;
+	font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif
+}
+
+
+.Recommend_list li {
+	float: left;
+	margin-right: 20px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+/* .Recommend_list li p {
+	position: absolute;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	cursor: pointer;
+	top: 99%;
+	opacity: 5;
+} */
+
+.Recommend_list li i {
+	position: absolute;
+	left: 102px;
+	padding: 0 5px;
+	background: #090;
+	color: #fff;
+	font-style: normal;
+	border-radius: 0 10px 0 25px;
+	opacity: 0.8;
+}
+
+.Recommend_list li:nth-child(6) {
+	margin-right: 0;
+}
+
+.Recommend_list li:nth-child(12) {
+	margin-right: 0;
+}
+
+.Recommend_list li:nth-child(18) {
+	margin-right: 0;
+}
+
+.Recommend_list li img {
+	width: 140px;
+	height: 200px;
+	position: relative;
+
+	overflow: hidden;
+	width: 140px;
+	height: 200px;
+}
+
+.Recommend_list li .movie {
+	width: 100%;
+	height: 200px;
+	transition: all .2s ease-in 0s;
+	position: absolute;
+	border-radius: 10px;
+	top: 170px;
+	left: 0px;
+	opacity: 0.7;
+	background-color: black;
+	text-align: center
+}
+
+.Recommend_list li .movie p {
+	color: #fff;
+	font-size: 16px;
+}
+
+.Recommend_list li:hover .movie {
+	top: 0px;
+
+}
+
+.Recommend_list li .movie a {
+	width: 53px;
+	height: 50px;
+	display: inline-block;
+	background-image: url(../images/play.png);
+	background-repeat: no-repeat;
+	background-position: 7px 0;
+	left: 40px;
+	position: absolute;
+	bottom: 20px;
+}
+
+.Recommend_right {
+	float: right;
+	width: 240px
+}
+
+.Recommend_right_top {
+	height: 56px;
+	color: #444;
+	font-size: 25px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+}
+
+.Recommend_right_top h2 {
+	color: #444;
+	font-size: 25px;
+
+	font-family: "Lucida Grande", Verdana, Tahoma, Lucida, Arial, Helvetica, "微软雅黑", "宋体", sans-serif
+}
+
+.Recommend_right_list {
+	width: 100%;
+}
+
+.Recommend_right_list li {
+	overflow: hidden;
+	height: 41px;
+	border-bottom: 1px dotted #bbb;
+	line-height: 41px;
+}
+
+.Recommend_right_list li a {
+	text-decoration: none;
+}
+
+.Recommend_right_list li span {
+	display: inline-block;
+	border-radius: 5px;
+	background-color: red;
+	font-style: normal;
+	margin-right: 6px;
+	color: #ffffff;
+	width: 18px;
+	height: 17px;
+	text-align: center;
+	line-height: 17px;
+}
+
+.Recommend_right_list li p {
+	display: inline-block;
+}
+
+.Recommend_right_list li em {
+	display: inline-block;
+	float: right;
+
+}
+
+.Recommend_right_list li:hover {
+	background-color: #f1f1f1;
+}
+
+/* Recommend 热门电影 */
+
+/* 轮播图部分 */
+.box {
+	width: 100%;
+	height: 600px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+
+
+
+.box-1 ul li {
+	width: 100%;
+	height: 600px;
+	position: relative;
+	overflow: hidden;
+}
+
+.box-1 ul li img {
+	display: block;
+	width: 100%;
+	height: 600px;
+}
+
+.box-1 ul li h2 {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 40px;
+	width: 300px;
+	background: rgba(125, 125, 120, .4);
+	text-indent: 2em;
+	padding-right: 500px;
+	font-size: 15px;
+	line-height: 40px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-weight: normal;
+	color: ghostwhite
+}
+
+.box-2 {
+	position: absolute;
+	right: 50%;
+	bottom: 14px;
+}
+
+.box-2 ul li {
+	float: left;
+	width: 12px;
+	height: 12px;
+	overflow: hidden;
+	margin: 0 5px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.5);
+	text-indent: 100px;
+	cursor: pointer;
+}
+
+.box-2 ul .on {
+	background: rgba(255, 255, 255, 0.6);
+}
+
+.box-3 span {
+	position: absolute;
+	color: white;
+	background: rgba(125, 125, 120, .3);
+	width: 50px;
+	height: 80px;
+	top: 50%;
+	font-family: "宋体";
+	line-height: 80px;
+	font-size: 60px;
+	margin-top: -40px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.box-3 .prev {
+	left: 10px;
+}
+
+.box-3 .next {
+	right: 10px;
+}
+
+.box-3 span::selection {
+	background: transparent;
+}
+
+.box-3 span:hover {
+	background: rgba(125, 125, 120, .8);
+}
+
+
+/* 轮播图结束 */
+
+
+/* 最新电影开始 */
+.news_movie {
+	margin-bottom: 50px;
+}
+
+.news_movie_top {
+	width: 100%;
+	height: 56px;
+	color: #444;
+	font-size: 25px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+.news_movie_center ul li {
+	float: left;
+	margin-right: 20px;
+	width: 180px;
+	height: 230px;
+	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.news_movie_center ul li img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+.news_movie_center ul li i {
+	display: block;
+	padding: 0 5px;
+	background: #090;
+	color: #fff;
+	font-style: normal;
+	border-radius: 0 2px 0 25px;
+	opacity: 0.8;
+	position: absolute;
+	top: 0px;
+	left: 151px;
+}
+
+.hot_movie {
+	width: 180px;
+	height: 230px;
+	position: absolute;
+	top: 186px;
+	left: 0px;
+	transition: all .3s ease-in 0s;
+	background-color: black;
+	opacity: 0.7;
+}
+
+.hot_movie p {
+	text-align: center;
+	color: #fff;
+	font-weight: 800;
+	font-size: 14px;
+	line-height: 35px;
+}
+
+.hot_movie a {
+	text-decoration: none;
+	width: 53px;
+	height: 50px;
+	display: inline-block;
+	background-image: url(../images/play.png);
+	background-repeat: no-repeat;
+	background-position: 7px 0;
+	margin-left: 60px;
+	position: absolute;
+	bottom: 20px;
+
+}
+
+.news_movie_center ul li:hover .hot_movie {
+	top: 0px
+}
+
+.news_movie_center ul li {
+	margin-bottom: 20px;
+}
+
+/* 最新电影结束 */
