@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const routerVip=require('./routes/vip')
 app.use(routerVip)
 
+//图片上传接口
+const routFile=require('./routes/routFile');
+app.use(routFile)
 
 
 //下载ejs包

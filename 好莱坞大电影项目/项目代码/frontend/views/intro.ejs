@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/intro.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/bottom.css">
+    <title>高清播放</title>
+</head>
+
+<body>
+    <div class="primary">
+        <!--  顶部导航栏  -->
+        <div class="head-nav">
+            <div class="top common clearfix">
+                <!-- login图标 -->
+                <div class="login">
+                    <a href="#">
+                        <img src="/img/logo.png" alt="">
+                    </a>
+                </div>
+                <!-- 顶部导航分类 -->
+                <div class="classify-nav" style="float: left">
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">电影 <i class="trian"></i> <i class="trian2"></i></a>
+                            <!-- 下拉框 -->
+                            <ul class="classify-hide">
+                                <li class="hide-one"><a href="#">动作片</a></li>
+                                <li><a href="#">喜剧片</a></li>
+                                <li><a href="#">爱情片</a></li>
+                                <li><a href="#">科幻片</a></li>
+                                <li><a href="#">恐怖片</a></li>
+                                <li><a href="#">剧情片</a></li>
+                                <li><a href="#">战争片</a></li>
+                                <li><a href="#">记录片</a></li>
+                                <li><a href="#">冒险片</a></li>
+                                <li><a href="#">悬疑片</a></li>
+                                <li><a href="#">犯罪片</a></li>
+                                <li><a href="#">惊悚片</a></li>
+                                <li><a href="#">动画片</a></li>
+                                <li><a href="#">微电影</a></li>
+                                <li><a href="#">其他片</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">电视剧 <i class="trian"></i> <i class="trian2"></i></a>
+                            <!-- 下拉框 -->
+                            <ul class="classify-hide">
+                                <li class="hide-one"><a href="#">国产剧</a></li>
+                                <li><a href="#">港台剧</a></li>
+                                <li><a href="#">日韩剧</a></li>
+                                <li><a href="#">欧美剧</a></li>
+                                <li><a href="#">其他剧</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/vip">vip精彩</a></li>
+                        <li><a href="javaScript:">综艺 <i class="trian"></i> <i class="trian2"></i></a>
+                            <!-- 下拉框 -->
+                            <ul class="classify-hide">
+                                <span>通知1: <i>最近由于神秘力量，可能会导致88ys.cc无法访问，请牢记88影视网备用地址：88ys.com</i></span>
+                                <span>通知2: <i>不推荐大家使用QQ浏览器,以防被QQ浏览器拦截访问。</i></span>
+                            </ul>
+                        </li>
+                        <li><a href="#">动漫 <i class="trian"></i> <i class="trian2"></i></a>
+                            <!-- 下拉框 -->
+                            <ul class="classify-hide">
+                                <li class="hide-one"><a href="#">国产动漫</a></li>
+                                <li><a href="#">日本动漫</a></li>
+                                <li><a href="#">欧美动漫</a></li>
+                                <li><a href="#">其他动漫</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">vip充值</a></li>
+                    </ul>
+                </div>
+                <!-- 顶部搜索 -->
+                <div class="seach-nav clearfix">
+                    <form action="">
+                        <input type="text" class="ss" placeholder="请输入影片或演员名">
+                        <input type="submit" class="sub" value="">
+                    </form>
+                </div>
+                <!-- 顶部历史记录 -->
+                <div class="history">
+                    <li>
+                        <span>
+                            <i></i>
+                            历史记录
+                        </span>
+                        <i class="his-nav"></i>
+                        <dl>
+                            <dt>
+                                <a href="#">清空</a>
+                                <a href="#">关闭</a>
+                            </dt>
+                            <dd>暂无观看记录</dd>
+                        </dl>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <!-- 中间内容区域 -->
+        <div class="content">
+            <div class="content_center">
+                <script type="text/template" id="movie_template">
+                    {{each}}
+                <!--  当前位置提示栏 -->
+                    <div class="location">
+                    <p>当前位置:</p>
+                    <ul>
+        
+                        <li>
+                            <a href="">首页</a> >
+                        </li>
+                        <li>
+                            <a href="">{{list.type_name}}</a> >
+                        </li>
+                        <li>
+                            <a href="">{{list.fsubtype}}</a> >
+                        </li>
+                        <li>
+                                {{list.film_name}}
+                        </li>
+                    </ul>
+                </div>
+                <!--  影片介绍区域 -->
+                <div class="film">
+                    <!-- 影片封面图片 -->
+                    <div class="film_img">
+                        <img src="{{list.image_url}}" alt="">
+                    </div>
+                    <!-- 影片介绍 -->
+                    <div class="film_intro">
+                        <h1>{{list.film_name}}</h1>
+                        <dt><span>状态：</span>HC</dt>
+                        <dt><span>主演：</span> {{list.star}}
+                        </dt>
+                        <dt><span>相关：未知</span></dt>
+                        <dd><span>类型：</span>{{list.subtype}} {{list.type_name}}</dd>
+                        <dd><span>更新：</span>2019-10-05 07:25</dd>
+                        <dd><span>导演：</span>{{list.director}}</dd>
+                        <dd><span>地区：</span>{{list.address}}</dd>
+                        <dd><span>年份：</span>{{list.year}}</dd>
+                        <dd><span>语言：</span>国语</dd>
+                        </dl>
+                        <div class="intro_explain">
+                            <span>剧情简介:</span>
+                            {{list.describe}}
+                            <a href="javascript:;" name="yingcang" class="conceal">隐藏</a>
+                        </div>
+
+                    </div>
+                    <!-- 二维码扫描区域 -->
+                    <div class="scan">
+                        <img src="/img/88ysapp.png" alt="">
+                    </div>
+                </div>
+            {{/each}}
+            </script>
+            </div>
+
+            <!-- 在线观看列表 -->
+            <div class="watch">
+                <!-- 点击按钮 -->
+                <div class="watch_button">
+                    <!-- 点击观看按钮 -->
+
+                    <div class="look">
+                        <script type="text/template" id="btn_template">
+                            {{each}}
+                            <a href="/replay">{{list.film_name}}在线观看</a>
+                                {{/each}}
+                        </script>
+                    </div>
+
+
+                    <!-- 点击下载按钮 -->
+                    <div class=" download">
+                        <a href="">在线下载</a>
+                        <img src="./img/xia.png" alt="">
+                    </div>
+                </div>
+                <!-- 选择集数 -->
+                <div class="set"></div>
+            </div>
+
+            <!-- 影片推荐区域 -->
+            <div class="recommend clearfix">
+                <!-- 推荐标题 -->
+                <div class="recommend_title">
+                    <script type="text/template" id="recommend_template">
+                        {{each}}除了<strong>"{{list.film_name}}"</strong>你也可能喜欢以下影片：
+                        {{/each}}
+                    </script>
+                </div>
+                <ul class="recommend_list clearfix">
+                    <script type="text/template" id="recommend_list_template">
+                        {{each list}}
+                        <li>
+                        <a href="">
+                            <img src="{{$value.image_url}}" alt="">
+                        </a>
+                        <div class="movie">
+                                        <p class="name">{{$value.film_name}}</p>
+                                        <p class="actor">{{$value.star}}</p>
+                                        <p class="type">{{$value.type_name}}</p>
+                                        <p class="time">{{$value.adress}}</p>
+                                        <a href="/intro/{{$value.id}}"></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </script>
+                </ul>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <%- include('./layouts/footer.ejs') %>
+
+    </div>
+
+
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script src="/js/template/template-web.js"></script>
+    <script src="/js/intro.js"></script>
+    <script>
+        // 获取地址栏参数
+        var name, value;
+        var str = location.href; //取得整个地址栏
+        // console.log(str)
+        var num = str.indexOf("?")
+        str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+        var arr = str.split("/"); //各个参数放到数组里
+        var keywords = arr.length - 1;
+        let id = decodeURIComponent(arr[keywords])
+        console.log(id)
+        // 首页渲染
+        let showIndex = function () {
+            // 通过id查询单个电影
+            $.ajax({
+                url: `http://127.0.0.1/api/v1/films/${id}`,
+                type: "get",
+                data: "",
+                success: function (data) {
+                    // console.log(data.data)
+                    let MovieHtml = template('movie_template', {
+                        list: data.data
+                    })
+                    let btn_template = template('btn_template', {
+                        list: data.data
+                    })
+                    let re_template = template('recommend_template', {
+                        list: data.data
+                    })
+                    $('.content_center').html(MovieHtml)
+                    $('.look').html(btn_template)
+                    $('.recommend_title').html(re_template)
+                }
+            })
+            // 获取所有电影数据
+            $.ajax({
+                url: "http://127.0.0.1/api/v1/films/all",
+                type: "get",
+                data: {
+                    type_name: '电影'
+
+                },
+                success: function (data) {
+                    console.log(data)
+                    let recommend_template = template('recommend_list_template', {
+                        list: data.data
+                    })
+                    $('.recommend_list').html(recommend_template)
+                }
+            })
+        }
+        showIndex()
+    </script>
+
+</body>
+
+</html>
