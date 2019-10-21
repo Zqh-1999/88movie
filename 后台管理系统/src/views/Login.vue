@@ -1,9 +1,7 @@
 <template>
   <div class="login">
     <el-card class="card">
-      <a href class="avatar">
-        <img src="../assets/image/1.jpg" alt />
-      </a>
+      <div class="hou">后台管理系统</div>
       <el-form class="form" :model="loginForm" :rules="loginFormRules" ref="loginFromRef">
         <el-form-item prop="admin_name">
           <el-input v-model="loginForm.admin_name">
@@ -27,7 +25,7 @@
 </template>
 
 <script>
-import querystring from 'querystring'
+import querystring from "querystring";
 export default {
   data() {
     return {
@@ -75,8 +73,11 @@ export default {
       this.$refs.loginFromRef.validate(async valid => {
         if (!valid) return false;
         //如果校验成功 那么发起ajax请求
-        let { data: res } = await this.$http.post('/admin/login', querystring.stringify(this.loginForm))
-        console.log(res)
+        let { data: res } = await this.$http.post(
+          "/admin/login",
+          querystring.stringify(this.loginForm)
+        );
+        console.log(res);
         if (res.code == 400) {
           window.sessionStorage.removeItem("token");
           return this.$message.error(res.msg);
@@ -112,30 +113,23 @@ export default {
     background-color: rgba(95, 204, 199, 0.5);
     border-radius: 4px;
     overflow: initial;
-    .avatar {
-      width: 130px;
-      height: 130px;
-      border: 1px solid #eee;
-      border-radius: 50%;
-      padding: 8px;
-      -webkit-box-shadow: 0 0 10px #eee;
-      box-shadow: 0 0 10px #eee;
-      position: absolute;
-      background-color: #fff;
-      left: 50%;
-      transform: translateX(-50%) translateY(-65%);
-      overflow: hidden;
+    .hou {
+      width: 50%;
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0 auto;
+      -webkit-line-clamp: 2;
+      font-family: 'Courier New', Courier, monospace;
+      background-image: -webkit-linear-gradient(
+        rgb(247, 40, 3),
+        rgb(241, 100, 5),
+        rgb(243, 139, 2)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
-    img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background-color: #eee;
-    }
-
     .form {
-      margin-top: 90px;
+      margin-top: 40px;
     }
 
     .button-reset {
