@@ -18,7 +18,7 @@
           :collapse-transition="false"
           :router="true"
         >
-          <el-submenu v-for="(item, index) in menuList" :key="item.id">
+          <el-submenu :index="item.id + ''" item.index v-for="(item, index) in menuList" :key="item.id">
             <template slot="title">
               <i :class="iconList[index]"></i>
               <span>{{item.mun_name}}</span>
