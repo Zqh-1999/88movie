@@ -72,19 +72,19 @@ const router = new Router({
 });
 
 // 路由导航守卫
-// router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
   // 判断是否是login这个路由是这个路由放行
-  // if (to.path == "/login") return next();
+  if (to.path == "/login") return next();
 
   // 获取有没有令牌 如果没有令牌 去login
-  // const token = window.sessionStorage.getItem("token");
-  // if (!token) {
-  //   window.sessionStorage.removeItem("token");
-  //   return next("/login");
-  // }
+  const token = window.sessionStorage.getItem("token");
+  if (!token) {
+    window.sessionStorage.removeItem("token");
+    return next("/login");
+  }
 
   // 如果登录了 那么就放行
-//   next();
-// });
+  next();
+});
 
 export default router;

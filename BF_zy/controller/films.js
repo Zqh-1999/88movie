@@ -161,7 +161,6 @@ module.exports.inquireFilmAll = (req, res) => {
   let address = req.query.address == undefined ? '' : `AND address = ?`; // 地区
   let recommend = req.query.recommend == undefined ? '' : `AND recommend = ?`; // 推荐
   let hot = req.query.hot == undefined ? '' : `AND hot = ?`; // 热门
-
   let dataArr = []
   dataArr.push(typeName)
   req.query.subtype == undefined ? null : dataArr.push(req.query.subtype); // 子类型

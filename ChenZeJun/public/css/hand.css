@@ -578,6 +578,29 @@ body {
     margin-left: 66px;
     margin-top: 25px;
     margin-bottom: 20px;
+    color: #fff;
+    background-color: black;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+    line-height: 40px;
+    /* border: 1px solid red; */
+}
+.btn-default:hover{
+    color: #fff;
+    background-color: black;
+}
+.btn-login{
+    background-color: black;
+}
+.btn-login:hover{
+    background-color: black;
+}
+.btn-reg{
+    background-color: rgba(255, 157, 0, 0.863);
+}
+.btn-reg:hover{
+    background-color: rgba(255, 157, 0, 0.863);
 }
 
 /* 登录显示头像 */
