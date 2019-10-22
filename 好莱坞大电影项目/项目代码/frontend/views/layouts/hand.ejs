@@ -1,0 +1,218 @@
+ <!-- 顶部导航 -->
+ <div class="head-nav">
+     <div class="top common clearfix">
+         <!-- login图标 -->
+         <div class="login">
+             <a href="/">
+                 <img src="../images/logo.png" alt="">
+             </a>
+         </div>
+         <!-- 顶部导航分类 -->
+         <div class="classify-nav clearfix">
+             <ul>
+                 <li><a href="/">首页</a></li>
+                 <li><a href="/Details" value='电影' class="li_value">电影 <i class="trian"></i> <i
+                             class="trian2"></i></a>
+                     <!-- 下拉框 -->
+                     <ul class="classify-hide">
+                         <li class="hide-one"><a href="#">动作片</a></li>
+                         <li><a href="javaScript:;" value='喜剧片'>喜剧片</a></li>
+                         <li><a href="javaScript:;" value='爱情片'>爱情片</a></li>
+                         <li><a href="javaScript:;" value='科幻片'>科幻片</a></li>
+                         <li><a href="javaScript:;" value='恐怖片'>恐怖片</a></li>
+                         <li><a href="javaScript:;" value='剧情片'>剧情片</a></li>
+                         <li><a href="javaScript:;" value='战争片'>战争片</a></li>
+                         <li><a href="javaScript:;" value='记录片'>记录片</a></li>
+                         <li><a href="javaScript:;" value='冒险片'>冒险片</a></li>
+                         <li><a href="javaScript:;" value='悬疑片'>悬疑片</a></li>
+                         <li><a href="javaScript:;" value='犯罪片'>犯罪片</a></li>
+                         <li><a href="javaScript:;" value='惊悚片'>惊悚片</a></li>
+                         <li><a href="javaScript:;" value='动画片'>动画片</a></li>
+                         <li><a href="javaScript:;" value='微电影'>微电影</a></li>
+                         <li><a href="javaScript:;" value='其他片'>其他片</a></li>
+                     </ul>
+                 </li>
+                 <li><a href="/serises" value='电视剧' class="li_value">电视剧 <i class="trian"></i> <i
+                             class="trian2"></i></a>
+                     <!-- 下拉框 -->
+                     <ul class="classify-hide">
+                         <li class="hide-one"><a href="#">国产剧</a></li>
+                         <li><a href="javaScript:;" value='港台剧'>港台剧</a></li>
+                         <li><a href="javaScript:;" value='日韩剧'>日韩剧</a></li>
+                         <li><a href="javaScript:;" value='欧美剧'>欧美剧</a></li>
+                         <li><a href="javaScript:;" value='其他剧'>其他剧</a></li>
+                     </ul>
+                 </li>
+                 <li><a href="/vip">vip精彩</a></li>
+                 <li><a href="/Variety">综艺 <i class="trian"></i> <i class="trian2"></i></a>
+                     <!-- 下拉框 -->
+                     <ul class="classify-hide">
+                         <span>通知1: <i>最近由于神秘力量，可能会导致88ys.cc无法访问，请牢记88影视网备用地址：88ys.com</i></span>
+                         <span>通知2: <i>不推荐大家使用QQ浏览器,以防被QQ浏览器拦截访问。</i></span>
+                     </ul>
+                 </li>
+                 <li><a href="/Animation" class="li_value">动漫 <i class="trian"></i> <i class="trian2"></i></a>
+                     <!-- 下拉框 -->
+                     <ul class="classify-hide">
+                         <li class="hide-one"><a href="#">国产动漫</a></li>
+                         <li><a href="javaScript:;" value='日本动漫'>日本动漫</a></li>
+                         <li><a href="javaScript:;" value='欧美动漫'>欧美动漫</a></li>
+                         <li><a href="javaScript:;" value='其他动漫'>其他动漫</a></li>
+                     </ul>
+                 </li>
+                 <li><a href="#" class="vouch">vip充值</a></li>
+             </ul>
+         </div>
+         <!-- 顶部搜索 -->
+         <div class="seach-nav clearfix">
+             <form action="">
+                 <input type="text" class="ss" value="" placeholder='请输入影片或演员名'>
+                 <input type="button" class="sub">
+             </form>
+         </div>
+         <!-- 顶部历史记录 -->
+         <div class="history">
+             <li>
+                 <span>
+                     <i></i>
+                     历史记录
+                 </span>
+                 <i class="his-nav"></i>
+                 <dl>
+                     <dt>
+                         <a href="#">清空</a>
+                         |
+                         <a href="#">关闭</a>
+                     </dt>
+                     <script type="text/template" id="histroy">
+                         {{each list}}
+                         <dd>{{$value.film_name}}</dd>
+                         {{/each}}
+                     </script>
+
+                 </dl>
+             </li>
+         </div>
+         <!-- 登录按钮 -->
+         <div class="register">
+             <a href="#">登录</a>
+         </div>
+     </div>
+ </div>
+ <div class="vip-box">
+     <div class="vip-voucher">
+         <div class="voucher-top">
+             <h2>
+                 <i></i>
+                 <span>黄金VIP会员</span>
+             </h2>
+             <span class="close"></span>
+         </div>
+
+         <div class="voucher-time">
+             <p>特惠0.5元/天升级钻石会员，增加TV端超爽大屏特权 <span>升级为钻石会员</span></p>
+             <div class="voucher-mon">
+                 <ul>
+                     <li class="avt-voucher">
+                         <p>¥ <span class="as">178.00</span></p>
+                         <p>/连续包年</p>
+                         <p>¥198</p>
+                     </li>
+                     <li>
+                         <p>¥ <span class="as">45.00</span></p>
+                         <p>/连续包季</p>
+                         <p>¥58</p>
+                     </li>
+                     <li>
+                         <p>¥ <span class="as">6.00</span></p>
+                         <p>/连续包月</p>
+                         <p>¥19.8</p>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+         <div class="voucher-scan">
+             <ul>
+                 <li style="display: block">
+                     <img src="../img/zyz15.png" alt="">
+                     <p>¥178</p>
+                     <p>支付宝、微信、百度钱包扫码支付</p>
+                     <div class="voucher-way">
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                     </div>
+                 </li>
+                 <li>
+                     <img src="" alt="">
+                     <img src="../img/zyz15.png" alt="">
+                     <p>¥45</p>
+                     <p>支付宝、微信、百度钱包扫码支付</p>
+                     <div class="voucher-way">
+                         <span>
+                         </span>
+                         <span>
+                         </span>
+                         <span>
+                         </span>
+                     </div>
+                 </li>
+                 <li>
+                     <img src="/img/zyz15.png" alt="">
+                     <p>¥6</p>
+                     <p>支付宝、微信、百度钱包扫码支付</p>
+                     <div class="voucher-way">
+                         <span>
+
+                         </span>
+                         <span>
+
+                         </span>
+                         <span>
+
+                         </span>
+                     </div>
+                 </li>
+             </ul>
+         </div>
+     </div>
+ </div>
+ <script src="/js/hand.js"></script>
+ <script src="../js/jquery-3.3.1.js"></script>
+ <script>
+     window.onload = function () {
+         // 登录按钮
+         if (window.sessionStorage.getItem('sken') != null) {
+             //  $('.register ').css('display', 'none')
+             $('.register a').html('已登录')
+             $('.register a').css('color', "red")
+             let id = window.sessionStorage.getItem('sken')
+             let showHistory = function () {
+                 $.ajax({
+                     url: `http://127.0.0.1/api/v1/history/${id}`,
+                     type: "get",
+                     data: {
+                         id: id
+                     },
+                     success: function (data) {
+                         console.log(data)
+                         let html = template('histroy', {
+                             list: data.data
+                         })
+                         $('.history dl').html(html)
+                     }
+                 })
+             }
+             showHistory()
+         }
+         if ((window.sessionStorage.getItem('sken') === null)) {
+             $('.register a').html('登录');
+             $('.register').css('backgroundColor', '')
+             $('.register a').attr('href', '/login');
+
+             // alert('您还未登录')
+         }
+
+
+     }
+ </script>

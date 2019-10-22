@@ -241,21 +241,23 @@ body {
 
 /* vip登录框 */
 .vip-box {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0px;
     left: 0px;
     background: rgba(0, 0, 0, .4);
     display: none;
-    z-index: 1;
+    z-index: 10;
 }
 
 
 .vip-voucher {
     width: 650px;
     background-color: black;
-    margin: 100px auto;
+    position: fixed;
+    top: 100px;
+    left: 600px;
 }
 
 .voucher-top {
@@ -446,6 +448,167 @@ body {
     background: url('../img/zyz20.png') no-repeat scroll -60px -90px;
 }
 
-/* .voucher-way span:first-child img{
-    margin-left: 0px;
-} */
+
+.wrapper {
+    background-color: red;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    display: none;
+    z-index: 1;
+}
+
+.wrapper .form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.wraLogin {
+    width: 600px;
+    height: 600px;
+    /* background-color: red; */
+    position: relative;
+    top: 200px;
+    margin: auto;
+}
+
+.wraLogin .guanbi {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+}
+
+.nameVal {
+    position: absolute;
+    /* top: 73px; */
+    left: 0px;
+    color: red;
+    margin-left: 5px;
+}
+
+.nameVal1,
+.nameVal2 {
+    color: red;
+}
+
+.form-signin {
+    position: relative;
+    /* top: 15%; */
+    max-width: 380px;
+    padding: 50px 35px 10px 35px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-signin1 {
+    position: relative;
+    /* top: 25%; */
+    max-width: 400px;
+    /* height: 560px; */
+    padding: 50px 40px 10px 35px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 30px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input {
+    margin-bottom: 5px;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    overflow: hidden;
+    margin-left: -70px;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px #ccc;
+}
+
+.btn-default {
+    width: 200px;
+    margin-left: 66px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    color: #fff;
+    background-color: black;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+    line-height: 40px;
+    /* border: 1px solid red; */
+}
+.btn-default:hover{
+    color: #fff;
+    background-color: black;
+}
+.btn-login{
+    background-color: black;
+}
+.btn-login:hover{
+    background-color: black;
+}
+.btn-reg{
+    background-color: rgba(255, 157, 0, 0.863);
+}
+.btn-reg:hover{
+    background-color: rgba(255, 157, 0, 0.863);
+}
+
+/* 登录显示头像 */
+.register img{
+    width: 30px;
+    height: 30px;
+}
+
+.history dd {
+    color:black ;
+}

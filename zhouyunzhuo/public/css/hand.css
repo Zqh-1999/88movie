@@ -27,10 +27,12 @@ body {
     float: left;
     padding: 0 10px 0 5px
 }
-.classify-nav{
+
+.classify-nav {
     /* display: inline-block; */
     float: left;
 }
+
 .classify-nav li {
     float: left;
 }
@@ -221,20 +223,24 @@ body {
 .history dt {
     text-align: right;
 }
+
 /* 登录框 */
-.register{
+.register {
     float: right;
     font-size: 14px;
     line-height: 50px;
 }
-.register a{
+
+.register a {
     color: #d8d8d8;
 }
-.register:hover a{
-    color:white;
+
+.register:hover a {
+    color: white;
 }
+
 /* vip登录框 */
-.vip-box{
+.vip-box {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -242,13 +248,13 @@ body {
     left: 0px;
     background: rgba(0, 0, 0, .4);
     display: none;
-    z-index: 10000;
+    z-index: 10;
 }
 
 
 .vip-voucher {
     width: 650px;
-    background-color:black ;
+    background-color: black;
     position: fixed;
     top: 100px;
     left: 600px;
@@ -332,10 +338,12 @@ body {
     line-height: 14px;
     margin-bottom: 20px;
 }
-.voucher-mon p{
-    color:gold ;
+
+.voucher-mon p {
+    color: gold;
     font-size: 19px;
 }
+
 .voucher-time span {
     color: #cdb07a;
     cursor: pointer;
@@ -348,81 +356,236 @@ body {
     display: inline-block;
     width: 32%;
     height: 165px;
-    background-color:white;
+    background-color: white;
     vertical-align: top;
 }
-.voucher-mon p:first-child{
+
+.voucher-mon p:first-child {
     margin-top: 50px;
 }
+
 .voucher-mon li span {
     color: red;
     font-weight: 700;
 }
-.as{
+
+.as {
     font-size: 40px;
     display: inline;
 }
+
 .voucher-mon li p:nth-child(3) {
     text-decoration: line-through;
 }
-.voucher-mon .avt-voucher{
+
+.voucher-mon .avt-voucher {
     background-color: gold;
-    
+
 }
-.avt-voucher p{
+
+.avt-voucher p {
     color: white;
 }
-.economy{
+
+.economy {
     border-radius: 5px;
     width: 80px;
     height: 20px;
     background-color: red;
     line-height: 20px;
     margin: 0 auto;
-} 
-.voucher-scan{
+}
+
+.voucher-scan {
     text-align: center;
     /* padding-bottom: 50px; */
     height: 225px;
     position: relative;
 }
-.voucher-scan li{
+
+.voucher-scan li {
     display: none;
     width: 650px;
     position: absolute;
     top: 0px;
     left: 0px;
 }
-.voucher-scan p:nth-child(2){
-   line-height: 90px;
-   font-size: 19px;
-   color: red;
-   font-weight: 700;
+
+.voucher-scan p:nth-child(2) {
+    line-height: 90px;
+    font-size: 19px;
+    color: red;
+    font-weight: 700;
 }
-.voucher-scan p:nth-child(3){
-color: white;
+
+.voucher-scan p:nth-child(3) {
+    color: white;
 }
-.voucher-scan li img{
+
+.voucher-scan li img {
     float: left;
     margin-top: 40px;
     margin-left: 40px;
 }
-.voucher-way span{
-  display: inline-block;
-  width: 30px;
+
+.voucher-way span {
+    display: inline-block;
+    width: 30px;
     height: 30px;
- margin-top: 20px;
- margin-right: 20px;
-} 
-.voucher-way span:first-child{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.voucher-way span:first-child {
     background: url('../img/zyz20.png') no-repeat scroll 0px -90px;
 }
-.voucher-way span:nth-child(2){
+
+.voucher-way span:nth-child(2) {
     background: url('../img/zyz20.png') no-repeat scroll -30px -90px;
 }
-.voucher-way span:nth-child(3){
+
+.voucher-way span:nth-child(3) {
     background: url('../img/zyz20.png') no-repeat scroll -60px -90px;
 }
-/* .voucher-way span:first-child img{
-    margin-left: 0px;
-} */
+
+
+.wrapper {
+    background-color: red;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    display: none;
+    z-index: 1;
+}
+
+.wrapper .form-group {
+    position: relative;
+}
+
+.wraLogin {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    top: 200px;
+    margin: auto;
+}
+
+.wraLogin .guanbi {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+}
+
+.nameVal {
+    position: absolute;
+    /* top: 73px; */
+    left: 0px;
+    color: red;
+    margin-left: 5px;
+}
+
+.nameVal1,
+.nameVal2 {
+    color: red;
+}
+
+.form-signin {
+    position: relative;
+    /* top: 15%; */
+    max-width: 380px;
+    padding: 50px 35px 10px 35px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-signin1 {
+    position: relative;
+    max-width: 400px;
+    padding: 50px 35px 10px 35px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.form-signin1 .zc{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 30px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input {
+    margin-bottom: 5px;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    overflow: hidden;
+    margin-left: -70px;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px #ccc;
+}
+
+.btn-default {
+    width: 200px;
+    margin-left: 66px;
+    margin-top: 25px;
+}
+
+/* 登录显示头像 */
+.register img{
+    width: 30px;
+    height: 30px;
+}
+
+.history dd {
+    color:black ;
+}

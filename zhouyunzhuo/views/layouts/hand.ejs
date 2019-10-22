@@ -1,358 +1,195 @@
-<!-- <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css"> -->
-<link rel="stylesheet" href="./css/logon.css">
-<link rel="stylesheet" href="./css/registe.css">
-<!-- <link rel="stylesheet" href="./lib/bootstrapvalidator/dist/css/bootstrapValidator.min.css"> -->
-<!-- 顶部导航 -->
-<div class="head-nav">
-    <div class="top common clearfix">
-        <!-- login图标 -->
-        <div class="login">
-            <a href="#">
-                <img src="./img/zyz.png" alt="">
-            </a>
-        </div>
-        <!-- 顶部导航分类 -->
-        <div class="classify-nav clearfix">
-            <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">电影 <i class="trian"></i> <i class="trian2"></i></a>
-                    <!-- 下拉框 -->
-                    <ul class="classify-hide">
-                        <li class="hide-one"><a href="#">动作片</a></li>
-                        <li><a href="#">喜剧片</a></li>
-                        <li><a href="#">爱情片</a></li>
-                        <li><a href="#">科幻片</a></li>
-                        <li><a href="#">恐怖片</a></li>
-                        <li><a href="#">剧情片</a></li>
-                        <li><a href="#">战争片</a></li>
-                        <li><a href="#">记录片</a></li>
-                        <li><a href="#">冒险片</a></li>
-                        <li><a href="#">悬疑片</a></li>
-                        <li><a href="#">犯罪片</a></li>
-                        <li><a href="#">惊悚片</a></li>
-                        <li><a href="#">动画片</a></li>
-                        <li><a href="#">微电影</a></li>
-                        <li><a href="#">其他片</a></li>
-                    </ul>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link rel="stylesheet" href="./css/hand.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrapValidator.min.css">
+</head>
+
+<body>
+    <!-- 顶部导航 -->
+    <div class="head-nav">
+        <div class="top common clearfix">
+            <!-- login图标 -->
+            <div class="login">
+                <a href="#">
+                    <img src="./img/zyz.png" alt="">
+                </a>
+            </div>
+            <!-- 顶部导航分类 -->
+            <div class="classify-nav clearfix">
+                <ul>
+                    <li><a href="javascript:;" value="首页">首页</a></li>
+                    <li><a href="javascript:;" value="电影">电影 <i class="trian"></i> <i class="trian2"></i></a>
+                        <!-- 下拉框 -->
+                        <ul class="classify-hide">
+                            <li class="hide-one"><a href="javascript:;" value="动作片">动作片</a></li>
+                            <li><a href="javascript:;" value="喜剧片">喜剧片</a></li>
+                            <li><a href="javascript:;" value="爱情片">爱情片</a></li>
+                            <li><a href="javascript:;" value="科幻片">科幻片</a></li>
+                            <li><a href="javascript:;" value="恐怖片">恐怖片</a></li>
+                            <li><a href="javascript:;" value="剧情片">剧情片</a></li>
+                            <li><a href="javascript:;" value="战争片">战争片</a></li>
+                            <li><a href="javascript:;" value="记录片">记录片</a></li>
+                            <li><a href="javascript:;" value="冒险片">冒险片</a></li>
+                            <li><a href="javascript:;" value="悬疑片">悬疑片</a></li>
+                            <li><a href="javascript:;" value="犯罪片">犯罪片</a></li>
+                            <li><a href="javascript:;" value="惊悚片">惊悚片</a></li>
+                            <li><a href="javascript:;" value="动画片">动画片</a></li>
+                            <li><a href="javascript:;" value="微电影">微电影</a></li>
+                            <li><a href="javascript:;" value="其他片">其他片</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:;" value="电视剧">电视剧 <i class="trian"></i> <i class="trian2"></i></a>
+                        <!-- 下拉框 -->
+                        <ul class="classify-hide">
+                            <li class="hide-one"><a href="javascript:;" value="国产剧">国产剧</a></li>
+                            <li><a href="javascript:;" value="港台剧">港台剧</a></li>
+                            <li><a href="javascript:;" value="日韩剧">日韩剧</a></li>
+                            <li><a href="javascript:;" value="欧美剧">欧美剧</a></li>
+                            <li><a href="javascript:;" value="其他剧">其他剧</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:;" value="vip精彩">vip精彩</a></li>
+                    <li><a href="javascript:;" value="综艺">综艺 <i class="trian"></i> <i class="trian2"></i></a>
+                        <!-- 下拉框 -->
+                        <ul class="classify-hide">
+                            <span>通知1: <i>最近由于神秘力量，可能会导致88ys.cc无法访问，请牢记88影视网备用地址：88ys.com</i></span>
+                            <span>通知2: <i>不推荐大家使用QQ浏览器,以防被QQ浏览器拦截访问。</i></span>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:;" value="动漫">动漫 <i class="trian"></i> <i class="trian2"></i></a>
+                        <!-- 下拉框 -->
+                        <ul class="classify-hide">
+                            <li class="hide-one"><a href="javascript:;" value="国产动漫">国产动漫</a></li>
+                            <li><a href="javascript:;" value="日本动漫">日本动漫</a></li>
+                            <li><a href="javascript:;" value="欧美动漫">欧美动漫</a></li>
+                            <li><a href="javascript:;" value="其他动漫">其他动漫</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:;" value="vip充值" class="vouch">vip充值</a></li>
+                </ul>
+            </div>
+            <!-- 顶部搜索 -->
+            <div class="seach-nav clearfix">
+                <form action="">
+                    <input type="text" class="ss" placeholder='请输入影片或演员名'>
+                    <input type="button" class="sub">
+                </form>
+            </div>
+            <!-- 顶部历史记录 -->
+            <div class="history">
+                <li>
+                    <span>
+                        <i></i>
+                        历史记录
+                    </span>
+                    <i class="his-nav"></i>
+                    <dl>
+                        <dt>
+                            <a href="javascript:;" value="清空">清空</a>
+                            |
+                            <a href="javascript:;" value="关闭">关闭</a>
+                        </dt>
+                        <dd>
+                            <script type="text/template" id="users_template">
+                                    {{each list}}
+                                    {{list}} 
+                                      <li>{{$value.film_name}}</li>
+                                    {{/each}}
+                            </script>
+                        </dd>
+                    </dl>
                 </li>
-                <li><a href="#">电视剧 <i class="trian"></i> <i class="trian2"></i></a>
-                    <!-- 下拉框 -->
-                    <ul class="classify-hide">
-                        <li class="hide-one"><a href="#">国产剧</a></li>
-                        <li><a href="#">港台剧</a></li>
-                        <li><a href="#">日韩剧</a></li>
-                        <li><a href="#">欧美剧</a></li>
-                        <li><a href="#">其他剧</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">vip精彩</a></li>
-                <li><a href="#">综艺 <i class="trian"></i> <i class="trian2"></i></a>
-                    <!-- 下拉框 -->
-                    <ul class="classify-hide">
-                        <span>通知1: <i>最近由于神秘力量，可能会导致88ys.cc无法访问，请牢记88影视网备用地址：88ys.com</i></span>
-                        <span>通知2: <i>不推荐大家使用QQ浏览器,以防被QQ浏览器拦截访问。</i></span>
-                    </ul>
-                </li>
-                <li><a href="#">动漫 <i class="trian"></i> <i class="trian2"></i></a>
-                    <!-- 下拉框 -->
-                    <ul class="classify-hide">
-                        <li class="hide-one"><a href="#">国产动漫</a></li>
-                        <li><a href="#">日本动漫</a></li>
-                        <li><a href="#">欧美动漫</a></li>
-                        <li><a href="#">其他动漫</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="vouch">vip充值</a></li>
-            </ul>
-        </div>
-        <!-- 顶部搜索 -->
-        <div class="seach-nav clearfix">
-            <form action="">
-                <input type="text" class="ss" value="" placeholder='请输入影片或演员名'>
-                <input type="button" class="sub">
-            </form>
-        </div>
-        <!-- 顶部历史记录 -->
-        <div class="history">
-            <li>
-                <span>
-                    <i></i>
-                    历史记录
-                </span>
-                <i class="his-nav"></i>
-                <dl>
-                    <dt>
-                        <a href="#">清空</a>
-                        |
-                        <a href="#">关闭</a>
-                    </dt>
-                    <dd>暂无观看记录</dd>
-                </dl>
-            </li>
-        </div>
-        <!-- 登录按钮 -->
-        <div class="register">
-            <a href="#">登录</a>
+            </div>
+            <!-- 登录按钮 -->
+            <div class="register">
+                <img src="" alt=" " class="img-circle">
+                <a href="javascript:;">登录</a>
+            </div>
         </div>
     </div>
-</div>
-<div class="vip-box">
-    <div class="vip-voucher">
-        <div class="voucher-top">
-            <h2>
-                <i></i>
-                <span>黄金VIP会员</span>
-            </h2>
-            <span class="close"></span>
-        </div>
+    <div class="vip-box">
+        <div class="vip-voucher">
+            <div class="voucher-top">
+                <h2>
+                    <i></i>
+                    <span>黄金VIP会员</span>
+                </h2>
+                <span class="close"></span>
+            </div>
 
-        <div class="voucher-time">
-            <p>特惠0.5元/天升级钻石会员，增加TV端超爽大屏特权 <span>升级为钻石会员</span></p>
-            <div class="voucher-mon">
+            <div class="voucher-time">
+                <p>特惠0.5元/天升级钻石会员，增加TV端超爽大屏特权 <span>升级为钻石会员</span></p>
+                <div class="voucher-mon">
+                    <ul>
+                        <li class="avt-voucher">
+                            <p>¥ <span class="as">178.00</span></p>
+                            <p>/连续包年</p>
+                            <p>¥198</p>
+                        </li>
+                        <li>
+                            <p>¥ <span class="as">15.00</span></p>
+                            <p>/连续包季</p>
+                            <p>¥15</p>
+                        </li>
+                        <li>
+                            <p>¥ <span class="as">6.00</span></p>
+                            <p>/连续包月</p>
+                            <p>¥19.8</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="voucher-scan">
                 <ul>
-                    <li class="avt-voucher">
-                        <p>¥ <span class="as">178.00</span></p>
-                        <p>/连续包年</p>
-                        <p>¥198</p>
+                    <li style="display: block">
+                        <img src="./img/zyz15.png" alt="">
+                        <p>¥178</p>
+                        <p>支付宝、微信、百度钱包扫码支付</p>
+                        <div class="voucher-way">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </li>
                     <li>
-                        <p>¥ <span class="as">45.00</span></p>
-                        <p>/连续包季</p>
-                        <p>¥58</p>
+                        <img src="./img/zyz15.png" alt="">
+                        <p>¥45</p>
+                        <p>支付宝、微信、百度钱包扫码支付</p>
+                        <div class="voucher-way">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </li>
                     <li>
-                        <p>¥ <span class="as">6.00</span></p>
-                        <p>/连续包月</p>
-                        <p>¥19.8</p>
+                        <img src="./img/zyz15.png" alt="">
+                        <p>¥6</p>
+                        <p>支付宝、微信、百度钱包扫码支付</p>
+                        <div class="voucher-way">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="voucher-scan">
-            <ul>
-                <li style="display: block">
-                    <img src="./img/zyz15.png" alt="">
-                    <p>¥178</p>
-                    <p>支付宝、微信、百度钱包扫码支付</p>
-                    <div class="voucher-way">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </li>
-                <li>
-                    <img src="./img/zyz15.png" alt="">
-                    <p>¥45</p>
-                    <p>支付宝、微信、百度钱包扫码支付</p>
-                    <div class="voucher-way">
-                        <span>
-                        </span>
-                        <span>
-                        </span>
-                        <span>
-                        </span>
-                    </div>
-                </li>
-                <li>
-                    <img src="./img/zyz15.png" alt="">
-                    <p>¥6</p>
-                    <p>支付宝、微信、百度钱包扫码支付</p>
-                    <div class="voucher-way">
-                        <span>
-                        </span>
-                        <span>
-                        </span>
-                        <span>
-                        </span>
-                    </div>
-                </li>
-            </ul>
-        </div>
     </div>
-</div>
+     
+   
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script src="/js/hand.js"></script>
+    <script src="/js/bootstrapValidator.min.js"></script>
+    <script src="/js/template/template.js"></script>
+   
+</body>
 
-
-
-
-<!-- 中心登录区域 -->
-<div class="register_login">
-    <!-- 登录 -->
-    <div class="hide-center hide_center1">
-        <div id="formhead">
-            <div id="formhead-title">Users Landing </div>
-            <button type="button" id="close1">X</button>
-        </div>
-        <div id="formbody">
-            <form class="form-signin" id="user-signin">
-                <!-- 账号输入框 -->
-                <div class="loginUserName">
-                    <input id="input-topright-loginInput" name="username" class="loginInput" placeholder="请输入手机号或邮箱"
-                        type="text">
-                    <select name="region" id="select_region">
-                        <option selected="selected" value="shanghai">中国大陆&nbsp;&nbsp;&nbsp;+86</option>
-                        <option value="chongqing">中国香港+886</option>
-                    </select>
-                    <span id=""></span>
-                </div>
-                <!-- 密码输入框 -->
-                <div class="loginPassword">
-                    <input id="input-bottomright-loginInput" name="password" class="loginInput" placeholder="请输入用户密码"
-                        type="password" style="border-bottom-right-radius:5px;">
-                    <i class="fa fa-eye-open"></i>
-                    <span id=""></span>
-                </div>
-                <!-- 账户密码登录进入口 -->
-                <div id="formfoot">
-                    <button id="BSignIn" type="button">Sign in</button>
-                    <p class="login_deal">登录即代表同意<a href="">《用户服务协议》</a>与<a href="">《隐私政策》</a></p>
-                </div>
-                <!-- 其他登录 -->
-                <div class="Other_login">
-                    <a href="#" class="login_button login_button1">注册</a>
-                    <a href="" class="Text_login">短信登录&nbsp;&nbsp;|&nbsp;&nbsp;其他登录</a>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- 注册 -->
-    <!-- 头部 -->
-    <div class="hide-center hide_center2">
-        <div id="formhead">
-            <div id="formhead-title">Register</div>
-            <!-- 退出按钮 -->
-            <button type="button" id="close2">X</button>
-        </div>
-        <form class="form-reg" id="user-reg">
-            <div id="formbody">
-                <!-- 注册用户名输入框 -->
-                <div class="loginUserName">
-                    <input id="input-name-loginInput" name="username" class="loginInput" placeholder="请设置用户名"
-                        type="text" value="">
-                    <span id=""></span>
-                </div>
-                <!-- 设置密码输入框 -->
-                <div class="loginPassword">
-                    <input id="input-pass-loginInput" name="password" class="loginInput" placeholder="请设置用户密码"
-                        type="password" style="border-bottom-right-radius:5px;">
-                    <i class="fa fa-eye-open"></i>
-                    <span id=""></span>
-                </div>
-                <!-- 注册手机号输入框 -->
-                <div class="loginPhone">
-                    <input id="input-phone-loginInput" name="userName" class="loginInput" placeholder="请输入您的手机号码"
-                        type="text" value="">
-                    <span id=""></span>
-                </div>
-                <!-- 选择性别 -->
-                <div class="loginSex">
-                    <span>请选择您的性别&nbsp;:</span>
-                    <label for="male">男</label>&nbsp;&nbsp;<input type="radio" name="sex" id="male" value="男">
-                    <label for="female">女</label>&nbsp;&nbsp;<input type="radio" checked name="sex" id="female"
-                        value="女">
-                </div>
-                <!-- 上传头像 -->
-                <div class="loginHead_img">
-                    <span>上传您的头像</span>
-                    <input type="file" name="photo" class="loginHead_img_elect" style="display: inline-block">
-                </div>
-                <!-- 提交按钮 -->
-                <div id="formfoot">
-                    <button id="BSignIn" type="button"><a href="#">PUT IN</a></button>
-                </div>
-                <!-- 其他登录 -->
-                <div class="Other_login">
-                    <a href="#" class="last_step">>>>上一步</a>
-                    <a href="" class="Text_login">短信登录&nbsp;&nbsp;|&nbsp;&nbsp;其他登录</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<script src="./js/jquery-3.3.1.js"></script>
-<script src="./js/hand.js"></script>
-<!-- <script src="./lib/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script> -->
-
-
-
-<script>
-    // 登录的ajax请求
-    $('.hide_center1 #BSignIn').on('click', function () {
-        $(".hide_center1 #BSignIn").unbind("click");
-        //校验管理员信息
-        $('#user-signin').bootstrapValidator({
-            message: 'This value is not valid',
-            // 反馈图标
-            feedbackIcons: {
-                // 校验通过的图标
-                valid: 'glyphicon glyphicon-ok',
-                // 校验不通过的图标
-                invalid: 'glyphicon glyphicon-remove',
-                // 校验中的图标
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            // 里面的name password 都是input的name属性的值
-            fields: {
-                name: {
-                    validators: {
-                        notEmpty: {
-                            message: '管理员名不能为空'
-                        },
-                        stringLength: {
-                            min: 1,
-                            max: 10,
-                            message: '管理员名长度为1到10个字符之间'
-                        },
-                    }
-                },
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: '密码不能为空'
-                        },
-                        stringLength: {
-                            min: 6,
-                            max: 16,
-                            message: '密码长度为6到16个字符之间'
-                        },
-                    }
-                },
-            }
-        })
-            // 当点击type=submit的按钮的时候 如果校验成功 那么就可以提交ajax请求
-            .on('success.form.bv', function (e) {
-                // 因为type=submit会自动提交,为了阻止自动提交,写了这一个方法
-                e.preventDefault();
-                // Get the form instance(实例  对象 )
-                var $form = $(e.target);
-                // 获取校验对象
-                var bv = $form.data('bootstrapValidator');
-                let formData = $('#user-signin').serialize();
-                console.log(formData)
-                $.ajax({
-                    type: 'post',
-                    url: "http://127.0.0.1/api/v1/users/login",
-                    data: formData,
-                    success: function (data) {
-                        console.log(data);
-
-                    }
-                })
-            })
-    });
-
-
-    // 注册
-
-    let formData = $('#user-signin').serialize();
-                console.log(formData)
-                $.ajax({
-                    type: 'post',
-                    // url: "http://127.0.0.1/api/v1/users/login",
-                    data: formData,
-                    success: function (data) {
-                        console.log(data);
-
-                    }
-                })
-</script>
+</html>
